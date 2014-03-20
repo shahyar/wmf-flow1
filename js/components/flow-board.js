@@ -35,6 +35,7 @@
 		}
 
 		// Progressively enhance the board and its forms
+		// @todo Needs a ~"liveUpdateComponents" method, since the functionality in makeBoardInteractive needs to also run when we receive new content or update old content.
 		FlowBoardComponent.UI.makeBoardInteractive( this );
 
 		// Bind any necessary event handlers to this board
