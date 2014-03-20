@@ -1,0 +1,27 @@
+// These are not necessary; already included in mw/colors.less
+@colorWhite: #fff;
+@colorGrayDark: #898989;
+@colorGrayLight: #ccc;
+@colorGrayLighter: #ddd;
+@colorGrayLightest: #eee;
+
+@colorText: #252525;
+@colorTextLight: #777;
+
+.boxSizing(@value) {
+	box-sizing: @value;
+	-moz-box-sizing: @value;
+	-webkit-box-sizing: @value;
+}
+
+#bodyContent {
+	// typography refresh
+	font-size: .875em;
+}
+
+// Flow board, topics, replies, dialogs
+@import 'flow/layout.less';
+// Flow buttons, tooltips, menus, icons, notices
+@import 'flow/interactive.less';
+// Flow forms
+@import 'flow/forms.less';
