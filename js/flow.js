@@ -26,7 +26,7 @@
 				reply_count: 2,
 				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
 				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				updated_time: +new Date,
+				update_time: +new Date,
 				author_id: 'en1', // wiki+id
 				content: 'discussion title', // text
 				revid: 3
@@ -37,7 +37,7 @@
 				reply_count: 1,
 				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
 				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				updated_time: null,
+				update_time: null,
 				author_id: 'en1', // wiki+id
 				content: '<p>lorem ipsum...</p>', // html
 				revid: 0
@@ -48,7 +48,7 @@
 				reply_count: 0,
 				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
 				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				updated_time: +new Date,
+				update_time: +new Date,
 				author_id: 'en2', // wiki+id
 				content: '<p>dolor sit amet!</p>', // html
 				revid: 1
@@ -59,7 +59,7 @@
 				reply_count: 0,
 				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
 				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				updated_time: null,
+				update_time: null,
 				author_id: 'en3', // wiki+id
 				content: 'cool story', // text
 				revid: 0
@@ -92,7 +92,7 @@
 
 	/*
 	 * Now do stuff
-	 * @todo not this
+	 * @todo not like this
 	 */
 	$( document ).ready( function () {
 		$( mw.flow.TemplateEngine.processTemplate( 'flow_board', mockData ) ).insertBefore( '#flow_board-partial' );
