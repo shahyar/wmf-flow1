@@ -104,8 +104,10 @@ ul.flow-topic-navigation-fixed {
   padding: 0.5em 1em;
   background: #eeeeee;
   font-style: italic;
+  -webkit-backface-visibility: hidden;
   -webkit-transition: background-color 0.5s linear;
   -moz-transition: background-color 0.5s linear;
+  -ms-transition: background-color 0.5s linear;
   -o-transition: background-color 0.5s linear;
   transition: background-color 0.5s linear;
   border-left: .5em solid transparent;
@@ -1026,10 +1028,12 @@ div.flow-click-interactive button {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: border linear 0.2s box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s box-shadow linear 0.2s;
+  transition: border linear 0.2s box-shadow linear 0.2s;
 }
 .flow-board .mw-ui-input::-webkit-input-placeholder,
 .flow-board textarea::-webkit-input-placeholder {

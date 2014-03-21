@@ -8,16 +8,18 @@
 @colorText: #252525;
 @colorTextLight: #777;
 
-.boxSizing(@value) {
+.boxSizing( @value ) {
 	box-sizing: @value;
 	-moz-box-sizing: @value;
 	-webkit-box-sizing: @value;
 }
-.transition(@value) {
-	-webkit-transition: @value;
-	-moz-transition: @value;
-	-o-transition: @value;
-	transition: @value;
+.transition ( ... ) {
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-ms-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
 }
 
 #bodyContent {
