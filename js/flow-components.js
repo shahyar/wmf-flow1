@@ -18,7 +18,7 @@
 	function initFlowComponent( $container ) {
 		if ( !$container || !$container.length ) {
 			// No containers found
-			FlowComponent.prototype.debug( 'Will not instantiate: no $container.length', arguments );
+			mw.flow.debug( 'Will not instantiate: no $container.length', arguments );
 			return false;
 		} else if ( $container.length > 1 ) {
 			// Too many elements; instantiate them all
@@ -36,7 +36,7 @@
 		}
 
 		// Don't know what kind of component this is.
-		FlowComponent.prototype.debug( 'Unknown FlowComponent: ', componentName, arguments );
+		mw.flow.debug( 'Unknown FlowComponent: ', componentName, arguments );
 		return false;
 	}
 	mw.flow.initComponent = initFlowComponent;
@@ -123,7 +123,7 @@
 	 * Only renders if window.flow_debug OR localStorage.flow_debug == true OR user is Admin or (WMF).
 	 * @param {...*} args
 	 */
-	FlowComponent.prototype.debug = function ( args ) {
+	mw.flow.debug = FlowComponent.prototype.debug = function ( args ) {
 		if ( window.console && ( window.flow_debug || ( window.localStorage && localStorage['flow_debug'] ) || ( window.mw && mw.user && mw.user.name().match( /(^Admin$)|\(WMF\)/ ) ) ) ) {
 			args = Array.prototype.slice.apply( arguments );
 			args.unshift( '[FLOW] ' );
