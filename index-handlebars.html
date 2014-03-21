@@ -79,8 +79,11 @@
 							<a href="{{url 'collapser.small_topics'}}"       class="flow-board-navigator-right flow-board-navigator-cap"><span class="glyphicon glyphicon-indent-right" title="{{l10n "Small_topics"}}"></span></a>
 							<a href="{{url 'collapser.topics_only'}}"        class="flow-board-navigator-right"><span class="glyphicon glyphicon-list" title="{{l10n "Topics_only"}}"></span></a>
 							<a href="{{url 'collapser.topics_and_posts'}}"   class="flow-board-navigator-right"><span class="glyphicon glyphicon-align-justify" title="{{l10n "Topics_and_posts"}}"></span></a>
+							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-first">{{l10n "Newest_topics"}}</a>
+							{{!--
 							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-cap flow-board-navigator-first">{{l10n "Topics"}}</a>
 							<a href="{{url 'board.history'}}">{{l10n "History"}}</a>
+							--}}
 						</div>
 					</div>
 				</script>
@@ -91,11 +94,14 @@
 						{{#workflow board}}
 							{{#each topics}}
 								{{#workflow this}}
-									<li class="flow-topic-navigator-wrap"><a href="#flow-topic-{{id}}" class="flow-topic-navigator">{{html content}} <span class="flow-topic-navigator-meta">{{l10n "updated_time"}}</span></a></li>
+									<li class="flow-topic-navigator-wrap"><a href="#flow-topic-{{id}}" class="flow-topic-navigator">{{html content}} <span class="flow-topic-navigator-meta">{{#if update_time}}{{timestamp update_time "active_ago"}}{{else}}{{timestamp start_time "started_ago"}}{{/if}}</span></a></li>
 								{{/workflow}}
 							{{/each}}
+							<li class="flow-topic-navigation-footer">
+								{{l10n "topic_count_sidebar" this}}
+								<a href="{{urls.pagination.load_more}}" class="mw-ui-button mw-ui-progressive mw-ui-quiet mw-ui-thin"><span class="glyphicon glyphicon-refresh /*glyphicon-list-alt*/"></span> {{l10n "Load_More"}}</a>
+							</li>
 						{{/workflow}}
-						<li class="flow-topic-navigation-footer">{{l10n "topic_count_sidebar"}}<a href="{{urls.pagination.load_more}}" class="mw-ui-button mw-ui-progressive mw-ui-quiet mw-ui-thin"><span class="glyphicon glyphicon-refresh /*glyphicon-list-alt*/"></span> {{l10n "Load_More"}}</a></a></li>
 					</ul>
 				</script>
 
@@ -118,14 +124,14 @@
 					<div class="flow-topic" id="flow-topic-{{id}}">
 						<div class="flow-topic-titlebar">
 							<h2 class="flow-topic-title">{{content}}</h2>
-							<span class="flow-author">{{l10n "started_with_participants"}}</span>
+							<span class="flow-author">{{l10n "started_with_participants" this}}</span>
 							<div class="flow-topic-meta">
-								{{l10n "comment_count"}}
+								{{l10n "comment_count" this}}
 								<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
-								{{#if updated_time}}
-								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View topic history"><span class="glyphicon glyphicon-time"></span> {{l10n "updated_ago"}}</a>
+								{{#if update_time}}
+									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View topic history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "active_ago"}}</a>
 								{{else}}
-								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.permalink}}" title="Permalink to topic"><span class="glyphicon glyphicon-comment"></span> {{l10n "started_ago"}}</a>
+									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.permalink}}" title="Permalink to topic"><span class="glyphicon glyphicon-comment"></span> {{timestamp start_time "started_ago"}}</a>
 								{{/if}}
 							</div>
 
@@ -161,9 +167,9 @@
 						<div class="flow-post-meta">
 							<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
 							<a class="mw-ui-button mw-ui-regressive mw-ui-sleeper mw-ui-thin" href="{{urls.edit}}">{{l10n "Edit"}}</a>
-							{{l10n "time_ago"}}
-							{{#if updated_time}}
-								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View post edit history"><span class="glyphicon glyphicon-time"></span> {{l10n "edited_time_ago"}}</a>
+							{{timestamp start_time "time_ago"}}
+							{{#if update_time}}
+								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View post edit history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "edited_ago"}}</a>
 							{{/if}}
 						</div>
 
@@ -186,7 +192,7 @@
 
 				<script type="text/x-handlebars-template" id="flow_reply_form-partial">
 					<form class="flow-reply-form" data-flow-initial-state="collapsed">
-						<textarea id="flow-post-{{id}}-form-content" data-flow-expandable="true" class="mw-ui-input" type="text" placeholder="{{l10n "Reply_to"}}" required="required"></textarea>
+						<textarea id="flow-post-{{id}}-form-content" data-flow-expandable="true" class="mw-ui-input" type="text" placeholder="{{l10n "Reply_to_author_name" this}}" required="required"></textarea>
 
 						<div class="flow-form-actions flow-form-collapsible">
 							<button data-role="submit" class="mw-ui-button mw-ui-constructive">{{l10n "Reply"}}</button>
@@ -198,12 +204,20 @@
 					</form>
 				</script>
 
+				<script type="text/x-handlebars-template" id="timestamp-partial">
+					{{#if time_ago}}
+						<time datetime="{{time_iso}}" class="flow-timestamp flow-timestamp-dynamic"><span class="flow-timestamp-now">{{time_readable}}</span><span class="flow-timestamp-ago">{{time_ago}}</span></time>
+					{{else}}
+						<time datetime="{{time_iso}}" class="flow-timestamp">{{time_readable}}</time>
+					{{/if}}
+				</script>
+
 				<!-- END OF TEMPLATES -->
 
 				<!-- START PAGE -->
 
 				<script type="text/x-handlebars-template" id="flow_board-partial">
-					<div class="flow-component" data-flow-component="board" data-flow-id="{{board_id}}">
+					<div class="flow-component" data-flow-component="board" data-flow-id="{{#workflow board}}{{id}}{{/workflow}}">
 						{{> flow_board_header this}}
 
 						{{> flow_board_navigation this}}
