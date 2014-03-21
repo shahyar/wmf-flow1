@@ -5,60 +5,63 @@
 ( function ( $ ) {
 	// Pretend we got some data and run with it
 	var mockData = {
-		board: 'lol',
+		board: 'ste225fux0r7hi5o',
 
 		workflows: { // boards / topics / replies
-			'lol': {
+			'ste225fux0r7hi5o': {
 				header: {
 					time_updated: +new Date, // timestamp
-						author_id: 'en1', // wiki+id
-						content: '<p>lorry ippy su</p>', // html
-						revid: 1
+					author_id: 'en1', // wiki+id
+					content: null, /*'<p>lorry ippy sumsum</p>'*/ // html
+					revid: 1
 				},
-				topics: ['rqx495tvz888x5ur','rqx495tvz888x5uv'], // workflow uuids
-					topic_count: 3,
+				topics: ['rqx495tvz888x5ur','rqx495tvz888x5uv'], // topic uuids
+				topic_count: 3, // total topics on this page including not shown
 				sort_order: 'desc', // (might need parsing)
-				urls: { history: '#' }
+				urls: {
+					history: '#'
+				}
 			},
 
-			'rqx495tvz888x5ur': { // uuid
-				replies: ['rqx495tvz888x5ut'], // reply ids
+			'rqx495tvz888x5ur': { // TOPIC uuid
+				replies: ['rqx495tvz888x5ut'], // reply uuids
 				reply_count: 2,
-				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
-				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				update_time: +new Date,
+				author_count: 3,
+				state: '',
+				start_time: +new Date - 60000000, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
+				update_time: +new Date - 10000,
 				author_id: 'en1', // wiki+id
 				content: 'discussion title', // text
 				revid: 3
 			},
 
-			'rqx495tvz888x5ut': {
-				replies: ['rqx495tvz888x5uu'], // reply ids
+			'rqx495tvz888x5ut': { // REPLY uuid
+				replies: ['rqx495tvz888x5uu'], // reply uuids
 				reply_count: 1,
-				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
-				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
+				state: '',
+				start_time: +new Date - 60000, // parsed from UUID (first 44 bits)
 				update_time: null,
 				author_id: 'en1', // wiki+id
 				content: '<p>lorem ipsum...</p>', // html
 				revid: 0
 			},
 
-			'rqx495tvz888x5uu': {
-				replies: [], // reply ids
+			'rqx495tvz888x5uu': { // REPLY uuid
+				replies: [], // reply uuids
 				reply_count: 0,
-				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
-				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
-				update_time: +new Date,
+				state: '',
+				start_time: +new Date - 10000, // parsed from UUID (first 44 bits)
+				update_time: +new Date - 1000,
 				author_id: 'en2', // wiki+id
 				content: '<p>dolor sit amet!</p>', // html
 				revid: 1
 			},
 
-			'rqx495tvz888x5uv': {
-				replies: [], // reply ids
+			'rqx495tvz888x5uv': { // TOPIC uuid
+				replies: [], // reply uuids
 				reply_count: 0,
-				state: '', // blank, closed, hidden, [to be deleted: deleted, suppressed]
-				start_time: +new Date, // parsed from UUID (first 44 bits): parseInt( parseInt( uuid, 36 ).toString( 2 ).substr( 0, 41 ), 2 );
+				state: '',
+				start_time: +new Date - 600000000, // parsed from UUID (first 44 bits)
 				update_time: null,
 				author_id: 'en3', // wiki+id
 				content: 'cool story', // text
@@ -68,21 +71,19 @@
 
 		authors: {
 			'en1': { // wiki+id
-				// user might be moderated, so this info may be redacted
 				name: 'shaggy yar',
 				gender: 'male',
 				wiki: 'enwiki'
 			},
 
 			'en2': { // wiki+id
-				// user might be moderated, so this info may be redacted
 				name: 'lady of the night',
 				gender: 'female',
 				wiki: 'enwiki'
 			},
 
 			'en3': { // wiki+id
-				// user might be moderated, so this info may be redacted
+				// moderated/redacted user
 				name: 'suppressed',
 				gender: null,
 				wiki: null
