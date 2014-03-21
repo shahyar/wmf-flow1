@@ -116,6 +116,50 @@ div.flow-click-interactive {
 	}
 }
 
+.flow-timestamp {
+	.boxSizing(border-box);
+	display: inline-block;
+	text-align: left;
+}
+
+.flow-timestamp-ago,
+.flow-timestamp-now {
+	.boxSizing(border-box);
+	display: block;
+	position: relative;
+	line-height: 1em;
+}
+.flow-timestamp-ago {
+	margin-top: -1em;
+	line-height: 1em;
+}
+
+.client-nojs .flow-timestamp {
+	.flow-timestamp-now {
+		display: none;
+	}
+	.flow-timestamp-ago {
+		display: block;
+	}
+}
+.client-js .flow-timestamp {
+	.flow-timestamp-now {
+		display: none;
+	}
+	.flow-timestamp-ago {
+		display: block;
+	}
+
+	&:hover {
+		.flow-timestamp-now {
+			display: block;
+		}
+		.flow-timestamp-ago {
+			display: none;
+		}
+	}
+}
+
 
 // Glyphs
 .caret {

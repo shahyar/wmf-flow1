@@ -351,6 +351,44 @@ div.flow-click-interactive a,
 div.flow-click-interactive button {
   display: none;
 }
+.flow-timestamp {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+}
+.flow-timestamp-ago,
+.flow-timestamp-now {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: block;
+  position: relative;
+  line-height: 1em;
+}
+.flow-timestamp-ago {
+  margin-top: -1em;
+  line-height: 1em;
+}
+.client-nojs .flow-timestamp .flow-timestamp-now {
+  display: none;
+}
+.client-nojs .flow-timestamp .flow-timestamp-ago {
+  display: block;
+}
+.client-js .flow-timestamp .flow-timestamp-now {
+  display: none;
+}
+.client-js .flow-timestamp .flow-timestamp-ago {
+  display: block;
+}
+.client-js .flow-timestamp:hover .flow-timestamp-now {
+  display: block;
+}
+.client-js .flow-timestamp:hover .flow-timestamp-ago {
+  display: none;
+}
 .caret {
   display: inline-block;
   width: 0;
