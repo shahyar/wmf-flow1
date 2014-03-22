@@ -25,6 +25,10 @@
 	div {
 		overflow: hidden;
 		border-bottom: 1px solid @colorGrayLight;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		margin-bottom: 20px;
+		margin-top: 20px;
 	}
 
 	a {
@@ -42,10 +46,18 @@
 
 		&.flow-board-navigator-right {
 			float: right;
+			padding-top: 8px;
+  			padding-bottom: 10px;
+    		padding-right: 12px;
+    		padding-left: 12px;
 		}
 		// Adds a spacer
 		&.flow-board-navigator-cap {
 			border-right: 1px solid @colorGrayLight;
+			padding-top: 8px;
+			padding-bottom: 10px;
+			padding-right: 18px;
+			padding-left: 12px;
 		}
 		// The active menu item
 		&.flow-board-navigator-active {
@@ -53,13 +65,22 @@
 		}
 		&.flow-board-navigator-first {
 			padding-left: 0;
+			padding-bottom: 10px;
+			padding-right: 12px;
+			padding-top: 8px;
+			border-right-width: 0px;
 		}
 		&.flow-board-navigator-last {
 			position: absolute;
 			bottom: 0;
-			right: -2.5em;
+			right: -2.8em;
 			width: 1em;
 			border-bottom: 1px solid @colorGrayLight;
+			padding-top: 8px;
+			padding-bottom: 10px;
+			padding-right: 12px;
+			border-bottom-width: 1px;
+			padding-left: 18px;
 		}
 	}
 }
@@ -157,15 +178,14 @@ ul.flow-topic-navigation-fixed {
 		margin-bottom: 0;
 	}
 	textarea {
-		border-top-width: 0;
+		border-top-width: 0;	
 	}
 }
 
 
 // Individual topic containers
 .flow-topic {
-	padding: 1.5em 0;
-	border-bottom: 1px dotted @colorGrayLight;
+	  padding: 40px 0 80px 0;
 
 	&.flow-active {
 
@@ -183,7 +203,7 @@ ul.flow-topic-navigation-fixed {
 // Topic title bar
 .flow-topic-titlebar {
 	position: relative;
-	padding: 1em 1.5em;
+	padding: 20px;
 	background: @colorGrayLightest;
 	border-radius: 3px;
 }
@@ -192,7 +212,6 @@ ul.flow-topic-navigation-fixed {
 h2.flow-topic-title {
 	padding: 0;
 	border-bottom: none;
-	margin-bottom: 0.25em;
 }
 
 // Topic metadata
@@ -267,10 +286,11 @@ h2.flow-topic-title {
 
 	.flow-topic-meta {
 		font-size: .875em;
+	    padding-top: 4px;
 	}
 
 	.flow-post {
-		margin: .5em 0 0 .75em;
+		margin: 22px 0 0 20px;
 		padding: 0 .5em 0 0;
 
 		.flow-author {
@@ -279,7 +299,7 @@ h2.flow-topic-title {
 		}
 
 		.flow-post {
-			padding: 0 .5em;
+			margin: 24px 0 0 20px;
 			border-left-width: 1px;
 		}
 	}
