@@ -1,11 +1,85 @@
 #bodyContent {
   font-size: .875em;
 }
+form .mw-ui-field {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 0;
+}
+form .mw-ui-input {
+  border-radius: 2px;
+}
+form .mw-ui-input:focus {
+  border-color: #898989;
+}
+form .mw-ui-field .mw-ui-input {
+  margin: 0;
+}
+form .mw-ui-field-icon {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: none;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2em;
+  height: 100%;
+  text-align: center;
+  border-radius: 0 2px 2px 0;
+  border: 1px solid #898989;
+  border-width: 1px 1px 1px 0;
+  pointer-events: none;
+}
+form .mw-ui-field-icon:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: inline-block;
+  z-index: 9999;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -0.5em;
+  color: #fff;
+  width: 1.33em;
+  line-height: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  pointer-events: none;
+}
+form .mw-ui-input:valid :after {
+  content: "cool";
+}
+form .mw-ui-input:valid + .mw-ui-validation-icon {
+  display: block;
+  background: rgba(0, 176, 138, 0.85);
+}
+form .mw-ui-input:valid + .mw-ui-validation-icon:before {
+  content: '✓';
+}
+form .mw-ui-input:invalid + .mw-ui-validation-icon {
+  display: block;
+  background: rgba(211, 19, 0, 0.85);
+}
+form .mw-ui-input:invalid + .mw-ui-validation-icon:before {
+  margin-top: -0.54em;
+  content: '⨉';
+}
 .flow-newtopic-form,
 .flow-topics-bar {
   padding-top: 1em;
 }
-.flow-board-header {
+.flow-board-header,
+.flow-board {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding-right: 200px;
+  width: 100%;
+  max-width: 915px;
   font-size: 1em;
   line-height: 1.4em;
 }
@@ -54,16 +128,6 @@
   right: -2.5em;
   width: 1em;
   border-bottom: 1px solid #cccccc;
-}
-.flow-board {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  padding-right: 200px;
-  width: 100%;
-  max-width: 915px;
-  font-size: 1em;
-  line-height: 1.4em;
 }
 ul.flow-topic-navigation {
   float: right;
@@ -203,6 +267,7 @@ h2.flow-topic-title {
   ul.flow-topic-navigation {
     display: none;
   }
+  .flow-board-header,
   .flow-board {
     padding-right: 0;
     max-width: 100%;
@@ -249,6 +314,7 @@ h2.flow-topic-title {
     margin: 0 -170px 0 0;
     width: 160px;
   }
+  .flow-board-header,
   .flow-board {
     padding-right: 170px;
     font-size: .875em;
@@ -343,14 +409,19 @@ h2.flow-topic-title {
 .client-js div.flow-post > .flow-menu .flow-menu-js-drop .caret {
   border-top-color: #cccccc;
 }
-div.flow-click-interactive {
+div.flow-editable-interactive {
   border: 1px solid transparent;
+  cursor: text;
+  position: relative;
 }
-div.flow-click-interactive:hover {
+div.flow-editable-interactive:hover {
+  width: 100%;
   border-color: #cccccc;
+  padding: 0 0 0 .6em;
+  left: -0.6em;
 }
-div.flow-click-interactive a,
-div.flow-click-interactive button {
+div.flow-editable-interactive a,
+div.flow-editable-interactive button {
   display: none;
 }
 .flow-timestamp {

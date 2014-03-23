@@ -164,33 +164,121 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 	 * @example {{timestamp start_time "started_ago"}}
 	 * @param {int} timestamp
 	 * @param {String} str
-	 * @param {Object} [options]
+	 * @param {bool} [timeAgoOnly]
 	 * @returns {String|undefined}
 	 */
-	this.timestamp = function ( timestamp, str, options ) {
+	this.timestamp = function ( timestamp, str, timeAgoOnly ) {
 		if ( isNaN( timestamp ) || !str ) {
 			mw.flow.debug( '[timestamp] Invalid arguments', arguments);
 			return;
 		}
 
-		var context = {
-			time_iso: timestamp,
-			time_readable: self.l10n( 'datetime', timestamp ),
-			time_ago: null,
-			seconds_ago: ( +new Date() - timestamp ) / 1000
-		};
+		var seconds_ago = ( +new Date() - timestamp ) / 1000,
+			time_ago;
 
-		// Return "n ago" for only dates less than 4 weeks ago
-		if ( context.seconds_ago < 2419200 ) {
-			context.time_ago = self.l10n( str, context.seconds_ago );
+		if ( seconds_ago < 2419200 ) {
+			// Return "n ago" for only dates less than 4 weeks ago
+			time_ago = self.l10n( str, seconds_ago );
+
+			if ( timeAgoOnly === true ) {
+				// timeAgoOnly: return only this text
+				return time_ago;
+			}
+		} else if ( timeAgoOnly === true ) {
+			// timeAgoOnly: return nothing
+			return;
 		}
 
+		// Generate a GUID for this element to find it later
+		var guid = self.generateUID();
+
+		// Store this in the timestamps auto-updater array
+		self.timestamp.list.push( { guid: guid, timestamp: timestamp, str: str, failcount: 0 } );
+
 		// Render the timestamp template
-		return self.html( self.processTemplate( 'timestamp', context ) );
+		return self.html(
+			self.processTemplate(
+				'timestamp',
+				{
+					time_iso: timestamp,
+					time_readable: self.l10n( 'datetime', timestamp ),
+					time_ago: time_ago,
+					guid: guid
+				}
+			)
+		);
 	};
 
 	// Register l10n
 	Handlebars.registerHelper( 'timestamp', this.timestamp );
+
+	/**
+	 * Updates one <time> node at a time every 100ms, until finishing, and then sleeps 5s.
+	 * Nodes do not get updated again until they have changed.
+	 */
+	this.timestamp.autoUpdate = function () {
+		var arrayItem,
+			currentTime = +new Date() / 1000;
+
+		// Only update elements that need updating (eg. only update minutes every 60s)
+		do {
+			arrayItem = self.timestamp.list[ self.timestamp.list._currentIndex ];
+
+			if ( !arrayItem || !arrayItem.nextUpdate || currentTime >= arrayItem.nextUpdate ) {
+				break;
+			}
+
+			// Find the next array item
+			self.timestamp.list._currentIndex++;
+		} while ( arrayItem );
+
+		if ( !arrayItem ) {
+			// Finished array; reset loop
+			self.timestamp.list._currentIndex = 0;
+
+			// Run again in 5s
+			setTimeout( self.timestamp.autoUpdate, 5000 );
+			return;
+		}
+
+		var $ago = $( '#' + arrayItem.guid ),
+			failed = true,
+			secondsAgo = currentTime - ( arrayItem.timestamp / 1000 );
+
+		if ( $ago && $ago.length ) {
+			var text = self.timestamp( arrayItem.timestamp, arrayItem.str, true );
+
+			// Returned a valid "n ago" string?
+			if ( text ) {
+				// Reset the failcount
+				failed = arrayItem.failcount = 0;
+
+				// Set the next update time
+				arrayItem.nextUpdate = currentTime + ( secondsAgo > 604800 ? 604800 - currentTime % 604800 : ( secondsAgo > 86400 ? 86400 - currentTime % 86400 : ( secondsAgo > 3600 ? 3600 - currentTime % 3600 : ( secondsAgo > 60 ? 60 - currentTime % 60 : 1 ) ) ) );
+
+				// Only touch the DOM if the text has actually changed
+				if ( $ago.text() !== text ) {
+					$ago.text( text );
+				}
+			}
+		}
+
+		if ( failed && ++arrayItem.failcount > 9 ) {
+			// Remove this array item if we failed this 10 times in a row
+			self.timestamp.list.splice( self.timestamp.list._currentIndex, 1 );
+		} else {
+			// Go to next item
+			self.timestamp.list._currentIndex++;
+		}
+
+		// Run every 100ms until we update all nodes
+		setTimeout( self.timestamp.autoUpdate, 100 );
+	};
+
+	this.timestamp.list = [];
+	this.timestamp.list._currentIndex = 0;
+
+	$( document ).ready( this.timestamp.autoUpdate );
 
 	/**
 	 * Do not escape HTML string. Used as a Handlebars helper.
@@ -251,4 +339,124 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 
 	// Register html
 	Handlebars.registerHelper( 'url', this.url );
+
+	/**
+	 *
+	 * @example {{formElement this "button" class="mw-ui-sleeper" text='{{l10n "Preview"}}'}}
+	 * @param {Object} context
+	 * @param {String} type
+	 * @param {Object} options
+	 * @returns {String}
+	 */
+	this.formElement = function ( context, type, options ) {
+		var hash = options.hash,
+			data = {
+				tag:         type,
+				closing_tag: null,
+				'class':     hash['class'] || '',
+				required:    !!hash.required,
+				maxlength:   hash.maxlength,
+				pattern:     hash.pattern,
+				name:        hash.name,
+				value:       hash.value,
+				content:     hash.content,
+				role:        hash.role || type
+			};
+
+		switch ( type ) {
+			case 'submit':
+			case 'reset':
+			case 'button':
+				data.tag = 'button';
+				data.closing_tag = data.tag;
+
+				// Apply mw-ui- class based on role (or type if role is omitted)
+				switch ( hash.role || type ) {
+					case 'submit':
+					case 'constructive':
+						data['class'] = 'mw-ui-constructive ' + data['class'];
+						break;
+
+					case 'action':
+					case 'progressive':
+						data['class'] = 'mw-ui-progressive ' + data['class'];
+						break;
+
+					case 'regressive':
+						data['class'] = 'mw-ui-regressive ' + data['class'];
+						break;
+
+					case 'cancel':
+					case 'reset':
+					case 'destructive':
+						data['class'] = 'mw-ui-destructive ' + data['class'];
+						break;
+				}
+
+				data['class'] = 'mw-ui-button ' + data['class'];
+				break;
+
+			case 'color':
+			case 'date':
+			case 'email':
+			case 'number':
+			case 'url':
+			case 'range':
+			case 'time':
+			case 'text':
+			case 'input':
+				data.tag = 'input';
+				data.type = type === 'input' ? 'text' : type;
+				data.validation = true;
+				data['class'] = 'mw-ui-input ' + data['class'];
+				data.min = hash.min;
+				data.max = hash.max;
+				data.step = hash.step;
+				data.size = hash.size;
+				break;
+
+			case 'textarea':
+				data.closing_tag = data.tag;
+				data['class'] = 'mw-ui-input ' + data['class'];
+				data.validation = true;
+				data.rows = hash.rows;
+				data.cols = hash.cols;
+				if ( hash.collapsible ) {
+					data['class'] = 'flow-form-collapsible ' + data['class'];
+				}
+				break;
+
+			case 'radio':
+			case 'checkbox':
+				data.validation = true;
+				break;
+
+			default:
+				break;
+		}
+
+		if ( hash.placeholder ) {
+			data.placeholder = Handlebars.compile( hash.placeholder )( context, options );
+		}
+
+		return self.html( self.processTemplate( 'form_element', data ) );
+	};
+
+	// Register html
+	Handlebars.registerHelper( 'formElement', this.formElement );
+
+	/**
+	 *
+	 * @example {{generateUID}}
+	 * @returns {String}
+	 */
+	this.generateUID = function () {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace( /[xy]/g , function ( c ) {
+			var r = Math.random() * 16 | 0, v = c == 'x' ? r : ( r & 0x3 | 0x8 );
+			return v.toString( 16 );
+		} );
+	};
+
+	// Register html
+	Handlebars.registerHelper( 'generateUID', this.generateUID );
 };

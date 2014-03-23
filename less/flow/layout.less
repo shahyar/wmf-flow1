@@ -4,9 +4,15 @@
 	padding-top: 1em;
 }
 
-
 // Top board header
-.flow-board-header {
+.flow-board-header,
+// The whole board content wrapper
+.flow-board {
+	.boxSizing( border-box );
+	padding-right: 200px;
+	width: 100%;
+	max-width: 915px;
+	// Set a fixed font-size from which everything else can use a relative amount
 	font-size: 1em;
 	line-height: 1.4em;
 }
@@ -65,22 +71,10 @@
 }
 
 
-// The whole board content wrapper
-.flow-board {
-	.boxSizing(border-box);
-	padding-right: 200px;
-	width: 100%;
-	max-width: 915px;
-	// Set a fixed font-size from which everything else can use a relative amount
-	font-size: 1em;
-	line-height: 1.4em;
-}
-
-
 // Right-aligned topic navigation container
 ul.flow-topic-navigation {
 	float: right;
-	.boxSizing(border-box);
+	.boxSizing( border-box );
 	margin: 0 -200px 0 0;
 	width: 185px;
 	border-radius: 3px;
@@ -113,13 +107,13 @@ ul.flow-topic-navigation-fixed {
 // Individual topic container navigator link in bar
 .flow-topic-navigator {
 	display: block;
-	.boxSizing(border-box);
+	.boxSizing( border-box );
 	position: relative;
 	z-index: 2;
 	padding: 0.5em 1em;
 	background: @colorGrayLightest;
 	font-style: italic;
-	.transition(background-color .5s linear);
+	.transition( background-color .5s linear );
 	border-left: .5em solid transparent;
 
 	&:link,
@@ -254,6 +248,7 @@ h2.flow-topic-title {
 		display: none;
 	}
 
+	.flow-board-header,
 	.flow-board {
 		padding-right: 0;
 		max-width: 100%;
@@ -308,6 +303,7 @@ h2.flow-topic-title {
 		width: 160px;
 	}
 
+	.flow-board-header,
 	.flow-board {
 		padding-right: 170px;
 		font-size: .875em;

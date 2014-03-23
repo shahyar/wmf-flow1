@@ -104,11 +104,17 @@
 	}
 }
 
-div.flow-click-interactive {
+// Used with .flow-click-interactive
+div.flow-editable-interactive {
 	border: 1px solid transparent;
+	cursor: text;
+	position: relative;
 
 	&:hover {
+		width: 100%;
 		border-color: @colorGrayLight;
+		padding: 0 0 0 .6em;
+		left: -.6em;
 	}
 
 	a, button {
@@ -117,14 +123,14 @@ div.flow-click-interactive {
 }
 
 .flow-timestamp {
-	.boxSizing(border-box);
+	.boxSizing( border-box );
 	display: inline-block;
 	text-align: left;
 }
 
 .flow-timestamp-ago,
 .flow-timestamp-now {
-	.boxSizing(border-box);
+	.boxSizing( border-box );
 	display: block;
 	position: relative;
 	line-height: 1em;

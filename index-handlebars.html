@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
 	<!--link rel="stylesheet"
 	      href="http://10.11.12.13:8080/w/load.php?debug=false&amp;lang=en&amp;modules=ext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.ui%7Cskins.common.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*"/-->
+	<link rel="stylesheet" type="text/css" href="less/mw-import.css"/>
 	<meta name="ResourceLoaderDynamicStyles" content=""/>
 
 	<!--
@@ -14,7 +15,6 @@
 		HEAD
 	-->
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-	<link rel="stylesheet" type="text/css" href="less/mw-import.css"/>
 	<link rel="stylesheet" type="text/css" href="less/flow.css"/>
 	<!-- ^ uses phpstorm to transpile; lessjs doesn't support ie6-ie9 -->
 	<script src="js/vendor/jquery.js"></script>
@@ -57,18 +57,20 @@
 				<!-- START OF TEMPLATES -->
 
 				<script type="text/x-handlebars-template" id="flow_board_header-partial">
-					<div class="flow-board-header flow-board-header-empty flow-click-interactive">
-						{{#workflow board}}
-							{{#with header}}
-								{{#if content}}
-									{{html content}}
-								{{else}}
-									{{l10n "No_header"}}
-								{{/if}}
-							{{/with}}
-						{{/workflow}}
-						<a class="mw-ui-button mw-ui-thin mw-ui-progressive mw-ui-sleeper" href="/">{{l10n "Edit"}}</a>
-						<!-- @todo existing state bottom-right-fixed (and faded-out?) edit button -->
+					<div class="flow-board-header">
+						<div class="flow-click-interactive flow-editable-interactive">
+							{{#workflow board}}
+								{{#with header}}
+									{{#if content}}
+										{{html content}}
+									{{else}}
+										<p>{{l10n "No_header"}}</p>
+									{{/if}}
+								{{/with}}
+							{{/workflow}}
+							<a class="mw-ui-button mw-ui-thin mw-ui-progressive mw-ui-sleeper" href="/">{{l10n "Edit"}}</a>
+							<!-- @todo existing state bottom-right-fixed (and faded-out?) edit button -->
+						</div>
 					</div>
 				</script>
 
@@ -103,6 +105,26 @@
 							</li>
 						{{/workflow}}
 					</ul>
+				</script>
+
+				<script type="text/x-handlebars-template" id="form_element-partial">
+					{{#if validation}}<label class="mw-ui-field">{{/if}}{{!
+						}}<{{tag}}
+							{{#if class}}class="{{class}}"{{/if}}
+							{{#if type}}type="{{type}}"{{/if}}
+							{{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
+							{{#if value}}value="{{value}}"{{/if}}
+							{{#if role}}data-role="{{role}}"{{/if}}
+							{{#if min}}min="{{min}}"{{/if}}
+							{{#if max}}max="{{max}}"{{/if}}
+							{{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
+							{{#if pattern}}pattern="{{pattern}}"{{/if}}
+							{{#if required}}required="required"{{/if}}
+						{{#if closing_tag}}>{{else}}/>{{/if}}{{!
+							}}{{content}}{{!
+						}}{{#if closing_tag}}</{{closing_tag}}>{{/if}}{{!
+						}}{{#if validation}}<span class="mw-ui-field-icon mw-ui-validation-icon"></span>{{!
+					}}</label>{{/if}}
 				</script>
 
 				<script type="text/x-handlebars-template" id="flow_newtopic_form-partial">
@@ -206,7 +228,10 @@
 
 				<script type="text/x-handlebars-template" id="timestamp-partial">
 					{{#if time_ago}}
-						<time datetime="{{time_iso}}" class="flow-timestamp flow-timestamp-dynamic"><span class="flow-timestamp-now">{{time_readable}}</span><span class="flow-timestamp-ago">{{time_ago}}</span></time>
+						<time datetime="{{time_iso}}" class="flow-timestamp">
+							<span class="flow-timestamp-now">{{time_readable}}</span>
+							<span id="{{guid}}" class="flow-timestamp-ago">{{time_ago}}</span>
+						</time>
 					{{else}}
 						<time datetime="{{time_iso}}" class="flow-timestamp">{{time_readable}}</time>
 					{{/if}}
@@ -226,6 +251,42 @@
 							{{> flow_topic_navigation this}}
 
 							{{> flow_newtopic_form this}}
+
+							<form style="background: #eeeaea; margin: 1em; padding: 1em; border-radius: 2px;">
+								<h5>formElement test -- to be removed</h5>
+								hmm{{formElement this
+									"text"
+									name="texty"
+									placeholder='text field'
+									required=true
+								}}mmm
+								{{!formElement this
+									"textarea"
+									name="textyarea"
+									placeholder='textarea collapsible'
+									required=true
+									collapsible=true
+								}}
+								{{formElement this
+									"submit"
+									content='submit (constructive) button'
+								}}
+								{{formElement this
+									"button"
+									role="action"
+									content='action (progressive) button + thin'
+								}}
+								{{formElement this
+									"button"
+									role="regressive"
+									content='regressive button'
+								}}
+								{{formElement this
+									"button"
+									role="cancel"
+									content='cancel (destructive)'
+								}}
+							</form>
 
 							<div class="flow-topics">
 								{{#workflow board}}

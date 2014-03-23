@@ -1,0 +1,77 @@
+form/*.mw-ui-validated*/ {
+	.mw-ui-field {
+		position: relative;
+		display: inline-block;
+		white-space: nowrap;
+		min-height: 0;
+	}
+
+	.mw-ui-input {
+		border-radius: 2px;
+	}
+	.mw-ui-input:focus {
+		border-color: @colorGrayDark;
+	}
+	.mw-ui-field .mw-ui-input {
+		margin: 0;
+	}
+
+	.mw-ui-field-icon {
+		.boxSizing( border-box );
+		display: none;
+		white-space: nowrap;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 2em;
+		height: 100%;
+		text-align: center;
+		border-radius: 0 2px 2px 0;
+		border: 1px solid @colorGrayDark;
+		border-width: 1px 1px 1px 0;
+		pointer-events: none;
+	}
+
+	.mw-ui-field-icon:before {
+		.boxSizing( border-box );
+		display: inline-block;
+		z-index: 9999;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin-top: -.5em;
+		color: #fff;
+		width: 1.33em;
+		line-height: 1em;
+		font-size: 1.5em;
+		text-align: center;
+		pointer-events: none;
+	}
+
+	.mw-ui-input {
+		&:valid {
+			:after {
+				content: "cool";
+			}
+
+			+ .mw-ui-validation-icon {
+				display: block;
+				background: rgba(0, 176, 138, .85);
+			}
+			+ .mw-ui-validation-icon:before {
+				content: '✓';
+			}
+		}
+
+		&:invalid {
+			+ .mw-ui-validation-icon {
+				display: block;
+				background: rgba(211, 19, 0, .85);
+			}
+			+ .mw-ui-validation-icon:before {
+				margin-top: -.54em; // this glyph is slightly padded :(
+				content: '⨉';
+			}
+		}
+	}
+}
