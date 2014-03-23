@@ -11,7 +11,7 @@ form .mw-ui-input {
   border-radius: 2px;
 }
 form .mw-ui-input:focus {
-  border-color: #999999;
+  border-color: #898989;
 }
 form .mw-ui-field .mw-ui-input {
   margin: 0;
@@ -29,7 +29,7 @@ form .mw-ui-field-icon {
   height: 100%;
   text-align: center;
   border-radius: 0 2px 2px 0;
-  border: 1px solid #999999;
+  border: 1px solid #898989;
   border-width: 1px 1px 1px 0;
   pointer-events: none;
 }
@@ -95,10 +95,6 @@ form .mw-ui-input:invalid + .mw-ui-validation-icon:before {
 .flow-board-navigation div {
   overflow: hidden;
   border-bottom: 1px solid #cccccc;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 .flow-board-navigation a {
   display: inline-block;
@@ -116,39 +112,22 @@ form .mw-ui-input:invalid + .mw-ui-validation-icon:before {
 }
 .flow-board-navigation a.flow-board-navigator-right {
   float: right;
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-right: 12px;
-  padding-left: 12px;
 }
 .flow-board-navigation a.flow-board-navigator-cap {
   border-right: 1px solid #cccccc;
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-right: 18px;
-  padding-left: 12px;
 }
 .flow-board-navigation a.flow-board-navigator-active {
   font-weight: bold;
 }
 .flow-board-navigation a.flow-board-navigator-first {
   padding-left: 0;
-  padding-bottom: 10px;
-  padding-right: 12px;
-  padding-top: 8px;
-  border-right-width: 0px;
 }
 .flow-board-navigation a.flow-board-navigator-last {
   position: absolute;
   bottom: 0;
-  right: -2.8em;
+  right: -2.5em;
   width: 1em;
   border-bottom: 1px solid #cccccc;
-  padding-top: 8px;
-  padding-bottom: 10px;
-  padding-right: 12px;
-  border-bottom-width: 1px;
-  padding-left: 18px;
 }
 ul.flow-topic-navigation {
   float: right;
@@ -162,7 +141,7 @@ ul.flow-topic-navigation {
   line-height: 1.1em;
 }
 ul.flow-topic-navigation h5 {
-  color: #333333;
+  color: #252525;
 }
 ul.flow-topic-navigation li {
   list-style: none;
@@ -226,26 +205,28 @@ ul.flow-topic-navigation-fixed {
   border-top-width: 0;
 }
 .flow-topic {
-  padding: 40px 0 80px 0;
+  padding: 1.5em 0;
+  border-bottom: 1px dotted #cccccc;
 }
 .flow-topic:last-of-type {
   border-bottom: none;
 }
 .flow-topic .flow-author {
-  color: #333333;
+  color: #252525;
 }
 .flow-topic-titlebar {
   position: relative;
-  padding: 20px;
+  padding: 1em 1.5em;
   background: #eeeeee;
   border-radius: 3px;
 }
 h2.flow-topic-title {
   padding: 0;
   border-bottom: none;
+  margin-bottom: 0.25em;
 }
 .flow-topic-meta {
-  color: #999999;
+  color: #898989;
 }
 .flow-menu {
   clear: both;
@@ -254,7 +235,7 @@ h2.flow-topic-title {
   position: relative;
   margin: 1em 0 0 1.5em;
   padding: 0;
-  color: #333333;
+  color: #252525;
 }
 .flow-post .flow-post {
   margin-left: 0;
@@ -262,7 +243,7 @@ h2.flow-topic-title {
   border-left: 1px dotted #dddddd;
 }
 .flow-post-meta {
-  color: #999999;
+  color: #898989;
 }
 .flow-post-meta > * {
   margin-right: .25em;
@@ -298,10 +279,9 @@ h2.flow-topic-title {
   }
   .flow-topic-meta {
     font-size: .875em;
-    padding-top: 4px;
   }
   .flow-post {
-    margin: 22px 0 0 20px;
+    margin: .5em 0 0 .75em;
     padding: 0 .5em 0 0;
   }
   .flow-post .flow-author {
@@ -309,7 +289,7 @@ h2.flow-topic-title {
     line-height: 1.2em;
   }
   .flow-post .flow-post {
-    margin: 24px 0 0 20px;
+    padding: 0 .5em;
     border-left-width: 1px;
   }
   .flow-post-meta {
@@ -415,7 +395,7 @@ h2.flow-topic-title {
   border-width: 0;
 }
 .client-js div > .flow-menu .flow-menu-js-drop .caret {
-  border-top-color: #999999;
+  border-top-color: #898989;
 }
 .client-js div.flow-post > .flow-menu ul {
   background: #eee;

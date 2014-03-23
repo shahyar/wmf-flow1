@@ -134,8 +134,8 @@
 
 						<div class="flow-form-actions flow-form-collapsible">
 							<button data-role="submit" class="mw-ui-button mw-ui-constructive">{{l10n "Add_Topic"}}</button>
-							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-quiet">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-quiet">{{l10n "Cancel"}}</button>
+							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-sleeper">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-sleeper">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "topic_TOU"}}</small>
 						</div>
@@ -149,12 +149,11 @@
 							<span class="flow-author">{{l10n "started_with_participants" this}}</span>
 							<div class="flow-topic-meta">
 								{{l10n "comment_count" this}}
-							
+								<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
 								{{#if update_time}}
-									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View topic history">
-										{{timestamp update_time "active_ago"}}</a>
+									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View topic history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "active_ago"}}</a>
 								{{else}}
-									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.permalink}}" title="Permalink to topic">{{timestamp start_time "started_ago"}}</a>
+									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.permalink}}" title="Permalink to topic"><span class="glyphicon glyphicon-comment"></span> {{timestamp start_time "started_ago"}}</a>
 								{{/if}}
 							</div>
 
@@ -188,12 +187,11 @@
 							{{html content}}
 						</div>
 						<div class="flow-post-meta">
-							<a class="mw-ui-button mw-ui-progressive mw-ui-quiet" href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
-							<a class="mw-ui-button mw-ui-progressive mw-ui-quiet" href="{{urls.edit}}">{{l10n "Edit"}}</a>
+							<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
+							<a class="mw-ui-button mw-ui-regressive mw-ui-sleeper mw-ui-thin" href="{{urls.edit}}">{{l10n "Edit"}}</a>
 							{{timestamp start_time "time_ago"}}
 							{{#if update_time}}
-								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View post edit history">
-								{{timestamp update_time "edited_ago"}}</a>
+								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View post edit history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "edited_ago"}}</a>
 							{{/if}}
 						</div>
 
@@ -220,8 +218,8 @@
 
 						<div class="flow-form-actions flow-form-collapsible">
 							<button data-role="submit" class="mw-ui-button mw-ui-constructive">{{l10n "Reply"}}</button>
-							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-quiet">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-quiet">{{l10n "Cancel"}}</button>
+							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-sleeper">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-sleeper">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "reply_TOU"}}</small>
 						</div>
@@ -254,14 +252,24 @@
 
 							{{> flow_newtopic_form this}}
 
+							<div class="flow-topics">
+								{{#workflow board}}
+									{{#each topics}}
+										{{#workflow this}}
+											{{> flow_topic this}}
+										{{/workflow}}
+									{{/each}}
+								{{/workflow}}
+							</div>
+
 							<form style="background: #eeeaea; margin: 1em; padding: 1em; border-radius: 2px;">
 								<h5>formElement test -- to be removed</h5>
-								hmm{{formElement this
-									"text"
+								{{formElement this
+								"text"
 									name="texty"
 									placeholder='text field'
 									required=true
-								}}mmm
+								}}
 								{{!formElement this
 									"textarea"
 									name="textyarea"
@@ -289,16 +297,6 @@
 									content='cancel (destructive)'
 								}}
 							</form>
-
-							<div class="flow-topics">
-								{{#workflow board}}
-									{{#each topics}}
-										{{#workflow this}}
-											{{> flow_topic this}}
-										{{/workflow}}
-									{{/each}}
-								{{/workflow}}
-							</div>
 						</div>
 					</div>
 				</script>
