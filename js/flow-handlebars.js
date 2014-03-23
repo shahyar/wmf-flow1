@@ -363,7 +363,9 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 				content:     hash.content,
 				role:        hash.role || type,
 				collapsible: !!hash.collapsible,
-				expandable:  !!hash.expandable
+				expandable:  !!hash.expandable,
+				radio:       false,
+				checkbox:    false
 			};
 
 		switch ( type ) {
@@ -438,7 +440,15 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 
 			case 'radio':
 			case 'checkbox':
+				data.tag = 'input';
+				data.type = type;
+				data.fieldtype = type;
+				data.radio = type === 'radio';
+				data.checkbox = type === 'checkbox';
 				data.validation = true;
+				if ( data.content ) {
+					data.content = ' ' + data.content;
+				}
 				break;
 
 			default:

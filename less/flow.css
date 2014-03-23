@@ -107,6 +107,28 @@ form .mw-ui-input:focus ~ .mw-ui-focus-icon {
 form .mw-ui-input:focus ~ .mw-ui-focus-icon:before {
   content: "\e105";
 }
+form .mw-ui-radio:before,
+form .mw-ui-checkbox:before {
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  color: #777777;
+}
+form .mw-ui-fieldtag-input input[type='radio'],
+form .mw-ui-fieldtag-input input[type='checkbox'] {
+  display: none;
+}
+form .mw-ui-fieldtag-input input[type='radio'] + .mw-ui-radio:before {
+  content: "\e157";
+}
+form .mw-ui-fieldtag-input input[type='radio']:checked + .mw-ui-radio:before {
+  content: "\e165";
+}
+form .mw-ui-fieldtag-input input[type='checkbox'] + .mw-ui-checkbox:before {
+  content: "\e157";
+}
+form .mw-ui-fieldtag-input input[type='checkbox']:checked + .mw-ui-checkbox:before {
+  content: "\e067";
+}
 .flow-newtopic-form,
 .flow-topics-bar {
   padding-top: 1em;

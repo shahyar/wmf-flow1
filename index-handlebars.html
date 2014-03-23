@@ -112,6 +112,7 @@
 						}}<{{tag}}
 							{{#if class}}class="{{class}}"{{/if}}
 							{{#if type}}type="{{type}}"{{/if}}
+							{{#if name}}name="{{name}}"{{/if}}
 							{{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
 							{{#if value}}value="{{value}}"{{/if}}
 							{{#if role}}data-role="{{role}}"{{/if}}
@@ -122,7 +123,9 @@
 							{{#if pattern}}pattern="{{pattern}}"{{/if}}
 							{{#if required}}required="required"{{/if}}
 						{{#if closing_tag}}>{{else}}/>{{/if}}{{!
-							}}{{content}}{{!
+							}}{{#if radio}}<span class="mw-ui-radio"></span>{{/if}}{{!
+							}}{{#if checkbox}}<span class="mw-ui-checkbox"></span>{{/if}}{{!
+								}}{{content}}{{!
 						}}{{#if closing_tag}}</{{closing_tag}}>{{/if}}{{!
 						}}{{#if validation}}<span class="mw-ui-field-icon mw-ui-validation-icon"></span>{{/if}}{{!
 						}}<span class="mw-ui-field-icon mw-ui-focus-icon"></span>{{!
@@ -284,6 +287,21 @@
 									required=true
 									expandable=true
 								}}</p>
+								<p>{{formElement this
+									"radio"
+									name="rad"
+									value="1"
+									content='radio-1'
+								}} {{formElement this
+									"radio"
+									name="rad"
+									value="2"
+									content='radio-2'
+								}} {{formElement this
+									"checkbox"
+									name="checky"
+									content='checkbox'
+									}}</p>
 								{{formElement this
 									"submit"
 									content='submit (constructive) button'

@@ -117,4 +117,39 @@ form/*.mw-ui-validated*/ {
 			}
 		}
 	}
+
+	.mw-ui-radio:before,
+	.mw-ui-checkbox:before {
+		font-family: 'Glyphicons Halflings';
+		-webkit-font-smoothing: antialiased;
+		color: @colorTextLight;
+	}
+
+	.mw-ui-fieldtag-input {
+		input[type='radio'],
+		input[type='checkbox'] {
+			display: none;
+		}
+
+		input[type='radio'] {
+			+ .mw-ui-radio:before {
+				//.glyphicon-unchecked
+				content: "\e157";
+			}
+			&:checked + .mw-ui-radio:before {
+				//.glyphicon-record
+				content: "\e165";
+			}
+		}
+		input[type='checkbox'] {
+			+ .mw-ui-checkbox:before {
+				//.glyphicon-unchecked
+				content: "\e157";
+			}
+			&:checked + .mw-ui-checkbox:before {
+				//.glyphicon-check
+				content: "\e067";
+			}
+		}
+	}
 }
