@@ -1,24 +1,24 @@
+.mw-ui-field {
+	position: relative;
+	display: inline-block;
+	white-space: nowrap;
+	min-height: 0;
+}
+
+.mw-ui-input:focus {
+	border-color: @colorGrayDark;
+}
+.mw-ui-field .mw-ui-input {
+	margin: 0;
+}
+
+.mw-ui-field-icon {
+	display: none;
+}
+
 form/*.mw-ui-validated*/ {
-	.mw-ui-field {
-		position: relative;
-		display: inline-block;
-		white-space: nowrap;
-		min-height: 0;
-	}
-
-	.mw-ui-input {
-		border-radius: 2px;
-	}
-	.mw-ui-input:focus {
-		border-color: @colorGrayDark;
-	}
-	.mw-ui-field .mw-ui-input {
-		margin: 0;
-	}
-
 	.mw-ui-field-icon {
 		.boxSizing( border-box );
-		display: none;
 		white-space: nowrap;
 		position: absolute;
 		top: 0;
@@ -26,51 +26,94 @@ form/*.mw-ui-validated*/ {
 		width: 2em;
 		height: 100%;
 		text-align: center;
-		border-radius: 0 2px 2px 0;
-		border: 1px solid @colorGrayDark;
-		border-width: 1px 1px 1px 0;
 		pointer-events: none;
 	}
 
 	.mw-ui-field-icon:before {
 		.boxSizing( border-box );
 		display: inline-block;
-		z-index: 9999;
 		position: absolute;
 		top: 50%;
 		left: 0;
-		margin-top: -.5em;
-		color: #fff;
-		width: 1.33em;
+		margin-top: -.6em;
+		width: 2em;
+		color: @colorGrayLight;
+		font-size: 1em;
 		line-height: 1em;
-		font-size: 1.5em;
 		text-align: center;
 		pointer-events: none;
+		//.glyphicon
+		font-family: 'Glyphicons Halflings';
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.mw-ui-validation-icon {
+		border-radius: 0 2px 2px 0;
+		border: 1px solid @colorGrayDark;
+		border-width: 1px 1px 1px 0;
+	}
+	.mw-ui-validation-icon:before {
+		color: #fff;
 	}
 
 	.mw-ui-input {
 		&:valid {
-			:after {
-				content: "cool";
+			&[required], &[min], &[max], &[pattern],
+			&[type='color'], &[type='date'], &[type='email'], &[type='number'],
+			&[type='url'], &[type='range'], &[type='time'] {
+				~ .mw-ui-validation-icon {
+					display: block;
+				}
 			}
-
-			+ .mw-ui-validation-icon {
-				display: block;
+			~ .mw-ui-validation-icon {
+				background: #00B08A;
 				background: rgba(0, 176, 138, .85);
 			}
-			+ .mw-ui-validation-icon:before {
-				content: '✓';
+			~ .mw-ui-validation-icon:before {
+				//.glyphicon-ok
+				content: "\e013";
+			}
+			+ .mw-ui-validation-icon + .mw-ui-focus-icon {
+				// Support up to two icons side by side
+				right: 2em;
 			}
 		}
 
 		&:invalid {
-			+ .mw-ui-validation-icon {
-				display: block;
+			&[required], &[min], &[max], &[pattern],
+			&[type='color'], &[type='date'], &[type='email'], &[type='number'],
+			&[type='url'], &[type='range'], &[type='time'] {
+				~ .mw-ui-validation-icon {
+					display: block;
+				}
+			}
+			~ .mw-ui-validation-icon {
+				background: #D31300;
 				background: rgba(211, 19, 0, .85);
 			}
-			+ .mw-ui-validation-icon:before {
-				margin-top: -.54em; // this glyph is slightly padded :(
-				content: '⨉';
+			~ .mw-ui-validation-icon:before {
+				//.glyphicon-remove
+				content: "\e014";
+			}
+			+ .mw-ui-validation-icon + .mw-ui-focus-icon {
+				// Support up to two icons side by side
+				right: 2em;
+			}
+		}
+
+		&:focus {
+			~ .mw-ui-focus-icon {
+				display: block;
+			}
+			~ .mw-ui-focus-icon:before {
+				//.glyphicon-edit
+				//content: "\e065";
+				//.glyphicon-eye-open
+				content: "\e105";
+				//.glyphicon-comment
+				//content: "\e111";
+				//.glyphicon-calendar
+				//content: "\1f4c5";
 			}
 		}
 	}

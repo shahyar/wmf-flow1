@@ -6,6 +6,12 @@
 
 .flow-board {
 	// Make all text fields 100% wide by default
+	.mw-ui-fieldtype-text,
+	.mw-ui-fieldtag-textarea {
+		.boxSizing(border-box);
+		width: 100%;
+	}
+
 	.mw-ui-input,
 	textarea {
 		.boxSizing(border-box);
@@ -49,6 +55,18 @@
 // Make the new topic input mimic new topic text
 .flow-newtopic-form input.mw-ui-input {
 	font-weight: bold;
+}
+
+// Attach these two inputs together to make them seem like one congruous input
+.flow-newtopic-form {
+	.mw-ui-input,
+	textarea {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	textarea {
+		border-top-width: 0;
+	}
 }
 
 // Align reply textarea to make it mimic comment text styling

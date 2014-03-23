@@ -352,6 +352,7 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 		var hash = options.hash,
 			data = {
 				tag:         type,
+				fieldtype:   null,
 				closing_tag: null,
 				'class':     hash['class'] || '',
 				required:    !!hash.required,
@@ -360,7 +361,9 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 				name:        hash.name,
 				value:       hash.value,
 				content:     hash.content,
-				role:        hash.role || type
+				role:        hash.role || type,
+				collapsible: !!hash.collapsible,
+				expandable:  !!hash.expandable
 			};
 
 		switch ( type ) {
@@ -374,25 +377,32 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 				switch ( hash.role || type ) {
 					case 'submit':
 					case 'constructive':
-						data['class'] = 'mw-ui-constructive ' + data['class'];
+						data.fieldtype = 'constructive';
 						break;
 
 					case 'action':
 					case 'progressive':
-						data['class'] = 'mw-ui-progressive ' + data['class'];
+						data.fieldtype = 'progressive';
 						break;
 
 					case 'regressive':
-						data['class'] = 'mw-ui-regressive ' + data['class'];
+						data.fieldtype = 'regressive';
 						break;
 
 					case 'cancel':
 					case 'reset':
 					case 'destructive':
-						data['class'] = 'mw-ui-destructive ' + data['class'];
+						data.fieldtype = 'destructive';
+						break;
+
+					default:
+						data.fieldtype = 'button';
 						break;
 				}
 
+				if ( data.fieldtype !== 'button' ) {
+					data['class'] = 'mw-ui-' + data.fieldtype + ' ' + data['class'];
+				}
 				data['class'] = 'mw-ui-button ' + data['class'];
 				break;
 
@@ -403,11 +413,14 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 			case 'url':
 			case 'range':
 			case 'time':
+				data.validation = true;
+				/* fall through */
 			case 'text':
 			case 'input':
 				data.tag = 'input';
+				data.fieldtype = type === 'input' ? 'text' : type;
+				data.validation = data.validation || data.required || data.min || data.max;
 				data.type = type === 'input' ? 'text' : type;
-				data.validation = true;
 				data['class'] = 'mw-ui-input ' + data['class'];
 				data.min = hash.min;
 				data.max = hash.max;
@@ -421,9 +434,6 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 				data.validation = true;
 				data.rows = hash.rows;
 				data.cols = hash.cols;
-				if ( hash.collapsible ) {
-					data['class'] = 'flow-form-collapsible ' + data['class'];
-				}
 				break;
 
 			case 'radio':
