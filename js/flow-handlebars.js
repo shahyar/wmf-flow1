@@ -417,17 +417,20 @@ var FlowHandlebars = function ( FlowStorageEngine ) {
 			case 'time':
 				data.validation = true;
 				/* fall through */
+			case 'search':
 			case 'text':
 			case 'input':
 				data.tag = 'input';
 				data.fieldtype = type === 'input' ? 'text' : type;
 				data.validation = data.validation || data.required || data.min || data.max;
 				data.type = type === 'input' ? 'text' : type;
-				data['class'] = 'mw-ui-input ' + data['class'];
+				if ( type !== 'color' && type !== 'range' ) {
+					// These are NOT styled correctly yet
+					data['class'] = 'mw-ui-input ' + data['class'];
+				}
 				data.min = hash.min;
 				data.max = hash.max;
 				data.step = hash.step;
-				data.size = hash.size;
 				break;
 
 			case 'textarea':

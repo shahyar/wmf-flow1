@@ -276,9 +276,48 @@
 								}}</p>
 								<p>{{formElement this
 									"number"
-									name="texty"
+									name="numnum"
 									placeholder='number required'
 									required=true
+								}}{{formElement this
+									"date"
+									name="dat"
+									placeholder='date required'
+									required=true
+								}}{{formElement this
+									"time"
+									name="time"
+									placeholder='time required'
+									required=true
+								}}{{formElement this
+									"email"
+									name="email"
+									placeholder='email required'
+									required=true
+								}}{{formElement this
+									"url"
+									name="uri"
+									placeholder='url'
+								}}{{formElement this
+									"url"
+									name="pass"
+									placeholder='password required'
+									required=true
+								}}{{formElement this
+									"search"
+									name="q"
+									placeholder='search'
+								}}{{!formElement this
+									"color"
+									name="col"
+									placeholder='color'
+								}}{{!formElement this
+									"range"
+									name="range"
+									placeholder='range 1..100/5'
+									min=1
+									max=100
+									step=5
 								}}</p>
 								<p>{{formElement this
 									"textarea"
@@ -301,7 +340,7 @@
 									"checkbox"
 									name="checky"
 									content='checkbox'
-									}}</p>
+								}}</p>
 								{{formElement this
 									"submit"
 									content='submit (constructive) button'
@@ -321,6 +360,10 @@
 									role="cancel"
 									content='cancel (destructive)'
 								}}
+								<span class="mw-ui-tooltip mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-down" style="position: relative; left: 28em; top: 5px;">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
 							</form>
 						</div>
 					</div>
