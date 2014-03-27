@@ -408,7 +408,10 @@ except when used in combination with .mw-ui-button.
 === Guidelines ===
 # .mw-ui-button can only be used on A and BUTTON tags.
 # .mw-ui-progressive, .mw-ui-regressive, .mw-ui-constructive, and .mw-ui-destructive can be applied alone on A, but can be applied in tandem with .mw-ui-button.
-## The order is important: base type (mw-ui-button) must come first.
+## The class order is important: base type (mw-ui-button) must come first, mode (mw-ui-quiet, mw-ui-sleeper) second, visual type (mw-ui-thin), and context (mw-ui-progressive) comes last.
+# A .mw-ui-quiet button may NEVER be the first or only button in a form.
+## It would be left- or right-aligned next to whitespace, and the extra ghost padding in these buttons will make that look awkward.
+## The first button in a form should always be the affirmative action (eg. Submit). This is for accessibility purposes.
 
 === Notes ===
 # IE6 does not apply any .mw-ui-button styles at all on BUTTON.
