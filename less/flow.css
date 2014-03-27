@@ -23,6 +23,15 @@
   content: "\e135";
   opacity: 0.66;
 }
+/*
+== MediaWiki UI Text Field Validation ==
+
+=== Guidelines ===
+
+
+=== Notes ===
+Does not support IE7 nor IE8.
+ */
 /*.mw-ui-validated */
 .mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-field-icon {
   box-sizing: border-box;
@@ -151,6 +160,15 @@
 .mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:focus ~ .mw-ui-uls-icon {
   display: block;
 }
+/*
+== MediaWiki UI Radio and Checkbox ==
+
+=== Guidelines ===
+
+
+=== Notes ===
+Does not support IE7 nor IE8.
+ */
 .mw-ui-fieldtag-input:not(.ie8WillIgnoreThis) {
   cursor: pointer;
 }
@@ -182,6 +200,15 @@
   content: "\e067";
 }
 /*
+== MediaWiki UI Tooltips ==
+
+=== Guidelines ===
+Requires the following markup at minimum: <span class="mw-ui-tooltip">CONTENT<span class="mw-ui-tooltip-triangle"></span></span>
+An additional class should be added relating the triangle to the direction of the content: mw-ui-tooltip-DIRECTION, where direction is one of up, down, left, or right.
+Adding to this could be an extra class: mw-ui-tooltip-inverted, which moves the tooltip and triangle to the opposing side. This used when the tooltip would go off the right of the viewport, and instead aligns to the right of the viewport.
+Finally, a context class can be given to assign it a color (eg. mw-ui-progressive).
+
+This is intended to be used with JavaScript, but does not have to be. With JS, you can directly bind the element to given X-Y coords for an element.
  */
 .mw-ui-tooltip {
   position: relative;
@@ -347,26 +374,6 @@
   -webkit-box-shadow: 0 2px 0 2px #d85c00;
   box-shadow: 0 2px 0 2px #d85c00;
 }
-/*
-E[attr]
-E + F
-E ~ F
-E > F
-:first-child
-:hover // a only
-.class1.class2 // only .class2 is looked for, .class1 is ignored
-*/
-/*
-:before
-:after
-:focus
-*/
-/*
-:checked
-:enabled
-:disabled
-:not()
-*/
 /*
 == MediaWiki UI Anchor Context ==
 Allows you to give text a context as to the type of action it is indicating.
