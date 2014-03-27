@@ -441,18 +441,24 @@ except when used in combination with .mw-ui-button.
 
 		&:hover,
 		&:focus {
-			.boxShadow( 0 4px 0 0 @borderColor, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
 			background: @raisedColor;
 			text-shadow: 0 1px rgba(0, 0, 0, .33);
 		}
 
+		&:hover {
+			// Shadow under outer, 3D raising inner, edge shading inner
+			.boxShadow( 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 @borderColor, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
+		}
+
 		&:focus {
-			.boxShadow( 0 4px 0 0 @borderColor, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px @borderColor );
+			// 3D raising inner, edge shading inner
+			.boxShadow( inset 0 -4px 0 0 @borderColor, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px @borderColor );
 		}
 
 		&:active {
 			background: @depressedColor;
-			.boxShadow( 0 2px 0 0 @depressedColor, inset 0 2px 0 0 rgba(0, 0, 0, .25) );
+			// Slight 3D raising inner, deep edge shading inner
+			.boxShadow( inset 0 -2px 0 0 @depressedColor, inset 0 2px 0 0 rgba(0, 0, 0, .25) );
 		}
 	}
 
@@ -505,11 +511,11 @@ except when used in combination with .mw-ui-button.
 
 	.flowUIButtonNormalMode() {
 		&:hover {
-			.boxShadow( 0 3px 0 0 @colorGrayLighter, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
+			.boxShadow( 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 @colorGrayLighter, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
 			color: @colorText;
 		}
 		&:focus {
-			.boxShadow( 0 3px 0 0 @colorGrayLight, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
+			.boxShadow( inset 0 -3px 0 0 @colorGrayLight, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
 		}
 	}
 

@@ -564,25 +564,25 @@ button.flow-ui-button[class].flow-ui-thin {
 }
 a.flow-ui-button[class]:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class]:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   color: #252525;
 }
 a.flow-ui-button[class]:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class]:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
 }
 .lte-ie8 a.flow-ui-button[class]:hover,
 .lte-ie8 button.flow-ui-button[class]:hover {
-  -webkit-box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   color: #252525;
 }
 .lte-ie8 a.flow-ui-button[class]:focus,
 .lte-ie8 button.flow-ui-button[class]:focus {
-  -webkit-box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-quiet,
@@ -626,21 +626,24 @@ a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #4486ff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
-  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active {
   background: #0b60ff;
-  -webkit-box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive {
@@ -664,21 +667,24 @@ button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active {
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #4486ff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
-  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive:active {
   background: #0b60ff;
-  -webkit-box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
@@ -742,21 +748,24 @@ a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #ff8830;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
-  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active {
   background: #f46800;
-  -webkit-box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive {
@@ -780,21 +789,24 @@ button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active {
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #ff8830;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
-  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive:active {
   background: #f46800;
-  -webkit-box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
@@ -858,21 +870,24 @@ a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #14b592;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
-  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active {
   background: #008669;
-  -webkit-box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive {
@@ -896,21 +911,24 @@ button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active {
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #14b592;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
-  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive:active {
   background: #008669;
-  -webkit-box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
@@ -974,21 +992,24 @@ a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #d52f26;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
-  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active {
   background: #ac1810;
-  -webkit-box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive {
@@ -1012,21 +1033,24 @@ button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active {
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
   background: #d52f26;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
-  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
-  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive:active {
   background: #ac1810;
-  -webkit-box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
