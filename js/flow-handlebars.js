@@ -429,9 +429,9 @@
 				}
 
 				if ( data.fieldtype !== 'button' ) {
-					data['class'] = 'mw-ui-' + data.fieldtype + ' ' + data['class'];
+					data['class'] = 'flow-ui-' + data.fieldtype + ' ' + data['class'];
 				}
-				data['class'] = 'mw-ui-button ' + data['class'];
+				data['class'] = 'flow-ui-button ' + data['class'];
 				break;
 
 			case 'color':

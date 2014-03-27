@@ -103,4 +103,4 @@
 }( jQuery ) );
 
 // temp @todo remove
-document.getElementsByTagName('html')[0].className = 'client-js';
+document.getElementsByTagName('html')[0].className = document.getElementsByTagName('html')[0].className.replace('client-nojs', 'client-js');

@@ -4,10 +4,6 @@
 .mw-ui-buttonspacer {
   padding: .25em .5em;
 }
-.mw-ui-button.mw-ui-quiet.mw-ui-thin {
-  padding-left: 0;
-  padding-right: 0;
-}
 .mw-ui-field {
   position: relative;
   display: inline-block;
@@ -23,12 +19,12 @@
 .mw-ui-field-icon {
   display: none;
 }
-.mw-ui-focus-icon:before {
-  content: "\e105";
+.mw-ui-uls-icon:before {
+  content: "\e135";
   opacity: 0.66;
 }
 /*.mw-ui-validated */
-.mw-ui-field .mw-ui-field-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-field-icon {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -41,7 +37,7 @@
   text-align: center;
   pointer-events: none;
 }
-.mw-ui-field .mw-ui-field-icon:before {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-field-icon:before {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -59,107 +55,107 @@
   font-family: 'Glyphicons Halflings';
   -webkit-font-smoothing: antialiased;
 }
-.mw-ui-field .mw-ui-validation-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-validation-icon {
   border-radius: 0 2px 2px 0;
   border: 1px solid #898989;
   border-width: 1px 1px 1px 0;
 }
-.mw-ui-field .mw-ui-validation-icon:before {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-validation-icon:before {
   color: #fff;
 }
-.mw-ui-field .mw-ui-input[type='date'] ~ .mw-ui-focus-icon,
-.mw-ui-field .mw-ui-input[type='number'] ~ .mw-ui-focus-icon,
-.mw-ui-field .mw-ui-input[type='search'] ~ .mw-ui-focus-icon,
-.mw-ui-field .mw-ui-input[type='time'] ~ .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input[type='date'] ~ .mw-ui-uls-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input[type='number'] ~ .mw-ui-uls-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input[type='search'] ~ .mw-ui-uls-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input[type='time'] ~ .mw-ui-uls-icon {
   visibility: hidden;
 }
-.mw-ui-field .mw-ui-input:valid[required],
-.mw-ui-field .mw-ui-input:valid[min],
-.mw-ui-field .mw-ui-input:valid[max],
-.mw-ui-field .mw-ui-input:valid[pattern],
-.mw-ui-field .mw-ui-input:valid[type='color'],
-.mw-ui-field .mw-ui-input:valid[type='date'],
-.mw-ui-field .mw-ui-input:valid[type='email'],
-.mw-ui-field .mw-ui-input:valid[type='number'],
-.mw-ui-field .mw-ui-input:valid[type='url'],
-.mw-ui-field .mw-ui-input:valid[type='range'],
-.mw-ui-field .mw-ui-input:valid[type='time'] {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[required],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[min],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[max],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[pattern],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='color'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='date'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='email'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='number'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='url'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='range'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='time'] {
   border-right-width: 2em;
 }
-.mw-ui-field .mw-ui-input:valid[required] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[min] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[max] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[pattern] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='color'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='date'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='email'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='number'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='url'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='range'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:valid[type='time'] ~ .mw-ui-validation-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[required] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[min] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[max] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[pattern] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='color'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='date'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='email'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='number'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='url'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='range'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='time'] ~ .mw-ui-validation-icon {
   display: block;
 }
-.mw-ui-field .mw-ui-input:valid ~ .mw-ui-validation-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid ~ .mw-ui-validation-icon {
   background: #00B08A;
   background: rgba(0, 176, 138, 0.85);
 }
-.mw-ui-field .mw-ui-input:valid ~ .mw-ui-validation-icon:before {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid ~ .mw-ui-validation-icon:before {
   content: "\e013";
 }
-.mw-ui-field .mw-ui-input:valid + .mw-ui-validation-icon + .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid + .mw-ui-validation-icon + .mw-ui-uls-icon {
   right: 2em;
 }
-.mw-ui-field .mw-ui-input:valid[type='date'] + .mw-ui-validation-icon + .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='date'] + .mw-ui-validation-icon + .mw-ui-uls-icon {
   right: 4em;
 }
-.mw-ui-field .mw-ui-input:valid[type='number'] + .mw-ui-validation-icon + .mw-ui-focus-icon,
-.mw-ui-field .mw-ui-input:valid[type='time'] + .mw-ui-validation-icon + .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='number'] + .mw-ui-validation-icon + .mw-ui-uls-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:valid[type='time'] + .mw-ui-validation-icon + .mw-ui-uls-icon {
   right: 3em;
 }
-.mw-ui-field .mw-ui-input:invalid[required],
-.mw-ui-field .mw-ui-input:invalid[min],
-.mw-ui-field .mw-ui-input:invalid[max],
-.mw-ui-field .mw-ui-input:invalid[pattern],
-.mw-ui-field .mw-ui-input:invalid[type='color'],
-.mw-ui-field .mw-ui-input:invalid[type='date'],
-.mw-ui-field .mw-ui-input:invalid[type='email'],
-.mw-ui-field .mw-ui-input:invalid[type='number'],
-.mw-ui-field .mw-ui-input:invalid[type='url'],
-.mw-ui-field .mw-ui-input:invalid[type='range'],
-.mw-ui-field .mw-ui-input:invalid[type='time'] {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[required],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[min],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[max],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[pattern],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='color'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='date'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='email'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='number'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='url'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='range'],
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='time'] {
   border-right-width: 2em;
 }
-.mw-ui-field .mw-ui-input:invalid[required] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[min] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[max] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[pattern] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='color'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='date'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='email'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='number'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='url'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='range'] ~ .mw-ui-validation-icon,
-.mw-ui-field .mw-ui-input:invalid[type='time'] ~ .mw-ui-validation-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[required] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[min] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[max] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[pattern] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='color'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='date'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='email'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='number'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='url'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='range'] ~ .mw-ui-validation-icon,
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid[type='time'] ~ .mw-ui-validation-icon {
   display: block;
 }
-.mw-ui-field .mw-ui-input:invalid ~ .mw-ui-validation-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid ~ .mw-ui-validation-icon {
   background: #D31300;
   background: rgba(211, 19, 0, 0.85);
 }
-.mw-ui-field .mw-ui-input:invalid ~ .mw-ui-validation-icon:before {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid ~ .mw-ui-validation-icon:before {
   content: "\e014";
 }
-.mw-ui-field .mw-ui-input:invalid + .mw-ui-validation-icon + .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:invalid + .mw-ui-validation-icon + .mw-ui-uls-icon {
   right: 2em;
 }
-.mw-ui-field .mw-ui-input:focus ~ .mw-ui-focus-icon {
+.mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-input:focus ~ .mw-ui-uls-icon {
   display: block;
 }
-.mw-ui-fieldtag-input {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) {
   cursor: pointer;
 }
-.mw-ui-fieldtag-input .mw-ui-radio:before,
-.mw-ui-fieldtag-input .mw-ui-checkbox:before {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) .mw-ui-radio:before,
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) .mw-ui-checkbox:before {
   display: inline-block;
   vertical-align: text-bottom;
   font-family: 'Glyphicons Halflings';
@@ -168,33 +164,36 @@
   font-size: inherit;
   line-height: inherit;
 }
-.mw-ui-fieldtag-input input[type='radio'],
-.mw-ui-fieldtag-input input[type='checkbox'] {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='radio'],
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='checkbox'] {
   display: none;
 }
-.mw-ui-fieldtag-input input[type='radio'] + .mw-ui-radio:before {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='radio'] + .mw-ui-radio:before {
   content: "\e141";
 }
-.mw-ui-fieldtag-input input[type='radio']:checked + .mw-ui-radio:before {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='radio']:checked + .mw-ui-radio:before {
   text-shadow: none;
   content: "\e165";
 }
-.mw-ui-fieldtag-input input[type='checkbox'] + .mw-ui-checkbox:before {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='checkbox'] + .mw-ui-checkbox:before {
   content: "\e157";
 }
-.mw-ui-fieldtag-input input[type='checkbox']:checked + .mw-ui-checkbox:before {
+.mw-ui-fieldtag-inputui-field:not(.ie8WillIgnoreThis) input[type='checkbox']:checked + .mw-ui-checkbox:before {
   content: "\e067";
 }
+/*
+ */
 .mw-ui-tooltip {
   position: relative;
   top: 1px;
   display: inline-block;
   padding: .5em;
-  background: #ffffff;
+  background: #fafafa;
   color: #252525;
   white-space: nowrap;
   border-radius: 3px;
   text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 0 0 #cccccc;
   box-shadow: 0 2px 0 0 #cccccc;
 }
 .mw-ui-tooltip .mw-ui-tooltip-triangle {
@@ -208,7 +207,7 @@
   z-index: 1;
   width: 1em;
   height: 1em;
-  background: #fff;
+  background: #fafafa;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
@@ -233,6 +232,7 @@
 .mw-ui-tooltip.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
   top: -0.5em;
   left: .5em;
+  -webkit-box-shadow: 0 -2px 0 2px #cccccc;
   box-shadow: 0 -2px 0 2px #cccccc;
 }
 .mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
@@ -246,6 +246,7 @@
   margin-top: -1px;
   top: .5em;
   right: -0.5em;
+  -webkit-box-shadow: 2px 0 0 2px #cccccc;
   box-shadow: 2px 0 0 2px #cccccc;
 }
 .mw-ui-tooltip.mw-ui-tooltip-right .mw-ui-tooltip-triangle {
@@ -259,58 +260,806 @@
   margin-top: -1px;
   top: .5em;
   left: -0.5em;
+  -webkit-box-shadow: 0 2px 0 2px #cccccc;
   box-shadow: 0 2px 0 2px #cccccc;
 }
-.mw-ui-tooltip.mw-ui-tooltip-info {
+.mw-ui-tooltip[class].mw-ui-progressive {
+  background: #347bff;
+  -webkit-box-shadow: 0 2px 0 0 #0053ee;
+  box-shadow: 0 2px 0 0 #0053ee;
+  color: #ffffff;
+}
+.mw-ui-tooltip[class].mw-ui-progressive .mw-ui-tooltip-triangle:after {
+  background: #347bff;
+}
+.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 -2px 0 2px #0053ee;
+  box-shadow: 0 -2px 0 2px #0053ee;
+}
+.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 2px 0 0 2px #0053ee;
+  box-shadow: 2px 0 0 2px #0053ee;
+}
+.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 2px 0 2px #0053ee;
+  box-shadow: 0 2px 0 2px #0053ee;
+}
+.mw-ui-tooltip[class].mw-ui-constructive {
+  background: #00af89;
+  -webkit-box-shadow: 0 2px 0 0 #006a53;
+  box-shadow: 0 2px 0 0 #006a53;
+  color: #ffffff;
+}
+.mw-ui-tooltip[class].mw-ui-constructive .mw-ui-tooltip-triangle:after {
+  background: #00af89;
+}
+.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 -2px 0 2px #006a53;
+  box-shadow: 0 -2px 0 2px #006a53;
+}
+.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 2px 0 0 2px #006a53;
+  box-shadow: 2px 0 0 2px #006a53;
+}
+.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 2px 0 2px #006a53;
+  box-shadow: 0 2px 0 2px #006a53;
+}
+.mw-ui-tooltip[class].mw-ui-destructive {
+  background: #d11d13;
+  -webkit-box-shadow: 0 2px 0 0 #92140d;
+  box-shadow: 0 2px 0 0 #92140d;
+  color: #ffffff;
+}
+.mw-ui-tooltip[class].mw-ui-destructive .mw-ui-tooltip-triangle:after {
+  background: #d11d13;
+}
+.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 -2px 0 2px #92140d;
+  box-shadow: 0 -2px 0 2px #92140d;
+}
+.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 2px 0 0 2px #92140d;
+  box-shadow: 2px 0 0 2px #92140d;
+}
+.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 2px 0 2px #92140d;
+  box-shadow: 0 2px 0 2px #92140d;
+}
+.mw-ui-tooltip[class].mw-ui-regressive {
+  background: #ff7e1e;
+  -webkit-box-shadow: 0 2px 0 0 #d85c00;
+  box-shadow: 0 2px 0 0 #d85c00;
+  color: #ffffff;
+}
+.mw-ui-tooltip[class].mw-ui-regressive .mw-ui-tooltip-triangle:after {
+  background: #ff7e1e;
+}
+.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 -2px 0 2px #d85c00;
+  box-shadow: 0 -2px 0 2px #d85c00;
+}
+.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 2px 0 0 2px #d85c00;
+  box-shadow: 2px 0 0 2px #d85c00;
+}
+.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+  -webkit-box-shadow: 0 2px 0 2px #d85c00;
+  box-shadow: 0 2px 0 2px #d85c00;
+}
+/*
+E[attr]
+E + F
+E ~ F
+E > F
+:first-child
+:hover // a only
+.class1.class2 // only .class2 is looked for, .class1 is ignored
+*/
+/*
+:before
+:after
+:focus
+*/
+/*
+:checked
+:enabled
+:disabled
+:not()
+*/
+/*
+== MediaWiki UI Anchor Context ==
+Allows you to give text a context as to the type of action it is indicating.
+
+=== Guidelines ===
+The anchor context is only applied on A tags. These classes cannot be applied for styling purposes on other elements,
+except when used in combination with .mw-ui-button.
+*/
+.selectIE6Only.flow-ui-progressive:link,
+.selectIE6Only.flow-ui-progressive:visited,
+.selectIE6Only.flow-ui-progressive:hover,
+.selectIE6Only.flow-ui-progressive:focus,
+.selectIE6Only.flow-ui-progressive:active {
+  color: #347bff;
+}
+.flow-ui-progressive:hover {
+  color: #79a8ff;
+}
+.flow-ui-progressive:focus,
+.flow-ui-progressive:active {
+  color: #0053ee;
+  outline: none;
+}
+a.flow-ui-progressive[class] {
+  color: #347bff;
+}
+a.flow-ui-progressive[class].flow-ui-quiet {
+  color: #777777;
+  text-decoration: none;
+}
+a.flow-ui-progressive[class].flow-ui-quiet:hover {
+  color: #347bff;
+}
+a.flow-ui-progressive[class].flow-ui-quiet:focus,
+a.flow-ui-progressive[class].flow-ui-quiet:active {
+  color: #0053ee;
+}
+.selectIE6Only.flow-ui-regressive:link,
+.selectIE6Only.flow-ui-regressive:visited,
+.selectIE6Only.flow-ui-regressive:hover,
+.selectIE6Only.flow-ui-regressive:focus,
+.selectIE6Only.flow-ui-regressive:active {
+  color: #ff7e1e;
+}
+.flow-ui-regressive:hover {
+  color: #ffa563;
+}
+.flow-ui-regressive:focus,
+.flow-ui-regressive:active {
+  color: #d85c00;
+  outline: none;
+}
+a.flow-ui-regressive[class] {
+  color: #ff7e1e;
+}
+a.flow-ui-regressive[class].flow-ui-quiet {
+  color: #777777;
+  text-decoration: none;
+}
+a.flow-ui-regressive[class].flow-ui-quiet:hover {
+  color: #ff7e1e;
+}
+a.flow-ui-regressive[class].flow-ui-quiet:focus,
+a.flow-ui-regressive[class].flow-ui-quiet:active {
+  color: #d85c00;
+}
+.selectIE6Only.flow-ui-constructive:link,
+.selectIE6Only.flow-ui-constructive:visited,
+.selectIE6Only.flow-ui-constructive:hover,
+.selectIE6Only.flow-ui-constructive:focus,
+.selectIE6Only.flow-ui-constructive:active {
+  color: #00af89;
+}
+.flow-ui-constructive:hover {
+  color: #00f4bf;
+}
+.flow-ui-constructive:focus,
+.flow-ui-constructive:active {
+  color: #006a53;
+  outline: none;
+}
+a.flow-ui-constructive[class] {
+  color: #00af89;
+}
+a.flow-ui-constructive[class].flow-ui-quiet {
+  color: #777777;
+  text-decoration: none;
+}
+a.flow-ui-constructive[class].flow-ui-quiet:hover {
+  color: #00af89;
+}
+a.flow-ui-constructive[class].flow-ui-quiet:focus,
+a.flow-ui-constructive[class].flow-ui-quiet:active {
+  color: #006a53;
+}
+.selectIE6Only.flow-ui-destructive:link,
+.selectIE6Only.flow-ui-destructive:visited,
+.selectIE6Only.flow-ui-destructive:hover,
+.selectIE6Only.flow-ui-destructive:focus,
+.selectIE6Only.flow-ui-destructive:active {
+  color: #d11d13;
+}
+.flow-ui-destructive:hover {
+  color: #ed453c;
+}
+.flow-ui-destructive:focus,
+.flow-ui-destructive:active {
+  color: #92140d;
+  outline: none;
+}
+a.flow-ui-destructive[class] {
+  color: #d11d13;
+}
+a.flow-ui-destructive[class].flow-ui-quiet {
+  color: #777777;
+  text-decoration: none;
+}
+a.flow-ui-destructive[class].flow-ui-quiet:hover {
+  color: #d11d13;
+}
+a.flow-ui-destructive[class].flow-ui-quiet:focus,
+a.flow-ui-destructive[class].flow-ui-quiet:active {
+  color: #92140d;
+}
+/*
+== MediaWiki UI Buttons ==
+
+=== Guidelines ===
+# .mw-ui-button can only be used on A and BUTTON tags.
+# .mw-ui-progressive, .mw-ui-regressive, .mw-ui-constructive, and .mw-ui-destructive can be applied alone on A, but can be applied in tandem with .mw-ui-button.
+## The order is important: base type (mw-ui-button) must come first.
+
+=== Notes ===
+# IE6 does not apply any .mw-ui-button styles at all on BUTTON.
+# IE6 only applies the base .mw-ui-CONTEXT color on A, and doesn't care if you are combining it (ie. .mw-ui-destructive.mw-ui-quiet = always red text).
+ */
+a.flow-ui-button[class],
+button.flow-ui-button[class] {
+  display: inline-block;
+  padding: .5em 1em;
+  margin: 0;
+  vertical-align: middle;
+  *display: inline;
+  zoom: 1;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: inherit;
+  text-decoration: none;
+  border: 0px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  -moz-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  -ms-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  -o-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  /*
+		 * Button modes (continued in .flowUIButtonContext())
+		 */
+  /*
+		 * Default button styles
+		 */
+  background: transparent;
+  color: #777777;
+  /*
+		 * Contextual classes
+		 */
+}
+a.flow-ui-button[class]:disabled,
+button.flow-ui-button[class]:disabled {
+  cursor: default;
+}
+a.flow-ui-button[class]:focus,
+button.flow-ui-button[class]:focus,
+a.flow-ui-button[class]:active,
+button.flow-ui-button[class]:active {
+  outline: none;
+}
+a.flow-ui-button[class].flow-ui-thin,
+button.flow-ui-button[class].flow-ui-thin {
+  padding: .25em .5em;
+  font-weight: inherit;
+  vertical-align: inherit;
+}
+a.flow-ui-button[class]:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class]:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  color: #252525;
+}
+a.flow-ui-button[class]:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class]:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
+.lte-ie8 a.flow-ui-button[class]:hover,
+.lte-ie8 button.flow-ui-button[class]:hover {
+  -webkit-box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  color: #252525;
+}
+.lte-ie8 a.flow-ui-button[class]:focus,
+.lte-ie8 button.flow-ui-button[class]:focus {
+  -webkit-box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-quiet,
+.lte-ie8 button.flow-ui-button[class].flow-ui-quiet,
+a.flow-ui-button[class].flow-ui-quiet,
+button.flow-ui-button[class].flow-ui-quiet {
+  background: transparent;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-quiet:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-quiet:hover,
+a.flow-ui-button[class].flow-ui-quiet:hover,
+button.flow-ui-button[class].flow-ui-quiet:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-quiet:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-quiet:focus,
+a.flow-ui-button[class].flow-ui-quiet:focus,
+button.flow-ui-button[class].flow-ui-quiet:focus,
+.lte-ie8 a.flow-ui-button[class].flow-ui-quiet:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-quiet:active,
+a.flow-ui-button[class].flow-ui-quiet:active,
+button.flow-ui-button[class].flow-ui-quiet:active {
+  color: #252525;
+}
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet),
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet) {
   background: #347bff;
   color: #ffffff;
-  box-shadow: 0 2px 0 0 #2859bf;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
-.mw-ui-tooltip.mw-ui-tooltip-info .mw-ui-tooltip-triangle:after {
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #4486ff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+}
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active {
+  background: #0b60ff;
+  -webkit-box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive {
   background: #347bff;
-}
-.mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 -2px 0 2px #2859bf;
-}
-.mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 2px 0 0 2px #2859bf;
-}
-.mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 2px 0 2px #2859bf;
-}
-.mw-ui-tooltip.mw-ui-tooltip-warning {
-  background: #00af8b;
   color: #ffffff;
-  box-shadow: 0 2px 0 0 #007053;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
-.mw-ui-tooltip.mw-ui-tooltip-warning .mw-ui-tooltip-triangle:after {
-  background: #00af8b;
-}
-.mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 -2px 0 2px #007053;
-}
-.mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 2px 0 0 2px #007053;
-}
-.mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 2px 0 2px #007053;
-}
-.mw-ui-tooltip.mw-ui-tooltip-error {
-  background: #d11813;
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled]:focus {
+  background: #cccccc;
   color: #ffffff;
-  box-shadow: 0 2px 0 0 #92120e;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-.mw-ui-tooltip.mw-ui-tooltip-error .mw-ui-tooltip-triangle:after {
-  background: #d11813;
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #4486ff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
-.mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 -2px 0 2px #92120e;
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+  box-shadow: 0 4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
 }
-.mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 2px 0 0 2px #92120e;
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:active {
+  background: #0b60ff;
+  -webkit-box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
 }
-.mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 0 2px 0 2px #92120e;
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet {
+  background: transparent;
+  color: #777777;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover {
+  color: #347bff;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active {
+  color: #0b60ff;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus {
+  color: #003fb3;
+}
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper {
+  background: transparent;
+  background: #eeeeee\9;
+  color: #6a7892;
+  text-shadow: none;
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd;
+  box-shadow: inset 0 0 0 1px #dddddd;
+}
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:hover,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:hover,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:focus,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:focus {
+  color: #ffffff;
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet),
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet) {
+  background: #ff7e1e;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #ff8830;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active {
+  background: #f46800;
+  -webkit-box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive {
+  background: #ff7e1e;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #ff8830;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+  box-shadow: 0 4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:active {
+  background: #f46800;
+  -webkit-box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet {
+  background: transparent;
+  color: #777777;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover {
+  color: #ff7e1e;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active {
+  color: #f46800;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus {
+  color: #9e4300;
+}
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper {
+  background: transparent;
+  background: #eeeeee\9;
+  color: #927865;
+  text-shadow: none;
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd;
+  box-shadow: inset 0 0 0 1px #dddddd;
+}
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:hover,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:hover,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:focus,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:focus {
+  color: #ffffff;
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet),
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet) {
+  background: #00af89;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #14b592;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active {
+  background: #008669;
+  -webkit-box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive {
+  background: #00af89;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #14b592;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+  box-shadow: 0 4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:active {
+  background: #008669;
+  -webkit-box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet {
+  background: transparent;
+  color: #777777;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover {
+  color: #00af89;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active {
+  color: #008669;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus {
+  color: #003025;
+}
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper {
+  background: transparent;
+  background: #eeeeee\9;
+  color: #5f827b;
+  text-shadow: none;
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd;
+  box-shadow: inset 0 0 0 1px #dddddd;
+}
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:hover,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:hover,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:focus,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:focus {
+  color: #ffffff;
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet),
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet) {
+  background: #d11d13;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #d52f26;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active {
+  background: #ac1810;
+  -webkit-box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive {
+  background: #d11d13;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  background: #d52f26;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.33);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
+  -webkit-box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+  box-shadow: 0 4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:active {
+  background: #ac1810;
+  -webkit-box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet {
+  background: transparent;
+  color: #777777;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover {
+  color: #d11d13;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active {
+  color: #ac1810;
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus {
+  color: #5c0d08;
+}
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper {
+  background: transparent;
+  background: #eeeeee\9;
+  color: #896563;
+  text-shadow: none;
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd;
+  box-shadow: inset 0 0 0 1px #dddddd;
+}
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:hover,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:hover,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
+  color: #ffffff;
+}
+.flow-ui-button-althover {
+  opacity: .8;
 }
 .flow-newtopic-form,
 .flow-topics-bar {
@@ -1368,11 +2117,11 @@ h2.flow-topic-title {
   font-size: inherit;
   line-height: inherit;
   -webkit-backface-visibility: hidden;
-  -webkit-transition: border linear 0.2s box-shadow linear 0.2s;
-  -moz-transition: border linear 0.2s box-shadow linear 0.2s;
-  -ms-transition: border linear 0.2s box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s box-shadow linear 0.2s;
-  transition: border linear 0.2s box-shadow linear 0.2s;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 .flow-board .mw-ui-input::-webkit-input-placeholder,
 .flow-board textarea::-webkit-input-placeholder {
@@ -1422,7 +2171,7 @@ h2.flow-topic-title {
   position: relative;
   margin-top: .25em;
 }
-.flow-form-actions .mw-ui-button {
+.flow-form-actions button.flow-ui-button {
   float: right;
   margin-left: .25em;
 }
@@ -1438,7 +2187,7 @@ h2.flow-topic-title {
   .flow-form-actions {
     font-size: 0.75em;
   }
-  .flow-form-actions .mw-ui-button {
+  .flow-form-actions .flow-ui-button {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

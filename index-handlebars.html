@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="client-nojs">
+<!--[if lt IE 7]> <html lang="en" dir="ltr" class="client-nojs ie6 lte-ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" dir="ltr" class="client-nojs ie7 lte-ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" dir="ltr" class="client-nojs ie8 lte-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" dir="ltr" class="client-nojs"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8"/>
 	<title>User talk:10.0.2.2 - devwiki</title>
@@ -68,7 +71,7 @@
 							{{/with}}
 						{{/workflow}}
 						<div class="flow-board-header-nav">
-							<a class="mw-ui-button mw-ui-progressive mw-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="glyphicon glyphicon-pencil"></span></a>
 						</div>
 					</div>
 				</script>
@@ -100,7 +103,7 @@
 							{{/each}}
 							<li class="flow-topic-navigation-footer">
 								{{l10n "topic_count_sidebar" this}}
-								<a href="{{urls.pagination.load_more}}" class="mw-ui-button mw-ui-progressive mw-ui-quiet mw-ui-thin"><span class="glyphicon glyphicon-refresh /*glyphicon-list-alt*/"></span> {{l10n "Load_More"}}</a>
+								<a href="{{urls.pagination.load_more}}" class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin"><span class="glyphicon glyphicon-refresh /*glyphicon-list-alt*/"></span> {{l10n "Load_More"}}</a>
 							</li>
 						{{/workflow}}
 					</ul>
@@ -127,7 +130,7 @@
 								}}{{content}}{{!
 						}}{{#if closing_tag}}</{{closing_tag}}>{{/if}}{{!
 						}}{{#if validation}}<span class="mw-ui-field-icon mw-ui-validation-icon"></span>{{/if}}{{!
-						}}<span class="mw-ui-field-icon mw-ui-focus-icon"></span>{{!
+						}}<a href="javascript:void(0);" class="mw-ui-field-icon mw-ui-uls-icon"></a>{{!
 					}}</label>
 				</script>
 
@@ -137,9 +140,9 @@
 						<textarea class="mw-ui-input flow-form-collapsible" placeholder="{{l10n "topic_details_placeholder"}}"></textarea>
 
 						<div class="flow-form-actions flow-form-collapsible">
-							<button data-role="submit" class="mw-ui-button mw-ui-constructive">{{l10n "Add_Topic"}}</button>
-							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-sleeper">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-sleeper">{{l10n "Cancel"}}</button>
+							<button data-role="submit" class="flow-ui-button flow-ui-constructive">{{l10n "Add_Topic"}}</button>
+							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-sleeper">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-sleeper">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "topic_TOU"}}</small>
 						</div>
@@ -152,8 +155,8 @@
 							<h2 class="flow-topic-title">{{content}}</h2>
 							<span class="flow-author">{{l10n "started_with_participants" this}}</span>
 							<div class="flow-topic-meta">
-								<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
-								<span class="mw-ui-buttonspacer">{{l10n "comment_count" this}}</span>
+								<a class="flow-ui-button flow-ui-progressive flow-ui-sleeper flow-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
+								<span class="flow-ui-buttonspacer">{{l10n "comment_count" this}}</span>
 								{{#if update_time}}
 									<span class="glyphicon glyphicon-time"></span> {{timestamp update_time "active_ago"}}
 								{{else}}
@@ -163,11 +166,11 @@
 
 							<div class="flow-menu">
 								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="caret"></span></a></div>
-								<ul class="mw-ui-button-container">
-									<li><a class="mw-ui-button mw-ui-progressive mw-ui-quiet mw-ui-thin" href="{{urls.actions.lock}}"><span class="glyphicon glyphicon-lock"></span> {{l10n "Lock"}}</a></li>
-									<li><a class="mw-ui-button mw-ui-quiet mw-ui-thin" href="{{urls.actions.hide}}"><span class="glyphicon glyphicon-eye-close"></span> {{l10n "Hide"}}</a></li>
-									<li><a class="mw-ui-button mw-ui-regressive mw-ui-quiet mw-ui-thin" href="{{urls.actions.delete}}"><span class="glyphicon glyphicon-ban-circle"></span> {{l10n "Delete"}}</a></li>
-									<li><a class="mw-ui-button mw-ui-destructive mw-ui-quiet mw-ui-thin" href="{{urls.actions.suppress}}"><span class="glyphicon glyphicon-exclamation-sign"></span> {{l10n "Suppress"}}</a></li>
+								<ul class="flow-ui-button-container">
+									<li><a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.lock}}"><span class="glyphicon glyphicon-lock"></span> {{l10n "Lock"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="glyphicon glyphicon-eye-close"></span> {{l10n "Hide"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="glyphicon glyphicon-ban-circle"></span> {{l10n "Delete"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="glyphicon glyphicon-exclamation-sign"></span> {{l10n "Suppress"}}</a></li>
 								</ul>
 							</div>
 						</div>
@@ -205,10 +208,10 @@
 
 						<div class="flow-menu">
 							<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="caret"></span></a></div>
-							<ul class="mw-ui-button-container">
-								<li><a class="mw-ui-button mw-ui-quiet mw-ui-thin" href="{{urls.actions.hide}}"><span class="glyphicon glyphicon-eye-close"></span> {{l10n "Hide"}}</a></li>
-								<li><a class="mw-ui-button mw-ui-regressive mw-ui-quiet mw-ui-thin" href="{{urls.actions.delete}}"><span class="glyphicon glyphicon-ban-circle"></span> {{l10n "Delete"}}</a></li>
-								<li><a class="mw-ui-button mw-ui-destructive mw-ui-quiet mw-ui-thin" href="{{urls.actions.suppress}}"><span class="glyphicon glyphicon-exclamation-sign"></span> {{l10n "Suppress"}}</a></li>
+							<ul class="flow-ui-button-container">
+								<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="glyphicon glyphicon-eye-close"></span> {{l10n "Hide"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="glyphicon glyphicon-ban-circle"></span> {{l10n "Delete"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="glyphicon glyphicon-exclamation-sign"></span> {{l10n "Suppress"}}</a></li>
 							</ul>
 						</div>
 
@@ -225,9 +228,9 @@
 						<textarea id="flow-post-{{id}}-form-content" data-flow-expandable="true" class="mw-ui-input" type="text" placeholder="{{l10n "Reply_to_author_name" this}}" required="required"></textarea>
 
 						<div class="flow-form-actions flow-form-collapsible">
-							<button data-role="submit" class="mw-ui-button mw-ui-constructive">{{l10n "Reply"}}</button>
-							<button data-role="action" class="mw-ui-button mw-ui-progressive mw-ui-sleeper">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="mw-ui-button mw-ui-destructive mw-ui-sleeper">{{l10n "Cancel"}}</button>
+							<button data-role="submit" class="flow-ui-button flow-ui-constructive">{{l10n "Reply"}}</button>
+							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-sleeper">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-sleeper">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "reply_TOU"}}</small>
 						</div>
@@ -269,6 +272,15 @@
 									{{/each}}
 								{{/workflow}}
 							</div>
+
+							<p>Links: <a href="#" class="flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-destructive">Destructive</a></p>
+							<p>Quiet Links: <a href="#" class="flow-ui-quiet flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-quiet flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-quiet flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-quiet flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-quiet">x</a></p>
+							<p>Buttons: <button class="flow-ui-button flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button">x</a></p>
+							<p>Thin Buttons: <button class="flow-ui-button flow-ui-thin flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-thin flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-thin flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-thin flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button flow-ui-thin">x</a></p>
+							<p>Quiet Buttons: <button class="flow-ui-button flow-ui-quiet flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button flow-ui-quiet">x</a></p>
+							<p>Quiet+Thin Buttons: <button class="flow-ui-button flow-ui-quiet flow-ui-thin flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-thin flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-thin flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-thin flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button flow-ui-quiet flow-ui-thin">x</a></p>
+							<p>Sleeper Buttons: <button class="flow-ui-button flow-ui-sleeper flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button flow-ui-sleeper">x</a></p>
+							<p>Sleeper+Thin Buttons: <button class="flow-ui-button flow-ui-sleeper flow-ui-thin flow-ui-progressive">Progressive</button> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-thin flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-thin flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-thin flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-button flow-ui-sleeper flow-ui-thin">x</a></p>
 
 							<form style="background: #eeeaea; margin: 1em; padding: 1em; border-radius: 2px;" data-flow-initial-state="collapsed">
 								<h5>formElement test -- to be removed</h5>
@@ -367,18 +379,22 @@
 								<span class="mw-ui-tooltip mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
 								<span class="mw-ui-tooltip mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
 								<span class="mw-ui-tooltip mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
 							</form>
 						</div>
 					</div>
