@@ -58,18 +58,17 @@
 
 				<script type="text/x-handlebars-template" id="flow_board_header-partial">
 					<div class="flow-board-header">
-						<div class="flow-click-interactive flow-editable-interactive">
-							{{#workflow board}}
-								{{#with header}}
-									{{#if content}}
-										{{html content}}
-									{{else}}
-										<p>{{l10n "No_header"}}</p>
-									{{/if}}
-								{{/with}}
-							{{/workflow}}
-							<a class="mw-ui-button mw-ui-thin mw-ui-progressive mw-ui-sleeper" href="/">{{l10n "Edit"}}</a>
-							<!-- @todo existing state bottom-right-fixed (and faded-out?) edit button -->
+						{{#workflow board}}
+							{{#with header}}
+								{{#if content}}
+									{{html content}}
+								{{else}}
+									<p>{{l10n "No_header"}}</p>
+								{{/if}}
+							{{/with}}
+						{{/workflow}}
+						<div class="flow-board-header-nav">
+							<a class="mw-ui-button mw-ui-progressive mw-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="glyphicon glyphicon-pencil"></span></a>
 						</div>
 					</div>
 				</script>
@@ -92,11 +91,11 @@
 
 				<script type="text/x-handlebars-template" id="flow_topic_navigation-partial">
 					<ul class="flow-topic-navigation">
-						<li class="flow-topic-navigation-heading"><h5>{{l10n "Topics"}}</h5></li>
 						{{#workflow board}}
+							<li class="flow-topic-navigation-heading"><h5>{{l10n "Topics_n" topics.length}}</h5></li>
 							{{#each topics}}
 								{{#workflow this}}
-									<li class="flow-topic-navigator-wrap"><a href="#flow-topic-{{id}}" class="flow-topic-navigator">{{html content}} <span class="flow-topic-navigator-meta">{{#if update_time}}{{timestamp update_time "active_ago"}}{{else}}{{timestamp start_time "started_ago"}}{{/if}}</span></a></li>
+									<li class="flow-topic-navigator-wrap"><a href="#flow-topic-{{id}}" class="flow-topic-navigator">{{math @index "+" 1}}. {{html content}} <span class="flow-topic-navigator-meta">{{#if update_time}}{{timestamp update_time "active_ago"}}{{else}}{{timestamp start_time "started_ago"}}{{/if}}</span></a></li>
 								{{/workflow}}
 							{{/each}}
 							<li class="flow-topic-navigation-footer">
@@ -153,12 +152,12 @@
 							<h2 class="flow-topic-title">{{content}}</h2>
 							<span class="flow-author">{{l10n "started_with_participants" this}}</span>
 							<div class="flow-topic-meta">
-								{{l10n "comment_count" this}}
 								<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
+								<span class="mw-ui-buttonspacer">{{l10n "comment_count" this}}</span>
 								{{#if update_time}}
-									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View topic history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "active_ago"}}</a>
+									<span class="glyphicon glyphicon-time"></span> {{timestamp update_time "active_ago"}}
 								{{else}}
-									<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.permalink}}" title="Permalink to topic"><span class="glyphicon glyphicon-comment"></span> {{timestamp start_time "started_ago"}}</a>
+									<span class="glyphicon glyphicon-comment"></span> {{timestamp start_time "started_ago"}}
 								{{/if}}
 							</div>
 
@@ -192,12 +191,16 @@
 							{{html content}}
 						</div>
 						<div class="flow-post-meta">
-							<a class="mw-ui-button mw-ui-progressive mw-ui-sleeper mw-ui-thin" href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
-							<a class="mw-ui-button mw-ui-regressive mw-ui-sleeper mw-ui-thin" href="{{urls.edit}}">{{l10n "Edit"}}</a>
-							{{timestamp start_time "time_ago"}}
+							<span class="flow-post-meta-actions">
+								<a href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
+								&#8226;
+								<a href="{{urls.edit}}">{{l10n "Edit"}}</a>
+							</span>
 							{{#if update_time}}
-								<a class="mw-ui-button mw-ui-quiet mw-ui-progressive mw-ui-thin" href="{{urls.history}}" title="View post edit history"><span class="glyphicon glyphicon-time"></span> {{timestamp update_time "edited_ago"}}</a>
+								<span class="glyphicon glyphicon-time"></span> {{timestamp update_time "edited_ago"}}
+								&#8226;
 							{{/if}}
+							{{timestamp start_time "time_ago"}}
 						</div>
 
 						<div class="flow-menu">
@@ -270,7 +273,7 @@
 							<form style="background: #eeeaea; margin: 1em; padding: 1em; border-radius: 2px;" data-flow-initial-state="collapsed">
 								<h5>formElement test -- to be removed</h5>
 								<p>{{formElement this
-								"text"
+									"text"
 									name="texty"
 									placeholder='text'
 								}}</p>
@@ -361,9 +364,21 @@
 									content='cancel (destructive)'
 								}}
 								<span class="mw-ui-tooltip mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
 								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-warning mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
 								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-down" style="position: relative; left: 28em; top: 5px;">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-error mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="mw-ui-tooltip mw-ui-tooltip-info mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
 							</form>
 						</div>
 					</div>

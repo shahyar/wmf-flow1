@@ -1,3 +1,12 @@
+.mw-ui-buttonspacer {
+	padding: .25em .5em;
+}
+.mw-ui-button.mw-ui-quiet.mw-ui-thin {
+	// @todo KILL QUIET!
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .mw-ui-field {
 	position: relative;
 	display: inline-block;
@@ -191,16 +200,14 @@
 	top: 1px;
 	display: inline-block;
 	padding: .5em;
-	background: #fff;
+	background: @colorWhite;
 	color: @colorText;
 	white-space: nowrap;
 	border-radius: 3px;
-	box-shadow: 0 2px 0 0 @colorGrayLight;
 	text-shadow: 0px 1px 0 rgba(0,0,0,.25);
+	box-shadow: 0 2px 0 0 @colorGrayLight;
 
 	.mw-ui-tooltip-triangle {
-		width: 2em;
-		height: 2em;
 		position: absolute;
 		overflow: hidden;
 		pointer-events: none;
@@ -208,114 +215,122 @@
 		&:after {
 			content: "";
 			position: absolute;
+			z-index: 1;
 			width: 1em;
 			height: 1em;
 			background: #fff;
 			transform: rotate(45deg);
 			-webkit-transform: rotate(45deg);
-			box-shadow: 1px -1px 0 1px @colorGrayLight;
-		}
-	}
-
-	&.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
-		left: -2em;
-		top: 50%;
-		margin-top: -.75em;
-
-		&:after {
-			top: .25em;
-			right: -.5em;
-			box-shadow: 1px 1px 0 1px @colorGrayLight;
 		}
 	}
 
 	&.mw-ui-tooltip-up .mw-ui-tooltip-triangle {
+		width: 2em;
+		height: 1em;
 		left: 50%;
-		top: -2em;
-		margin-left: -.5em;
+		top: -1em;
+		margin-left: -1em;
 
 		&:after {
-			bottom: -.5em;
-			right: .75em;
-			box-shadow: 1px 0px 0 1px@colorGrayLight;
+			top: .5em;
+			left: .5em;
 		}
 	}
 
 	&.mw-ui-tooltip-down .mw-ui-tooltip-triangle {
+		width: 2em;
+		height: 1em;
 		left: 50%;
-		bottom: -2em;
-		margin-left: -1.125em;
+		bottom: -1em;
+		margin-left: -1em;
 
 		&:after {
 			top: -.5em;
-			right: .25em;
+			left: .5em;
+			box-shadow: 0 -2px 0 2px @colorGrayLight;
+		}
+	}
+
+	&.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
+		width: 1em;
+		height: 2em;
+		left: -1em;
+		top: 50%;
+		margin-top: -1em;
+
+		&:after {
+			margin-top: -1px;
+			top: .5em;
+			right: -.5em;
+			box-shadow: 2px 0 0 2px @colorGrayLight;
 		}
 	}
 
 	&.mw-ui-tooltip-right .mw-ui-tooltip-triangle {
-		right: -2em;
+		width: 1em;
+		height: 2em;
+		right: -1em;
 		top: 50%;
-		margin-top: -.75em;
+		margin-top: -1em;
 
 		&:after {
-			top: .25em;
+			margin-top: -1px;
+			top: .5em;
 			left: -.5em;
-			box-shadow: 1px 1px 0 1px @colorGrayLight;
+			box-shadow: 0 2px 0 2px @colorGrayLight;
 		}
 	}
 
 	&.mw-ui-tooltip-info {
-		background: #347bff;
-		color: #fff;
-		box-shadow: 0 2px 0 0 #2859BF;
+		background: @colorInfo;
+		color: @colorWhite;
+		box-shadow: 0 2px 0 0 @colorInfoDark;
 		.mw-ui-tooltip-triangle:after {
-			background: #347bff;
-			box-shadow: 1px -1px 0 1px #2859BF;
+			background: @colorInfo;
+		}
+		&.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+			box-shadow: 0 -2px 0 2px @colorInfoDark;
 		}
 		&.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #2859BF;
-		}
-		&.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 0px 0 1px #2859BF;
+			box-shadow: 2px 0 0 2px @colorInfoDark;
 		}
 		&.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #2859BF;
+			box-shadow: 0 2px 0 2px @colorInfoDark;
 		}
 	}
 	&.mw-ui-tooltip-warning {
-		background: #00af8b;
-		color: #fff;
+		background: @colorWarning;
+		color: @colorWhite;
 		box-shadow: 0 2px 0 0 #007053;
 		.mw-ui-tooltip-triangle:after {
-			background: #00af8b;
-			box-shadow: 1px -1px 0 1px #007053;
+			background: @colorWarning;
+		}
+		&.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+			box-shadow: 0 -2px 0 2px @colorWarningDark;
 		}
 		&.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #007053;
-		}
-		&.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 0px 0 1px #007053;
+			box-shadow: 2px 0 0 2px @colorWarningDark;
 		}
 		&.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #007053;
+			box-shadow: 0 2px 0 2px @colorWarningDark;
 		}
 	}
 	&.mw-ui-tooltip-error {
-		background: #d11813;
-		color: #fff;
-		box-shadow: 0 2px 0 0 #92120E;
+		background: @colorError;
+		color: @colorWhite;
+		box-shadow: 0 2px 0 0 @colorErrorDark;
+
 		.mw-ui-tooltip-triangle:after {
-			background: #d11813;
-			box-shadow: 1px -1px 0 1px #92120E;
+			background: @colorError;
+		}
+		&.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+			box-shadow: 0 -2px 0 2px @colorErrorDark;
 		}
 		&.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #007053;
-		}
-		&.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 0px 0 1px #007053;
+			box-shadow: 2px 0 0 2px @colorErrorDark;
 		}
 		&.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-			box-shadow: 1px 1px 0 1px #92120E;
+			box-shadow: 0 2px 0 2px @colorErrorDark;
 		}
 	}
 }

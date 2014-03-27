@@ -17,6 +17,7 @@
 		var parentReturn = this.parent.apply( this, arguments );
 		delete this.parent;
 		if ( parentReturn && parentReturn.constructor ) {
+			// If the parent returned an instantiated class (cached), return that
 			return parentReturn;
 		}
 
@@ -344,7 +345,7 @@
 
 		/**
 		 * Takes a Flow board's hard links and makes them run dynamically with JS instead.
-		 * @param {FlowBoard} flowBoard
+		 * @param {FlowBoardComponent} flowBoard
 		 */
 		FlowBoardComponent.UI.makeBoardInteractive = function ( flowBoard ) {
 			var $container = flowBoard.$container,
@@ -384,7 +385,7 @@
 
 		/**
 		 * Binds event handlers to individual boards
-		 * @param {FlowBoard} flowBoard
+		 * @param {FlowBoardComponent} flowBoard
 		 */
 		FlowBoardComponent.UI.bindBoardHandlers = function ( flowBoard ) {
 			var $container = flowBoard.$container,
@@ -398,10 +399,10 @@
 					FlowBoardComponent.UI.events.onClickInteractive
 				)
 				.on( // @todo REMOVE. This is just to stop from following empty links in demo.
-				'click',
-				"a[href='#']",
-				function () { event.preventDefault(); }
-			);
+					'click',
+					"a[href='#']",
+					function () { event.preventDefault(); }
+				);
 
 			// Board handlers
 			$board

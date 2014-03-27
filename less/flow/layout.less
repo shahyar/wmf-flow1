@@ -1,7 +1,7 @@
 // Keep a fixed spacing between each individual flow section
 .flow-newtopic-form,
 .flow-topics-bar {
-	padding-top: 1em;
+	padding-top: 1.5em;
 }
 
 // Top board header
@@ -17,6 +17,26 @@
 	line-height: 1.4em;
 }
 
+// Top board header
+.flow-board-header-nav {
+	position: relative;
+	text-align: right;
+}
+// Top board header edit icon
+.flow-board-header-icon {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	.glyphicon {
+		color: @colorGrayLighter;
+	}
+	&:focus, &:hover {
+		.glyphicon {
+			color: @colorGrayDark;
+		}
+	}
+}
 
 // Top board navigation bar
 .flow-board-navigation {
@@ -146,18 +166,9 @@ ul.flow-topic-navigation-fixed {
 // Individual topic containers
 .flow-topic {
 	padding: 1.5em 0;
-	border-bottom: 1px dotted @colorGrayLight;
 
 	&.flow-active {
 
-	}
-
-	&:last-of-type {
-		border-bottom: none;
-	}
-
-	.flow-author {
-		color: @colorText;
 	}
 }
 
@@ -173,11 +184,14 @@ ul.flow-topic-navigation-fixed {
 h2.flow-topic-title {
 	padding: 0;
 	border-bottom: none;
-	margin-bottom: 0.25em;
+	margin-bottom: 0.33em;
+	font-size: 1.75em;
+	overflow: visible;
 }
 
 // Topic metadata
 .flow-topic-meta {
+	padding-top: .33em;
 	color: @colorGrayDark;
 }
 
@@ -200,14 +214,44 @@ h2.flow-topic-title {
 		padding-left: 1em;
 		border-left: 1px dotted @colorGrayLighter;
 	}
+
+	// Author link in post
+	.flow-author {
+		display: block;
+		color: @colorText;
+
+		.mw-userlink {
+			font-weight: bold;
+		}
+
+		.mw-usertoollinks {
+			opacity: 0;
+			.transition( opacity .25s linear );
+		}
+		&:hover .mw-usertoollinks {
+			opacity: 1;
+		}
+	}
 }
 
 // Comment metadata
 .flow-post-meta {
+	// @todo needs overflow: hidden but crops button border at bottom
 	color: @colorGrayDark;
+	font-size: .875em;
+	text-align: right;
+}
 
-	> * {
-		margin-right: .25em;
+.flow-post-meta-actions {
+	float: left;
+
+	a {
+		&, &:visited {
+			color: @colorTextLight;
+		}
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -268,9 +312,6 @@ h2.flow-topic-title {
 
 	.flow-post-meta {
 		font-size: .875em;
-
-		> * {
-		}
 	}
 
 	/* not important stuff -- only here for mediawiki on mobile in test version */

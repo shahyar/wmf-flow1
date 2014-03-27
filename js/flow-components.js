@@ -110,13 +110,13 @@
 	 * Contains the Flow templating engine translation class (in case we change templating engines).
 	 * @type {FlowHandlebars}
 	 */
-	mw.flow.TemplateEngine = FlowComponent.prototype.TemplateEngine = new FlowHandlebars( FlowComponent.prototype.StorageEngine );
+	mw.flow.TemplateEngine = FlowComponent.prototype.TemplateEngine = new mw.flow.FlowHandlebars( FlowComponent.prototype.StorageEngine );
 
 	/**
 	 * Contains the Flow history state manager.
 	 * @type {FlowHistoryStateManager}
 	 */
-	mw.flow.HistoryEngine = FlowComponent.prototype.HistoryEngine = new FlowHistoryStateManager( FlowComponent.prototype.StorageEngine );
+	mw.flow.HistoryEngine = FlowComponent.prototype.HistoryEngine = new mw.flow.FlowHistoryStateManager( FlowComponent.prototype.StorageEngine );
 
 	/**
 	 * Takes any length of arguments, and passes it off to console.log.

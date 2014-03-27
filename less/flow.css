@@ -1,6 +1,13 @@
 #bodyContent {
   font-size: .875em;
 }
+.mw-ui-buttonspacer {
+  padding: .25em .5em;
+}
+.mw-ui-button.mw-ui-quiet.mw-ui-thin {
+  padding-left: 0;
+  padding-right: 0;
+}
 .mw-ui-field {
   position: relative;
   display: inline-block;
@@ -183,16 +190,14 @@
   top: 1px;
   display: inline-block;
   padding: .5em;
-  background: #fff;
+  background: #ffffff;
   color: #252525;
   white-space: nowrap;
   border-radius: 3px;
-  box-shadow: 0 2px 0 0 #cccccc;
   text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 0 0 #cccccc;
 }
 .mw-ui-tooltip .mw-ui-tooltip-triangle {
-  width: 2em;
-  height: 2em;
   position: absolute;
   overflow: hidden;
   pointer-events: none;
@@ -200,109 +205,116 @@
 .mw-ui-tooltip .mw-ui-tooltip-triangle:after {
   content: "";
   position: absolute;
+  z-index: 1;
   width: 1em;
   height: 1em;
   background: #fff;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  box-shadow: 1px -1px 0 1px #cccccc;
-}
-.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
-  left: -2em;
-  top: 50%;
-  margin-top: -0.75em;
-}
-.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  top: .25em;
-  right: -0.5em;
-  box-shadow: 1px 1px 0 1px #cccccc;
 }
 .mw-ui-tooltip.mw-ui-tooltip-up .mw-ui-tooltip-triangle {
+  width: 2em;
+  height: 1em;
   left: 50%;
-  top: -2em;
-  margin-left: -0.5em;
+  top: -1em;
+  margin-left: -1em;
 }
 .mw-ui-tooltip.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-  bottom: -0.5em;
-  right: .75em;
-  box-shadow: 1px 0px 0 1px #cccccc;
+  top: .5em;
+  left: .5em;
 }
 .mw-ui-tooltip.mw-ui-tooltip-down .mw-ui-tooltip-triangle {
+  width: 2em;
+  height: 1em;
   left: 50%;
-  bottom: -2em;
-  margin-left: -1.125em;
+  bottom: -1em;
+  margin-left: -1em;
 }
 .mw-ui-tooltip.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
   top: -0.5em;
-  right: .25em;
+  left: .5em;
+  box-shadow: 0 -2px 0 2px #cccccc;
+}
+.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
+  width: 1em;
+  height: 2em;
+  left: -1em;
+  top: 50%;
+  margin-top: -1em;
+}
+.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+  margin-top: -1px;
+  top: .5em;
+  right: -0.5em;
+  box-shadow: 2px 0 0 2px #cccccc;
 }
 .mw-ui-tooltip.mw-ui-tooltip-right .mw-ui-tooltip-triangle {
-  right: -2em;
+  width: 1em;
+  height: 2em;
+  right: -1em;
   top: 50%;
-  margin-top: -0.75em;
+  margin-top: -1em;
 }
 .mw-ui-tooltip.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  top: .25em;
+  margin-top: -1px;
+  top: .5em;
   left: -0.5em;
-  box-shadow: 1px 1px 0 1px #cccccc;
+  box-shadow: 0 2px 0 2px #cccccc;
 }
 .mw-ui-tooltip.mw-ui-tooltip-info {
   background: #347bff;
-  color: #fff;
-  box-shadow: 0 2px 0 0 #2859BF;
+  color: #ffffff;
+  box-shadow: 0 2px 0 0 #2859bf;
 }
 .mw-ui-tooltip.mw-ui-tooltip-info .mw-ui-tooltip-triangle:after {
   background: #347bff;
-  box-shadow: 1px -1px 0 1px #2859bf;
+}
+.mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  box-shadow: 0 -2px 0 2px #2859bf;
 }
 .mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #2859BF;
-}
-.mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 0px 0 1px #2859BF;
+  box-shadow: 2px 0 0 2px #2859bf;
 }
 .mw-ui-tooltip.mw-ui-tooltip-info.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #2859BF;
+  box-shadow: 0 2px 0 2px #2859bf;
 }
 .mw-ui-tooltip.mw-ui-tooltip-warning {
   background: #00af8b;
-  color: #fff;
+  color: #ffffff;
   box-shadow: 0 2px 0 0 #007053;
 }
 .mw-ui-tooltip.mw-ui-tooltip-warning .mw-ui-tooltip-triangle:after {
   background: #00af8b;
-  box-shadow: 1px -1px 0 1px #007053;
+}
+.mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  box-shadow: 0 -2px 0 2px #007053;
 }
 .mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #007053;
-}
-.mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 0px 0 1px #007053;
+  box-shadow: 2px 0 0 2px #007053;
 }
 .mw-ui-tooltip.mw-ui-tooltip-warning.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #007053;
+  box-shadow: 0 2px 0 2px #007053;
 }
 .mw-ui-tooltip.mw-ui-tooltip-error {
   background: #d11813;
-  color: #fff;
-  box-shadow: 0 2px 0 0 #92120E;
+  color: #ffffff;
+  box-shadow: 0 2px 0 0 #92120e;
 }
 .mw-ui-tooltip.mw-ui-tooltip-error .mw-ui-tooltip-triangle:after {
   background: #d11813;
-  box-shadow: 1px -1px 0 1px #92120e;
+}
+.mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+  box-shadow: 0 -2px 0 2px #92120e;
 }
 .mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #007053;
-}
-.mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 0px 0 1px #007053;
+  box-shadow: 2px 0 0 2px #92120e;
 }
 .mw-ui-tooltip.mw-ui-tooltip-error.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
-  box-shadow: 1px 1px 0 1px #92120E;
+  box-shadow: 0 2px 0 2px #92120e;
 }
 .flow-newtopic-form,
 .flow-topics-bar {
-  padding-top: 1em;
+  padding-top: 1.5em;
 }
 .flow-board-header,
 .flow-board {
@@ -314,6 +326,22 @@
   max-width: 915px;
   font-size: 1em;
   line-height: 1.4em;
+}
+.flow-board-header-nav {
+  position: relative;
+  text-align: right;
+}
+.flow-board-header-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.flow-board-header-icon .glyphicon {
+  color: #dddddd;
+}
+.flow-board-header-icon:focus .glyphicon,
+.flow-board-header-icon:hover .glyphicon {
+  color: #898989;
 }
 .flow-board-navigation {
   clear: both;
@@ -430,13 +458,6 @@ ul.flow-topic-navigation-fixed {
 }
 .flow-topic {
   padding: 1.5em 0;
-  border-bottom: 1px dotted #cccccc;
-}
-.flow-topic:last-of-type {
-  border-bottom: none;
-}
-.flow-topic .flow-author {
-  color: #252525;
 }
 .flow-topic-titlebar {
   position: relative;
@@ -447,9 +468,12 @@ ul.flow-topic-navigation-fixed {
 h2.flow-topic-title {
   padding: 0;
   border-bottom: none;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.33em;
+  font-size: 1.75em;
+  overflow: visible;
 }
 .flow-topic-meta {
+  padding-top: .33em;
   color: #898989;
 }
 .flow-menu {
@@ -466,11 +490,40 @@ h2.flow-topic-title {
   padding-left: 1em;
   border-left: 1px dotted #dddddd;
 }
+.flow-post .flow-author {
+  display: block;
+  color: #252525;
+}
+.flow-post .flow-author .mw-userlink {
+  font-weight: bold;
+}
+.flow-post .flow-author .mw-usertoollinks {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: opacity 0.25s linear;
+  -moz-transition: opacity 0.25s linear;
+  -ms-transition: opacity 0.25s linear;
+  -o-transition: opacity 0.25s linear;
+  transition: opacity 0.25s linear;
+}
+.flow-post .flow-author:hover .mw-usertoollinks {
+  opacity: 1;
+}
 .flow-post-meta {
   color: #898989;
+  font-size: .875em;
+  text-align: right;
 }
-.flow-post-meta > * {
-  margin-right: .25em;
+.flow-post-meta-actions {
+  float: left;
+}
+.flow-post-meta-actions a,
+.flow-post-meta-actions a:visited {
+  color: #777777;
+}
+.flow-post-meta-actions a:hover,
+.flow-post-meta-actions a:focus {
+  text-decoration: underline;
 }
 @media (max-width: 700px) and (min-device-width: 700px), (max-device-width: 700px) {
   .flow-board-navigation {
@@ -631,21 +684,6 @@ h2.flow-topic-title {
 }
 .client-js div.flow-post > .flow-menu .flow-menu-js-drop .caret {
   border-top-color: #cccccc;
-}
-div.flow-editable-interactive {
-  border: 1px solid transparent;
-  cursor: text;
-  position: relative;
-}
-div.flow-editable-interactive:hover {
-  width: 100%;
-  border-color: #cccccc;
-  padding: 0 0 0 .6em;
-  left: -0.6em;
-}
-div.flow-editable-interactive a,
-div.flow-editable-interactive button {
-  display: none;
 }
 .flow-timestamp {
   box-sizing: border-box;
