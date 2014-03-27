@@ -506,7 +506,7 @@ except when used in combination with .mw-ui-button.
 
 // Default button styles
 .flowUIButtonDefault() {
-	background: transparent;
+	background: @colorGrayLightest;
 	color: @colorTextLight;
 
 	.flowUIButtonNormalMode() {
@@ -536,6 +536,20 @@ except when used in combination with .mw-ui-button.
 		&:focus,
 		&:active {
 			color: @colorText;
+		}
+	}
+
+	// Sleeper mode (transparent bg, no border; bg on activity)
+	.lte-ie8 &.flow-ui-sleeper,
+	&.flow-ui-sleeper {
+		background: transparent;
+		// Fake border around
+		.boxShadow( inset 0 0 0 1px @colorGrayLighter );
+
+		&:hover {
+			background: @colorOffWhite;
+			// Fake border around, shadow under outer, 3D raising inner, edge shading inner
+			.boxShadow( inset 0 0 0 1px @colorGrayLighter, 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 @colorGrayLighter, inset 0 -1px 1px 0 rgba(0, 0, 0, .05) );
 		}
 	}
 }
