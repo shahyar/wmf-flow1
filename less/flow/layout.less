@@ -27,14 +27,11 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	opacity: .33;
 
-	.glyphicon {
-		color: @colorGrayLighter;
-	}
-	&:focus, &:hover {
-		.glyphicon {
-			color: @colorGrayDark;
-		}
+	&:hover,
+	&:focus {
+		opacity: 1;
 	}
 }
 
@@ -82,9 +79,9 @@
 		}
 		&.flow-board-navigator-last {
 			position: absolute;
-			bottom: 0;
+			bottom: 1px;
 			right: -2.5em;
-			width: 1em;
+			width: 1.1em;
 			border-bottom: 1px solid @colorGrayLight;
 		}
 	}

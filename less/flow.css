@@ -513,6 +513,11 @@ a.flow-ui-destructive[class].flow-ui-quiet:active {
 # IE6 does not apply any .mw-ui-button styles at all on BUTTON.
 # IE6 only applies the base .mw-ui-CONTEXT color on A, and doesn't care if you are combining it (ie. .mw-ui-destructive.mw-ui-quiet = always red text).
  */
+.flow-ui-buttonspacer {
+  display: inline-block;
+  padding: .25em .5em;
+  vertical-align: inherit;
+}
 a.flow-ui-button[class],
 button.flow-ui-button[class] {
   display: inline-block;
@@ -1134,13 +1139,11 @@ button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
   position: absolute;
   bottom: 0;
   right: 0;
+  opacity: .33;
 }
-.flow-board-header-icon .glyphicon {
-  color: #dddddd;
-}
-.flow-board-header-icon:focus .glyphicon,
-.flow-board-header-icon:hover .glyphicon {
-  color: #898989;
+.flow-board-header-icon:hover,
+.flow-board-header-icon:focus {
+  opacity: 1;
 }
 .flow-board-navigation {
   clear: both;
@@ -1183,9 +1186,9 @@ button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
 }
 .flow-board-navigation a.flow-board-navigator-last {
   position: absolute;
-  bottom: 0;
+  bottom: 1px;
   right: -2.5em;
-  width: 1em;
+  width: 1.1em;
   border-bottom: 1px solid #cccccc;
 }
 ul.flow-topic-navigation {
@@ -1402,16 +1405,11 @@ h2.flow-topic-title {
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
-
 @font-face {
-  font-family: 'Wikimedia';
-  src: url('Wikicons.eot'); 
-  src: url('Wikicons.eot?#iefix') format('embedded-opentype'),
-       url('Wikicons.woff') format('woff'), 
-       url('Wikicons.ttf')  format('truetype'), 
-       url('Wikicons.svg#84004e915ca614f58de23ef0213abb81') format('svg'); 
+  font-family: 'Wikicons';
+  src: url('../fonts/Wikicons.eot');
+  src: url('../fonts/Wikicons.eot?#iefix') format('embedded-opentype'), url('../fonts/Wikicons.woff') format('woff'), url('../fonts/Wikicons.ttf') format('truetype'), url('../fonts/Wikicons.svg#84004e915ca614f58de23ef0213abb81') format('svg');
 }
-
 .flow-menu {
   position: absolute;
   bottom: 0;
@@ -1473,26 +1471,16 @@ h2.flow-topic-title {
 .client-js div > .flow-menu .flow-menu-js-drop a {
   display: inline-block;
   padding: 0 .5em;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.25);
+  background: #fafafa;
+  background: rgba(250, 250, 250, 0.75);
   border: 1px solid #cccccc;
   border-radius: 3px;
   border-width: 0;
-}
-.client-js div > .flow-menu .flow-menu-js-drop .caret {
-  border-top-color: #898989;
-}
-.client-js div.flow-post > .flow-menu ul {
-  background: #eeeeee;
-  background: rgba(238, 238, 238, 0.75);
-  border-radius: 3px;
+  color: #777777;
 }
 .client-js div.flow-post > .flow-menu .flow-menu-js-drop a {
-  border-color: #dddddd;
+  border-color: #eeeeee;
   border-width: 1px;
-}
-.client-js div.flow-post > .flow-menu .flow-menu-js-drop .caret {
-  border-top-color: #cccccc;
 }
 .flow-timestamp {
   box-sizing: border-box;
@@ -1563,13 +1551,13 @@ h2.flow-topic-title {
   content: "\20ac";
 }
 .glyphicon-minus:before {
-  content: "\2212";
+  content: "\e002212";
 }
 .glyphicon-cloud:before {
-  content: "\2601";
+  content: "\e002601";
 }
 .glyphicon-envelope:before {
-  content: "\2709";
+  content: "\e002709";
 }
 .glyphicon-pencil:before {
   content: "\270f";
@@ -2153,165 +2141,174 @@ h2.flow-topic-title {
 .glyphicon-bowrench:before {
   content: "\1f527";
 }
-
-
-.wikicons-magnifyingGlass:before {
+.wikicon {
+  display: inline-block;
+  margin: 0 -0.2em;
+  font-family: 'Wikicons';
+  -webkit-font-smoothing: antialiased;
+  font-size: 2em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: inherit;
+  overflow: visible;
+  vertical-align: text-bottom;
+}
+.wikicon-magnifying-glass:before {
   content: "\41";
 }
-.Wikicons-arrowLeft:before {
+.wikicon-arrow-left:before {
   content: "\42";
 }
-.Wikicons-tick:before {
+.wikicon-tick:before {
   content: "\43";
 }
-.Wikicons-x:before {
+.wikicon-x:before {
   content: "\44";
 }
-.Wikicons-xCircle:before {
+.wikicon-x-circle:before {
   content: "\45";
 }
-.Wikicons-translate:before {
+.wikicon-translate:before {
   content: "\46";
 }
-.Wikicons-move:before {
+.wikicon-move:before {
   content: "\47";
 }
-.Wikicons-puzzle:before {
+.wikicon-puzzle:before {
   content: "\48";
 }
-.Wikicons-envelope:before {
+.wikicon-envelope:before {
   content: "\49";
 }
-.Wikicons-dice:before {
+.wikicon-dice:before {
   content: "\4a";
 }
-.Wikicons-bookmark:before {
+.wikicon-bookmark:before {
   content: "\4b";
 }
-.Wikicons-article:before {
+.wikicon-article:before {
   content: "\4c";
 }
-.Wikicons-pin:before {
+.wikicon-pin:before {
   content: "\4d";
 }
-.Wikicons-gear:before {
+.wikicon-gear:before {
   content: "\4e";
 }
-.Wikicons-elipses:before {
+.wikicon-ellipsis:before {
   content: "\4f";
 }
-.Wikicons-printer:before {
+.wikicon-printer:before {
   content: "\50";
 }
-.Wikicons-lock:before {
+.wikicon-lock:before {
   content: "\51";
 }
-.Wikicons-clock:before {
+.wikicon-clock:before {
   content: "\52";
 }
-.Wikicons-unstar:before {
+.wikicon-unstar:before {
   content: "\53";
 }
-.Wikicons-star:before {
+.wikicon-star:before {
   content: "\54";
 }
-.Wikicons-wikitrail:before {
+.wikicon-wikitrail:before {
   content: "\55";
 }
-.Wikicons-eye:before {
+.wikicon-eye:before {
   content: "\56";
 }
-.Wikicons-eyeLid:before {
+.wikicon-eye-lid:before {
   content: "\57";
 }
-.Wikicons-funnel:before {
+.wikicon-funnel:before {
   content: "\58";
 }
-.Wikicons-expanded:before {
+.wikicon-expanded:before {
   content: "\59";
 }
-.Wikicons-toc:before {
+.wikicon-toc:before {
   content: "\5a";
 }
-.Wikicons-compact:before {
+.wikicon-compact:before {
   content: "\5b";
 }
-.Wikicons-flag:before {
+.wikicon-flag:before {
   content: "\5c";
 }
-.Wikicons-flagSlash:before {
+.wikicon-flag-slash:before {
   content: "\5d";
 }
-.Wikicons-trash:before {
+.wikicon-trash:before {
   content: "\5e";
 }
-.Wikicons-trashSlash:before {
+.wikicon-trash-slash:before {
   content: "\5f";
 }
-.Wikicons-block:before {
+.wikicon-block:before {
   content: "\60";
 }
-.Wikicons-blockSlash:before {
+.wikicon-block-slash:before {
   content: "\61";
 }
-.Wikicons-stop:before {
+.wikicon-stop:before {
   content: "\62";
 }
-.Wikicons-play:before {
+.wikicon-play:before {
   content: "\63";
 }
-.Wikicons-pencil:before {
+.wikicon-pencil:before {
   content: "\64";
 }
-.Wikicons-pencilLock:before {
+.wikicon-pencil-lock:before {
   content: "\65";
 }
-.Wikicons-pencilRevert:before {
+.wikicon-pencil-revert:before {
   content: "\66";
 }
-.Wikicons-speechBubble:before {
+.wikicon-speech-bubble:before {
   content: "\67";
 }
-.Wikicons-speechBubbles:before {
+.wikicon-speech-bubbles:before {
   content: "\68";
 }
-.Wikicons-speechBubbleAdd:before {
+.wikicon-speech-bubble-add:before {
   content: "\69";
 }
-.Wikicons-speechBubbleSmile:before {
+.wikicon-speech-bubble-smile:before {
   content: "\6a";
 }
-.Wikicons-userSmile:before {
+.wikicon-user-smile:before {
   content: "\6b";
 }
-.Wikicons-userSleep:before {
+.wikicon-user-sleep:before {
   content: "\6c";
 }
-.Wikicons-quotes:before {
+.wikicon-quotes:before {
   content: "\6d";
 }
-.Wikicons-quotesAdd:before {
+.wikicon-quotes-add:before {
   content: "\6e";
 }
-.Wikicons-imageAdd:before {
+.wikicon-image-add:before {
   content: "\6f";
 }
-.Wikicons-image:before {
+.wikicon-image:before {
   content: "\70";
 }
-.Wikicons-imageLock:before {
+.wikicon-image-lock:before {
   content: "\71";
 }
-.Wikicons-folder:before {
+.wikicon-folder:before {
   content: "\72";
 }
-.Wikicons-imagePlaceholder:before {
+.wikicon-image-placeholder:before {
   content: "\73";
 }
-.Wikicons-folderPlaceholder:before {
+.wikicon-folder-placeholder:before {
   content: "\74";
 }
-
 @media (max-width: 700px) and (min-device-width: 700px), (max-device-width: 700px) {
   ul.flow-menu {
     position: static;
