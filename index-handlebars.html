@@ -71,18 +71,18 @@
 							{{/with}}
 						{{/workflow}}
 						<div class="flow-board-header-nav">
-							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="wikicons wikicons-pencil"></span></a>
+							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="wikicon wikicon-pencil"></span></a>
 						</div>
 					</div>
 				</script>
 
 				<script type="text/x-handlebars-template" id="flow_board_navigation-partial">
 					<div class="flow-board-navigation">
-						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="wikicons wikicons-magnifying-glass" title="Search"></span></a>
+						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="wikicon wikicon-magnifying-glass" title="Search"></span></a>
 						<div>
-							<a href="{{url 'collapser.small_topics'}}"       class="flow-board-navigator-right flow-board-navigator-cap"><span class="wikicons wikicons-compact" title="{{l10n "Small_topics"}}"></span></a>
-							<a href="{{url 'collapser.topics_only'}}"        class="flow-board-navigator-right"><span class="wikicons wikicons-toc" title="{{l10n "Topics_only"}}"></span></a>
-							<a href="{{url 'collapser.topics_and_posts'}}"   class="flow-board-navigator-right"><span class="wikicons wikicons-expanded" title="{{l10n "Topics_and_posts"}}"></span></a>
+							<a href="{{url 'collapser.small_topics'}}"       class="flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-compact" title="{{l10n "Small_topics"}}"></span></a>
+							<a href="{{url 'collapser.topics_only'}}"        class="flow-board-navigator-right"><span class="wikicon wikicon-toc" title="{{l10n "Topics_only"}}"></span></a>
+							<a href="{{url 'collapser.topics_and_posts'}}"   class="flow-board-navigator-right"><span class="wikicon wikicon-expanded" title="{{l10n "Topics_and_posts"}}"></span></a>
 							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-first">{{l10n "Newest_topics"}}</a>
 							{{!--
 							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-cap flow-board-navigator-first">{{l10n "Topics"}}</a>
@@ -103,7 +103,7 @@
 							{{/each}}
 							<li class="flow-topic-navigation-footer">
 								{{l10n "topic_count_sidebar" this}}
-								<a href="{{urls.pagination.load_more}}" class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin"><span class="wikicons wikicons-article"></span> {{l10n "Load_More"}}</a>
+								<a href="{{urls.pagination.load_more}}" class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin"><span class="wikicon wikicon-article"></span> {{l10n "Load_More"}}</a>
 							</li>
 						{{/workflow}}
 					</ul>
@@ -158,19 +158,19 @@
 								<a class="flow-ui-button flow-ui-progressive flow-ui-sleeper flow-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
 								<span class="flow-ui-buttonspacer">{{l10n "comment_count" this}}</span>
 								{{#if update_time}}
-									<span class="wikicons wikicons-speech-bubbles"></span> {{timestamp update_time "active_ago"}}
+									<span class="wikicon wikicon-speech-bubbles"></span> {{timestamp update_time "active_ago"}}
 								{{else}}
-									<span class="wikicons wikicons-speech-bubble"></span> {{timestamp start_time "started_ago"}}
+									<span class="wikicon wikicon-speech-bubble"></span> {{timestamp start_time "started_ago"}}
 								{{/if}}
 							</div>
 
 							<div class="flow-menu">
-								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicons wikicons-ellipsis"></span></a></div>
+								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicon wikicon-ellipsis"></span></a></div>
 								<ul class="flow-ui-button-container">
-									<li><a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.lock}}"><span class="wikicons wikicons-lock"></span> {{l10n "Lock"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicons wikicons-eye-lid"></span> {{l10n "Hide"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicons wikicons-trash-slash"></span> {{l10n "Delete"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicons wikicons-block-slash"></span> {{l10n "Suppress"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.lock}}"><span class="wikicon wikicon-lock"></span> {{l10n "Lock"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicon wikicon-eye-lid"></span> {{l10n "Hide"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicon wikicon-trash-slash"></span> {{l10n "Delete"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicon wikicon-block-slash"></span> {{l10n "Suppress"}}</a></li>
 								</ul>
 							</div>
 						</div>
@@ -200,18 +200,18 @@
 								<a href="{{urls.edit}}">{{l10n "Edit"}}</a>
 							</span>
 							{{#if update_time}}
-								<span class="wikicons wikicons-clock"></span> {{timestamp update_time "edited_ago"}}
+								<span class="wikicon wikicon-clock"></span> {{timestamp update_time "edited_ago"}}
 								&#8226;
 							{{/if}}
 							{{timestamp start_time "time_ago"}}
 						</div>
 
 						<div class="flow-menu">
-							<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicons wikicons-ellipsis"></span></a></div>
+							<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicon wikicon-ellipsis"></span></a></div>
 							<ul class="flow-ui-button-container">
-								<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicons wikicons-eye-lid"></span> {{l10n "Hide"}}</a></li>
-								<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicons wikicons-trash-slash"></span> {{l10n "Delete"}}</a></li>
-								<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicons wikicons-block-slash"></span> {{l10n "Suppress"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicon wikicon-eye-lid"></span> {{l10n "Hide"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicon wikicon-trash-slash"></span> {{l10n "Delete"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicon wikicon-block-slash"></span> {{l10n "Suppress"}}</a></li>
 							</ul>
 						</div>
 
@@ -273,7 +273,7 @@
 								{{/workflow}}
 							</div>
 
-							<p>wikicons: <span class="wikicons wikicons-magnifying-glass"></span><span class="wikicons wikicons-arrow-left"></span><span class="wikicons wikicons-tick"></span><span class="wikicons wikicons-x"></span><span class="wikicons wikicons-x-circle"></span><span class="wikicons wikicons-translate"></span><span class="wikicons wikicons-move"></span><span class="wikicons wikicons-puzzle"></span><span class="wikicons wikicons-envelope"></span><span class="wikicons wikicons-dice"></span><span class="wikicons wikicons-bookmark"></span><span class="wikicons wikicons-article"></span><span class="wikicons wikicons-pin"></span><span class="wikicons wikicons-gear"></span><span class="wikicons wikicons-ellipsis"></span><span class="wikicons wikicons-printer"></span><span class="wikicons wikicons-lock"></span><span class="wikicons wikicons-clock"></span><span class="wikicons wikicons-unstar"></span><span class="wikicons wikicons-star"></span><span class="wikicons wikicons-wikitrail"></span><span class="wikicons wikicons-eye"></span><span class="wikicons wikicons-eye-lid"></span><span class="wikicons wikicons-funnel"></span><span class="wikicons wikicons-expanded"></span><span class="wikicons wikicons-toc"></span><span class="wikicons wikicons-compact"></span><span class="wikicons wikicons-flag"></span><span class="wikicons wikicons-flag-slash"></span><span class="wikicons wikicons-trash"></span><span class="wikicons wikicons-trash-slash"></span><span class="wikicons wikicons-block"></span><span class="wikicons wikicons-block-slash"></span><span class="wikicons wikicons-stop"></span><span class="wikicons wikicons-play"></span><span class="wikicons wikicons-pencil"></span><span class="wikicons wikicons-pencil-lock"></span><span class="wikicons wikicons-pencil-revert"></span><span class="wikicons wikicons-speech-bubble"></span><span class="wikicons wikicons-speech-bubbles"></span><span class="wikicons wikicons-speech-bubble-add"></span><span class="wikicons wikicons-speech-bubble-smile"></span><span class="wikicons wikicons-user-smile"></span><span class="wikicons wikicons-user-sleep"></span><span class="wikicons wikicons-quotes"></span><span class="wikicons wikicons-quotes-add"></span><span class="wikicons wikicons-image-add"></span><span class="wikicons wikicons-image"></span><span class="wikicons wikicons-image-lock"></span><span class="wikicons wikicons-folder"></span><span class="wikicons wikicons-image-placeholder"></span><span class="wikicons wikicons-folder-placeholder"></span></p>
+							<p>wikicon: <span class="wikicon wikicon-magnifying-glass"></span><span class="wikicon wikicon-arrow-left"></span><span class="wikicon wikicon-tick"></span><span class="wikicon wikicon-x"></span><span class="wikicon wikicon-x-circle"></span><span class="wikicon wikicon-translate"></span><span class="wikicon wikicon-move"></span><span class="wikicon wikicon-puzzle"></span><span class="wikicon wikicon-envelope"></span><span class="wikicon wikicon-dice"></span><span class="wikicon wikicon-bookmark"></span><span class="wikicon wikicon-article"></span><span class="wikicon wikicon-pin"></span><span class="wikicon wikicon-gear"></span><span class="wikicon wikicon-ellipsis"></span><span class="wikicon wikicon-printer"></span><span class="wikicon wikicon-lock"></span><span class="wikicon wikicon-clock"></span><span class="wikicon wikicon-unstar"></span><span class="wikicon wikicon-star"></span><span class="wikicon wikicon-wikitrail"></span><span class="wikicon wikicon-eye"></span><span class="wikicon wikicon-eye-lid"></span><span class="wikicon wikicon-funnel"></span><span class="wikicon wikicon-expanded"></span><span class="wikicon wikicon-toc"></span><span class="wikicon wikicon-compact"></span><span class="wikicon wikicon-flag"></span><span class="wikicon wikicon-flag-slash"></span><span class="wikicon wikicon-trash"></span><span class="wikicon wikicon-trash-slash"></span><span class="wikicon wikicon-block"></span><span class="wikicon wikicon-block-slash"></span><span class="wikicon wikicon-stop"></span><span class="wikicon wikicon-play"></span><span class="wikicon wikicon-pencil"></span><span class="wikicon wikicon-pencil-lock"></span><span class="wikicon wikicon-pencil-revert"></span><span class="wikicon wikicon-speech-bubble"></span><span class="wikicon wikicon-speech-bubbles"></span><span class="wikicon wikicon-speech-bubble-add"></span><span class="wikicon wikicon-speech-bubble-smile"></span><span class="wikicon wikicon-user-smile"></span><span class="wikicon wikicon-user-sleep"></span><span class="wikicon wikicon-quotes"></span><span class="wikicon wikicon-quotes-add"></span><span class="wikicon wikicon-image-add"></span><span class="wikicon wikicon-image"></span><span class="wikicon wikicon-image-lock"></span><span class="wikicon wikicon-folder"></span><span class="wikicon wikicon-image-placeholder"></span><span class="wikicon wikicon-folder-placeholder"></span></p>
 
 							<p>Links: <a href="#" class="flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-destructive">Destructive</a></p>
 							<p>Quiet Links: <a href="#" class="flow-ui-quiet flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-quiet flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-quiet flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-quiet flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-quiet">x</a></p>
