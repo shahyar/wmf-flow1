@@ -54,7 +54,6 @@
 		display: inline-block;
 
 		&:link, &:visited {
-			display: inline-block;
 			padding: 0.25em .75em;
 			color: @colorTextLight;
 		}
@@ -79,7 +78,7 @@
 		}
 		&.flow-board-navigator-last {
 			position: absolute;
-			bottom: 1px;
+			bottom: 0;
 			right: -2.5em;
 			width: 1.1em;
 			border-bottom: 1px solid @colorGrayLight;
@@ -111,6 +110,7 @@ ul.flow-topic-navigation {
 		&.flow-topic-navigator-wrap {
 			margin: 0.25em 0;
 			border: 1px solid @colorGrayLight;
+			word-wrap: break-word;
 		}
 	}
 }
@@ -183,6 +183,7 @@ h2.flow-topic-title {
 	border-bottom: none;
 	margin-bottom: 0.33em;
 	font-size: 1.75em;
+	word-wrap: break-word;
 	overflow: visible;
 }
 
@@ -197,6 +198,33 @@ h2.flow-topic-title {
 	clear: both;
 }
 
+// Reply count (only visible in compact mode)
+.flow-reply-count {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 1.5em;
+	margin-top: -.5em;
+	color: @colorGrayLighter;
+	font-size: 2em;
+	opacity: .5;
+
+	.flow-reply-count-number {
+		.boxSizing( border-box );
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding-left: .25em;
+		width: 100%;
+		color: @colorTextLight;
+		font-size: .5em;
+		line-height: 2.25em;
+		font-weight: bold;
+		text-align: center;
+	}
+}
+
 
 // Comments
 .flow-post {
@@ -204,18 +232,20 @@ h2.flow-topic-title {
 	margin: 1em 0 0 1.5em;
 	padding: 0;
 	color: @colorText;
+	word-wrap: break-word;
 
 	// Nested comments (replies)
 	.flow-post {
 		margin-left: 0;
-		padding-left: 1em;
+		padding-left: 2em;
 		border-left: 1px dotted @colorGrayLighter;
 	}
 
 	// Author link in post
 	.flow-author {
-		display: block;
+		display: inline-block;
 		color: @colorText;
+		word-wrap: break-word;
 
 		.mw-userlink {
 			font-weight: bold;
@@ -229,6 +259,11 @@ h2.flow-topic-title {
 			opacity: 1;
 		}
 	}
+
+	// Content
+	.flow-post-content * {
+		max-width: 100%;
+	}
 }
 
 // Comment metadata
@@ -241,15 +276,6 @@ h2.flow-topic-title {
 
 .flow-post-meta-actions {
 	float: left;
-
-	a {
-		&, &:visited {
-			color: @colorTextLight;
-		}
-		&:hover, &:focus {
-			text-decoration: underline;
-		}
-	}
 }
 
 

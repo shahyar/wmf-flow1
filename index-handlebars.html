@@ -71,23 +71,23 @@
 							{{/with}}
 						{{/workflow}}
 						<div class="flow-board-header-nav">
-							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon" href="/" title="{{l10n "Edit"}}"><span class="wikicon wikicon-pencil"></span></a>
+							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon flow-ui-tooltip-target" href="/" title="{{l10n "Edit"}}"><span class="wikicon wikicon-pencil"></span></a>
 						</div>
 					</div>
 				</script>
 
+				<script type="text/x-handlebars-template" id="flow_board_collapsers_subcomponent-partial">
+					<a href="#collapser/full"    data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-compact flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-compact flow-ui-tooltip-target" title="{{l10n "Toggle_topics_and_posts"}}"></span></a>
+					<a href="#collapser/compact" data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-topics flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-toc flow-ui-tooltip-target" title="{{l10n "Toggle_small_topics"}}"></span></a>
+					<a href="#collapser/topics"  data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-full flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-expanded flow-ui-tooltip-target" title="{{l10n "Toggle_topics_only"}}"></span></a>
+				</script>
+
 				<script type="text/x-handlebars-template" id="flow_board_navigation-partial">
 					<div class="flow-board-navigation">
-						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="wikicon wikicon-magnifying-glass" title="Search"></span></a>
+						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="wikicon wikicon-magnifying-glass flow-ui-tooltip-target" title="Search"></span></a>
 						<div>
-							<a href="{{url 'collapser.small_topics'}}"       class="flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-compact" title="{{l10n "Small_topics"}}"></span></a>
-							<a href="{{url 'collapser.topics_only'}}"        class="flow-board-navigator-right"><span class="wikicon wikicon-toc" title="{{l10n "Topics_only"}}"></span></a>
-							<a href="{{url 'collapser.topics_and_posts'}}"   class="flow-board-navigator-right"><span class="wikicon wikicon-expanded" title="{{l10n "Topics_and_posts"}}"></span></a>
-							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-first">{{l10n "Newest_topics"}}</a>
-							{{!--
-							<a href="{{url 'board.topics'}}"                 class="flow-board-navigator-active flow-board-navigator-cap flow-board-navigator-first">{{l10n "Topics"}}</a>
-							<a href="{{url 'board.history'}}">{{l10n "History"}}</a>
-							--}}
+							{{progressiveEnhancement type="insertion" id="flow-board-collapsers" template="{{> flow_board_collapsers_subcomponent}}"}}
+							<a href="{{url 'board.topics'}}" class="flow-board-navigator-active flow-board-navigator-first flow-ui-tooltip-target" title="{{l10n 'You are currently reading the newest topics first. Click for more sorting options.'}}">{{l10n "Newest_topics"}}</a>
 						</div>
 					</div>
 				</script>
@@ -109,31 +109,6 @@
 					</ul>
 				</script>
 
-				<script type="text/x-handlebars-template" id="form_element-partial">
-					<label class="mw-ui-field mw-ui-fieldtag-{{tag}} {{#if fieldtype}}mw-ui-fieldtype-{{fieldtype}}{{/if}}">{{!
-						}}<{{tag}}
-							{{#if class}}class="{{class}}"{{/if}}
-							{{#if type}}type="{{type}}"{{/if}}
-							{{#if name}}name="{{name}}"{{/if}}
-							{{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
-							{{#if value}}value="{{value}}"{{/if}}
-							{{#if role}}data-role="{{role}}"{{/if}}
-							{{#if expandable}}data-flow-expandable="true"{{/if}}
-							{{#if min}}min="{{min}}"{{/if}}
-							{{#if max}}max="{{max}}"{{/if}}
-							{{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
-							{{#if pattern}}pattern="{{pattern}}"{{/if}}
-							{{#if required}}required="required"{{/if}}
-						{{#if closing_tag}}>{{else}}/>{{/if}}{{!
-							}}{{#if radio}}<span class="mw-ui-radio"></span>{{/if}}{{!
-							}}{{#if checkbox}}<span class="mw-ui-checkbox"></span>{{/if}}{{!
-								}}{{content}}{{!
-						}}{{#if closing_tag}}</{{closing_tag}}>{{/if}}{{!
-						}}{{#if validation}}<span class="mw-ui-field-icon mw-ui-validation-icon"></span>{{/if}}{{!
-						}}<a href="javascript:void(0);" class="mw-ui-field-icon mw-ui-uls-icon"></a>{{!
-					}}</label>
-				</script>
-
 				<script type="text/x-handlebars-template" id="flow_newtopic_form-partial">
 					<form class="flow-newtopic-form" data-flow-initial-state="collapsed">
 						<input class="mw-ui-input" type="text" placeholder="{{l10n "Start_a_new_topic"}}" required="required" />
@@ -141,8 +116,8 @@
 
 						<div class="flow-form-actions flow-form-collapsible">
 							<button data-role="submit" class="flow-ui-button flow-ui-constructive">{{l10n "Add_Topic"}}</button>
-							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-sleeper">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-sleeper">{{l10n "Cancel"}}</button>
+							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-quiet">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-quiet">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "topic_TOU"}}</small>
 						</div>
@@ -151,18 +126,19 @@
 
 				<script type="text/x-handlebars-template" id="flow_topic-partial">
 					<div class="flow-topic" id="flow-topic-{{id}}">
-						<div class="flow-topic-titlebar">
+						<div class="flow-topic-titlebar flow-click-interactive" data-flow-interactive-handler="topicCollapserToggle" tabindex="0">
 							<h2 class="flow-topic-title">{{content}}</h2>
 							<span class="flow-author">{{l10n "started_with_participants" this}}</span>
 							<div class="flow-topic-meta">
-								<a class="flow-ui-button flow-ui-progressive flow-ui-sleeper flow-ui-thin" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
-								<span class="flow-ui-buttonspacer">{{l10n "comment_count" this}}</span>
+								<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-inline" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
+								&bull; {{l10n "comment_count" this}} &bull;
 								{{#if update_time}}
-									<span class="wikicon wikicon-speech-bubbles"></span> {{timestamp update_time "active_ago"}}
+									<!--span class="wikicon wikicon-speech-bubbles"></span--> {{timestamp update_time "active_ago"}}
 								{{else}}
-									<span class="wikicon wikicon-speech-bubble"></span> {{timestamp start_time "started_ago"}}
+									<!--span class="wikicon wikicon-speech-bubble"></span--> {{timestamp start_time "started_ago"}}
 								{{/if}}
 							</div>
+							<span class="flow-reply-count"><span class="wikicon wikicon-speech-bubble"></span><span class="flow-reply-count-number">{{reply_count}}</span></span>
 
 							<div class="flow-menu">
 								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicon wikicon-ellipsis"></span></a></div>
@@ -188,19 +164,19 @@
 				<script type="text/x-handlebars-template" id="flow_post-partial">
 					<div class="flow-post">
 						{{#author this}}
-							<span class="flow-author"><a href="{{urls.author_contribs}}" title="{{urls.author_contribs_title}}" class="mw-userlink">{{name}}</a> <span class="mw-usertoollinks">(<a href="{{urls.author_talk}}" class="new" title="{{urls.author_talk_title}}">{{l10n "Talk"}}</a> | <a href="{{urls.author_block}}" title="{{urls.author_block_title}}">{{l10n "block"}}</a>)</span></span>
+							<span class="flow-author"><a href="{{urls.author_contribs}}" title="{{urls.author_contribs_title}}" class="mw-userlink flow-ui-tooltip-target">{{name}}</a> <span class="mw-usertoollinks">(<a href="{{urls.author_talk}}" class="new flow-ui-tooltip-target" title="{{urls.author_talk_title}}">{{l10n "Talk"}}</a> | <a class="flow-ui-tooltip-target" href="{{urls.author_block}}" title="{{urls.author_block_title}}">{{l10n "block"}}</a>)</span></span>
 						{{/author}}
 						<div class="flow-post-content">
 							{{html content}}
 						</div>
 						<div class="flow-post-meta">
 							<span class="flow-post-meta-actions">
-								<a href="#flow-post-{{id}}-form-content">{{l10n "Reply"}}</a>
+								<a href="#flow-post-{{id}}-form-content" class="flow-ui-progressive flow-ui-quiet">{{l10n "Reply"}}</a>
 								&#8226;
-								<a href="{{urls.edit}}">{{l10n "Edit"}}</a>
+								<a href="{{urls.edit}}" class="flow-ui-regressive flow-ui-quiet">{{l10n "Edit"}}</a>
 							</span>
 							{{#if update_time}}
-								<span class="wikicon wikicon-clock"></span> {{timestamp update_time "edited_ago"}}
+								<!--span class="wikicon wikicon-clock"></span--> {{timestamp update_time "edited_ago"}}
 								&#8226;
 							{{/if}}
 							{{timestamp start_time "time_ago"}}
@@ -229,8 +205,8 @@
 
 						<div class="flow-form-actions flow-form-collapsible">
 							<button data-role="submit" class="flow-ui-button flow-ui-constructive">{{l10n "Reply"}}</button>
-							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-sleeper">{{l10n "Preview"}}</button>
-							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-sleeper">{{l10n "Cancel"}}</button>
+							<button data-role="action" class="flow-ui-button flow-ui-progressive flow-ui-quiet">{{l10n "Preview"}}</button>
+							<button data-flow-interactive-handler="cancelForm" data-role="cancel" class="flow-ui-button flow-ui-destructive flow-ui-quiet">{{l10n "Cancel"}}</button>
 
 							<small class="flow-terms-of-use plainlinks">{{l10n "reply_TOU"}}</small>
 						</div>
@@ -246,6 +222,31 @@
 					{{else}}
 						<time datetime="{{time_iso}}" class="flow-timestamp">{{time_readable}}</time>
 					{{/if}}
+				</script>
+
+				<script type="text/x-handlebars-template" id="form_element-partial">
+					<label class="mw-ui-field mw-ui-fieldtag-{{tag}} {{#if fieldtype}}mw-ui-fieldtype-{{fieldtype}}{{/if}}">{{!
+						}}<{{tag}}
+						{{#if class}}class="{{class}}"{{/if}}
+						{{#if type}}type="{{type}}"{{/if}}
+						{{#if name}}name="{{name}}"{{/if}}
+						{{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
+						{{#if value}}value="{{value}}"{{/if}}
+						{{#if role}}data-role="{{role}}"{{/if}}
+						{{#if expandable}}data-flow-expandable="true"{{/if}}
+						{{#if min}}min="{{min}}"{{/if}}
+						{{#if max}}max="{{max}}"{{/if}}
+						{{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
+						{{#if pattern}}pattern="{{pattern}}"{{/if}}
+						{{#if required}}required="required"{{/if}}
+						{{#if closing_tag}}>{{else}}/>{{/if}}{{!
+						}}{{#if radio}}<span class="mw-ui-radio"></span>{{/if}}{{!
+						}}{{#if checkbox}}<span class="mw-ui-checkbox"></span>{{/if}}{{!
+						}}{{content}}{{!
+						}}{{#if closing_tag}}</{{closing_tag}}>{{/if}}{{!
+					}}{{#if validation}}<span class="mw-ui-field-icon mw-ui-validation-icon"></span>{{/if}}{{!
+					}}<a href="javascript:void(0);" class="mw-ui-field-icon mw-ui-uls-icon"></a>{{!
+					}}</label>
 				</script>
 
 				<!-- END OF TEMPLATES -->
@@ -273,7 +274,7 @@
 								{{/workflow}}
 							</div>
 
-							<p>wikicon: <span class="wikicon wikicon-magnifying-glass"></span><span class="wikicon wikicon-arrow-left"></span><span class="wikicon wikicon-tick"></span><span class="wikicon wikicon-x"></span><span class="wikicon wikicon-x-circle"></span><span class="wikicon wikicon-translate"></span><span class="wikicon wikicon-move"></span><span class="wikicon wikicon-puzzle"></span><span class="wikicon wikicon-envelope"></span><span class="wikicon wikicon-dice"></span><span class="wikicon wikicon-bookmark"></span><span class="wikicon wikicon-article"></span><span class="wikicon wikicon-pin"></span><span class="wikicon wikicon-gear"></span><span class="wikicon wikicon-ellipsis"></span><span class="wikicon wikicon-printer"></span><span class="wikicon wikicon-lock"></span><span class="wikicon wikicon-clock"></span><span class="wikicon wikicon-unstar"></span><span class="wikicon wikicon-star"></span><span class="wikicon wikicon-wikitrail"></span><span class="wikicon wikicon-eye"></span><span class="wikicon wikicon-eye-lid"></span><span class="wikicon wikicon-funnel"></span><span class="wikicon wikicon-expanded"></span><span class="wikicon wikicon-toc"></span><span class="wikicon wikicon-compact"></span><span class="wikicon wikicon-flag"></span><span class="wikicon wikicon-flag-slash"></span><span class="wikicon wikicon-trash"></span><span class="wikicon wikicon-trash-slash"></span><span class="wikicon wikicon-block"></span><span class="wikicon wikicon-block-slash"></span><span class="wikicon wikicon-stop"></span><span class="wikicon wikicon-play"></span><span class="wikicon wikicon-pencil"></span><span class="wikicon wikicon-pencil-lock"></span><span class="wikicon wikicon-pencil-revert"></span><span class="wikicon wikicon-speech-bubble"></span><span class="wikicon wikicon-speech-bubbles"></span><span class="wikicon wikicon-speech-bubble-add"></span><span class="wikicon wikicon-speech-bubble-smile"></span><span class="wikicon wikicon-user-smile"></span><span class="wikicon wikicon-user-sleep"></span><span class="wikicon wikicon-quotes"></span><span class="wikicon wikicon-quotes-add"></span><span class="wikicon wikicon-image-add"></span><span class="wikicon wikicon-image"></span><span class="wikicon wikicon-image-lock"></span><span class="wikicon wikicon-folder"></span><span class="wikicon wikicon-image-placeholder"></span><span class="wikicon wikicon-folder-placeholder"></span></p>
+							<p>wikicon: <span class="wikicon wikicon-cap-w"></span><span class="wikicon wikicon-lower-w"></span><span class="wikicon wikicon-magnifying-glass"></span><span class="wikicon wikicon-arrow-left"></span><span class="wikicon wikicon-tick"></span><span class="wikicon wikicon-x"></span><span class="wikicon wikicon-x-circle"></span><span class="wikicon wikicon-unstar"></span><span class="wikicon wikicon-star"></span><span class="wikicon wikicon-sun"></span><span class="wikicon wikicon-star-circle"></span><span class="wikicon wikicon-funnel"></span><span class="wikicon wikicon-eye"></span><span class="wikicon wikicon-eye-lid"></span><span class="wikicon wikicon-bookmark"></span><span class="wikicon wikicon-printer"></span><span class="wikicon wikicon-puzzle"></span><span class="wikicon wikicon-clock"></span><span class="wikicon wikicon-dice"></span><span class="wikicon wikicon-move"></span><span class="wikicon wikicon-gear"></span><span class="wikicon wikicon-ellipsis"></span><span class="wikicon wikicon-envelope"></span><span class="wikicon wikicon-pin"></span><span class="wikicon wikicon-stripe-compact"></span><span class="wikicon wikicon-stripe-toc"></span><span class="wikicon wikicon-stripe-expanded"></span><span class="wikicon wikicon-article"></span><span class="wikicon wikicon-article-check"></span><span class="wikicon wikicon-article-search"></span><span class="wikicon wikicon-trash"></span><span class="wikicon wikicon-trash-slash"></span><span class="wikicon wikicon-block"></span><span class="wikicon wikicon-block-slash"></span><span class="wikicon wikicon-flag"></span><span class="wikicon wikicon-flag-slash"></span><span class="wikicon wikicon-play"></span><span class="wikicon wikicon-stop"></span><span class="wikicon wikicon-lock"></span><span class="wikicon wikicon-user-bust"></span><span class="wikicon wikicon-user-smile"></span><span class="wikicon wikicon-user-sleep"></span><span class="wikicon wikicon-translate"></span><span class="wikicon wikicon-pencil"></span><span class="wikicon wikicon-pencil-revert"></span><span class="wikicon wikicon-pencil-lock"></span><span class="wikicon wikicon-speech-bubble"></span><span class="wikicon wikicon-speech-bubbles"></span><span class="wikicon wikicon-speech-bubble-add"></span><span class="wikicon wikicon-speech-bubble-smile"></span><span class="wikicon wikicon-link"></span><span class="wikicon wikicon-quotes"></span><span class="wikicon wikicon-quotes-add"></span><span class="wikicon wikicon-image"></span><span class="wikicon wikicon-image-lock"></span><span class="wikicon wikicon-image-add"></span><span class="wikicon wikicon-image-main-placeholder"></span><span class="wikicon wikicon-folder"></span><span class="wikicon wikicon-folder-main-placeholder"></span><span class="wikicon wikicon-wikitrail"></span></p>
 
 							<p>Links: <a href="#" class="flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-destructive">Destructive</a></p>
 							<p>Quiet Links: <a href="#" class="flow-ui-quiet flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-quiet flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-quiet flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-quiet flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-quiet">x</a></p>
@@ -377,26 +378,26 @@
 									role="cancel"
 									content='cancel (destructive)'
 								}}
-								<span class="mw-ui-tooltip mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-constructive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-destructive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-progressive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-left">wow<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-up">such tool<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-right">many tip<span class="mw-ui-tooltip-triangle"></span></span>
-								<span class="mw-ui-tooltip mw-ui-regressive mw-ui-tooltip-down">very cascading<span class="mw-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-tooltip-left">wow<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-tooltip-up">such tool<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-tooltip-right">many tip<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-tooltip-down">very cascading<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-constructive flow-ui-tooltip-left">wow<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-constructive flow-ui-tooltip-up">such tool<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-constructive flow-ui-tooltip-right">many tip<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-constructive flow-ui-tooltip-down">very cascading<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-destructive flow-ui-tooltip-left">wow<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-destructive flow-ui-tooltip-up">such tool<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-destructive flow-ui-tooltip-right">many tip<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-destructive flow-ui-tooltip-down">very cascading<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-progressive flow-ui-tooltip-left">wow<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-progressive flow-ui-tooltip-up">such tool<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-progressive flow-ui-tooltip-right">many tip<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-progressive flow-ui-tooltip-down">very cascading<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-regressive flow-ui-tooltip-left">wow<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-regressive flow-ui-tooltip-up">such tool<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-regressive flow-ui-tooltip-right">many tip<span class="flow-ui-tooltip-triangle"></span></span>
+								<span class="flow-ui-tooltip flow-ui-regressive flow-ui-tooltip-down">very cascading<span class="flow-ui-tooltip-triangle"></span></span>
 							</form>
 						</div>
 					</div>

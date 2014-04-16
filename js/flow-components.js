@@ -31,6 +31,8 @@
 		// Find out which component this is
 		var componentName = $container.data( 'flow-component' );
 		if ( _componentRegistry[ componentName ] ) {
+			// Run progressive enhancements if any are needed by this container
+			mw.flow.TemplateEngine.processProgressiveEnhancement( $container );
 			// Return the new instance of that FlowComponent
 			return new _componentRegistry[ componentName ]( $container );
 		}
@@ -53,7 +55,7 @@
 			// Keep the original constructor class
 			constructorClass.prototype.constructor = constructorClass;
 			/** @lends FlowComponent.prototype */ // Super weird thing below for jsdoc purposes
-			({ parent: ( constructorClass.prototype.parent = FlowComponent ) });
+			( { parent: ( constructorClass.prototype.parent = FlowComponent ) } );
 			// Create the instance registry for this component
 			constructorClass._instanceRegistry = [];
 			constructorClass._instanceRegistryById = {};

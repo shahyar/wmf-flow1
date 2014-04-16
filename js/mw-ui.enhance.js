@@ -108,4 +108,124 @@
 				.attr( 'disabled', !ready );
 		} );
 	} );
+
+
+	/*
+	 *
+	 */
+	$( document ).ready( function () {
+		var $tooltip = $( '<span class="flow-ui-tooltip flow-ui-tooltip-left"><span class="flow-ui-tooltip-content"></span><span class="flow-ui-tooltip-triangle"></span></span>' ).appendTo( 'body' );
+
+		/**
+		 *
+		 * @param {Event} event
+		 */
+		function onMwUiTooltipFocus( event ) {
+			var $el = $( this ),
+				is_mini = true,
+				tooltype = $el.data( 'tooltip-type' ),
+				context = $el.data( 'tooltip-context' ),
+				contentTarget = $el.data( 'tooltip-content-target' ), // @todo
+				elOffset = $el.offset(),
+				elWidth = $el.outerWidth(),
+				elHeight = $el.outerHeight(),
+				windowWidth = $( window ).width(),
+				windowHeight = $( window ).width(),
+				windowScroll = $( window ).scrollTop(),
+				cssPosition = {
+					position: 'absolute',
+					zIndex: 1000,
+					left:   '',
+					top:    ''
+				},
+				target;
+
+
+			// Determine type of tooltip
+			switch ( tooltype ) {
+				// @todo
+				case 'sticky':
+					break;
+
+				// On hover/focus, remove on blur
+				default:
+					if ( $el[0].title ) {
+						$el.data( 'title', $el[0].title );
+						$el[0].title = '';
+					}
+					$tooltip.find( '.flow-ui-tooltip-content' ).text( $el.data( 'title' ) );
+					context = context || 'progressive';
+					break;
+			}
+
+			// Does this tooltip have a stylized context?
+			$tooltip.removeClass( 'flow-ui-progressive flow-ui-regressive flow-ui-constructive flow-ui-destructive' );
+			if ( context ) {
+				$tooltip.addClass( 'flow-ui-' + context );
+			}
+			// Is this a mini tooltip?
+			if ( is_mini ) {
+				$tooltip.addClass( 'flow-ui-tooltip-mini' );
+			} else {
+				$tooltip.removeClass( 'flow-ui-tooltip-mini' );
+			}
+
+			// Figure out where to place the tooltip
+			$tooltip.removeClass( 'flow-ui-tooltip-down flow-ui-tooltip-up flow-ui-tooltip-left flow-ui-tooltip-right' );
+			if ( elOffset.left + elWidth / 2 < windowWidth / 2 ) {
+				// Element is on left half of screen
+				if ( elOffset.top + elHeight / 2 < windowScroll + windowHeight / 2 ) {
+					// Element is on top half of screen
+					target = 'up';
+				} else {
+					// Element is on bottom half of screen
+					target = 'down';
+				}
+			} else {
+				// Element is on right half of screen
+				if ( elOffset.top + elHeight / 2 < windowScroll + windowHeight / 2 ) {
+					// Element is on top half of screen
+					target = 'up';
+				} else {
+					// Element is on bottom half of screen
+					target = 'down';
+				}
+			}
+
+			// Position it
+			$tooltip.show();
+			switch ( target ) {
+				case 'down':
+					cssPosition.left = elOffset.left + elWidth / 2 - $tooltip.outerWidth() / 2;
+					cssPosition.top = elOffset.top - $tooltip.outerHeight();
+					break;
+				case 'up':
+					cssPosition.left = elOffset.left + elWidth / 2 - $tooltip.outerWidth() / 2;
+					cssPosition.top = elOffset.top + elHeight;
+					break;
+				case 'left':
+					break;
+				case 'right':
+					break;
+			}
+
+			$tooltip.addClass( 'flow-ui-tooltip-' + target );
+			$tooltip.css( cssPosition );
+		}
+
+		/**
+		 *
+		 * @param {Event} event
+		 */
+		function onMwUiTooltipBlur( event ) {
+			var $el = $( this );
+			$tooltip.hide();
+			$el[0].title = $el.data( 'title' );;
+		}
+
+		// Attach the mouseenter and mouseleave handlers on document
+		$( document )
+			.on( 'mouseenter.mw-ui-enhance focus.mw-ui-enhance click.mw-ui-enhance', '.flow-ui-tooltip-target', onMwUiTooltipFocus )
+			.on( 'mouseleave.mw-ui-enhance blur.mw-ui-enhance', '.flow-ui-tooltip-target', onMwUiTooltipBlur );
+	} );
 }( jQuery ) );

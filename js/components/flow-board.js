@@ -171,6 +171,30 @@
 			event.preventDefault();
 		};
 
+		/**
+		 * Calls FlowBoardComponent.UI.collapserState to set and render the new Collapser state.
+		 * @param {Event} event
+		 */
+		FlowBoardComponent.UI.events.interactiveHandlers.collapserToggle = function ( event ) {
+			var flowBoard = FlowBoardComponent.prototype.getInstanceByElement( $( this ) );
+
+			FlowBoardComponent.UI.collapserState( flowBoard, this.href.match( /[a-z]+$/ )[0] );
+
+			event.preventDefault();
+		};
+
+		/**
+		 * Toggles the flow-topic-expanded class on .flow-topic.
+		 * @param {Event} event
+		 */
+		FlowBoardComponent.UI.events.interactiveHandlers.topicCollapserToggle = function ( event ) {
+			if ( !$( event.target ).closest( 'a, button, input, textarea, select' ).length ) {
+				$( this ).closest( '.flow-topic' ).toggleClass( 'flow-topic-collapsed-invert' );
+				event.preventDefault();
+				this.blur();
+			}
+		};
+
 		////////////////////////////////////////////////////////////
 		// FlowBoardComponent.UI events
 		////////////////////
@@ -181,6 +205,11 @@
 		 * @param {Event} event
 		 */
 		FlowBoardComponent.UI.events.onClickInteractive = function ( event ) {
+			// Only trigger with enter key
+			if ( event.type === 'keypress' && ( event.charCode !== 13 || event.metaKey || event.shiftKey || event.ctrlKey || event.altKey )) {
+				return;
+			}
+
 			var handlerName = $( this ).data( 'flow-interactive-handler' );
 
 			// If this has a special click handler, run it.
@@ -381,6 +410,9 @@
 
 				FlowBoardComponent.UI.Forms.hideForm( $this );
 			} );
+
+			// Load the collapser state from localStorage
+			FlowBoardComponent.UI.collapserState( flowBoard );
 		};
 
 		/**
@@ -394,7 +426,7 @@
 			// Container handlers
 			$container
 				.on(
-					'click',
+					'click keypress',
 					'a, input, button, .flow-click-interactive',
 					FlowBoardComponent.UI.events.onClickInteractive
 				)
@@ -537,6 +569,24 @@
 			$.each( FlowBoardComponent.prototype.getInstances(), function () {
 
 			} );
+		};
+
+		/**
+		 * Sets the Collapser state to newState, and will load this state on next page refresh.
+		 * @param {FlowBoardComponent} flowBoard
+		 * @param {String} [newState]
+		 */
+		FlowBoardComponent.UI.collapserState = function ( flowBoard, newState ) {
+			if ( !newState ) {
+				newState = mw.flow.StorageEngine.localStorage.getItem( 'collapserState' ) || 'full';
+			} else {
+				mw.flow.StorageEngine.localStorage.setItem( 'collapserState', newState );
+				flowBoard.$board.find( '.flow-topic-collapsed-invert' ).removeClass( 'flow-topic-collapsed-invert' );
+			}
+
+			flowBoard.$container
+				.removeClass( 'flow-board-collapsed-full flow-board-collapsed-topics flow-board-collapsed-compact' )
+				.addClass( 'flow-board-collapsed-' + newState );
 		};
 	}() );
 }( jQuery ) );
