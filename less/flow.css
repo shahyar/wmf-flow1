@@ -1,9 +1,6 @@
 #bodyContent {
   font-size: .875em;
 }
-.mw-ui-buttonspacer {
-  padding: .25em .5em;
-}
 .mw-ui-field {
   position: relative;
   display: inline-block;
@@ -32,7 +29,7 @@
 === Notes ===
 Does not support IE7 nor IE8.
  */
-/*.mw-ui-validated */
+/*.flow-ui-validated */
 .mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-field-icon {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -61,7 +58,7 @@ Does not support IE7 nor IE8.
   line-height: 1em;
   text-align: center;
   pointer-events: none;
-  font-family: 'wikicon-Regular';
+  font-family: 'Glyphicons Halflings';
   -webkit-font-smoothing: antialiased;
 }
 .mw-ui-field:not(.ie8WillIgnoreThis) .mw-ui-validation-icon {
@@ -200,17 +197,20 @@ Does not support IE7 nor IE8.
   content: "\e067";
 }
 /*
-== MediaWiki UI Tooltips ==
+Tooltips
 
-=== Guidelines ===
+<h3>Guidelines</h3>
+
 Requires the following markup at minimum: <span class="mw-ui-tooltip">CONTENT<span class="mw-ui-tooltip-triangle"></span></span>
 An additional class should be added relating the triangle to the direction of the content: mw-ui-tooltip-DIRECTION, where direction is one of up, down, left, or right.
 Adding to this could be an extra class: mw-ui-tooltip-inverted, which moves the tooltip and triangle to the opposing side. This used when the tooltip would go off the right of the viewport, and instead aligns to the right of the viewport.
 Finally, a context class can be given to assign it a color (eg. mw-ui-progressive).
 
 This is intended to be used with JavaScript, but does not have to be. With JS, you can directly bind the element to given X-Y coords for an element.
+
+Styleguide 4.0.
  */
-.mw-ui-tooltip {
+.flow-ui-tooltip {
   position: relative;
   top: 1px;
   display: inline-block;
@@ -222,13 +222,14 @@ This is intended to be used with JavaScript, but does not have to be. With JS, y
   text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 2px 0 0 #cccccc;
   box-shadow: 0 2px 0 0 #cccccc;
+  opacity: .9;
 }
-.mw-ui-tooltip .mw-ui-tooltip-triangle {
+.flow-ui-tooltip .flow-ui-tooltip-triangle {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
 }
-.mw-ui-tooltip .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip .flow-ui-tooltip-triangle:after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -238,155 +239,187 @@ This is intended to be used with JavaScript, but does not have to be. With JS, y
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.mw-ui-tooltip.mw-ui-tooltip-up .mw-ui-tooltip-triangle {
+.flow-ui-tooltip.flow-ui-tooltip-up {
+  margin-top: .75em;
+}
+.flow-ui-tooltip.flow-ui-tooltip-up .flow-ui-tooltip-triangle {
   width: 2em;
   height: 1em;
   left: 50%;
   top: -1em;
   margin-left: -1em;
 }
-.mw-ui-tooltip.mw-ui-tooltip-up .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip.flow-ui-tooltip-up .flow-ui-tooltip-triangle:after {
   top: .5em;
   left: .5em;
 }
-.mw-ui-tooltip.mw-ui-tooltip-down .mw-ui-tooltip-triangle {
+.flow-ui-tooltip.flow-ui-tooltip-down {
+  margin-top: -0.75em;
+}
+.flow-ui-tooltip.flow-ui-tooltip-down .flow-ui-tooltip-triangle {
   width: 2em;
   height: 1em;
   left: 50%;
   bottom: -1em;
   margin-left: -1em;
 }
-.mw-ui-tooltip.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip.flow-ui-tooltip-down .flow-ui-tooltip-triangle:after {
   top: -0.5em;
   left: .5em;
   -webkit-box-shadow: 0 -2px 0 2px #cccccc;
   box-shadow: 0 -2px 0 2px #cccccc;
 }
-.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle {
+.flow-ui-tooltip.flow-ui-tooltip-left {
+  margin-left: .75em;
+}
+.flow-ui-tooltip.flow-ui-tooltip-left .flow-ui-tooltip-triangle {
   width: 1em;
   height: 2em;
   left: -1em;
   top: 50%;
   margin-top: -1em;
 }
-.mw-ui-tooltip.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip.flow-ui-tooltip-left .flow-ui-tooltip-triangle:after {
   margin-top: -1px;
   top: .5em;
   right: -0.5em;
   -webkit-box-shadow: 2px 0 0 2px #cccccc;
   box-shadow: 2px 0 0 2px #cccccc;
 }
-.mw-ui-tooltip.mw-ui-tooltip-right .mw-ui-tooltip-triangle {
+.flow-ui-tooltip.flow-ui-tooltip-right {
+  margin-left: -0.75em;
+}
+.flow-ui-tooltip.flow-ui-tooltip-right .flow-ui-tooltip-triangle {
   width: 1em;
   height: 2em;
   right: -1em;
   top: 50%;
   margin-top: -1em;
 }
-.mw-ui-tooltip.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip.flow-ui-tooltip-right .flow-ui-tooltip-triangle:after {
   margin-top: -1px;
   top: .5em;
   left: -0.5em;
   -webkit-box-shadow: 0 2px 0 2px #cccccc;
   box-shadow: 0 2px 0 2px #cccccc;
 }
-.mw-ui-tooltip[class].mw-ui-progressive {
+.flow-ui-tooltip[class].flow-ui-progressive {
   background: #347bff;
   -webkit-box-shadow: 0 2px 0 0 #0053ee;
   box-shadow: 0 2px 0 0 #0053ee;
   color: #ffffff;
 }
-.mw-ui-tooltip[class].mw-ui-progressive .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-progressive .flow-ui-tooltip-triangle:after {
   background: #347bff;
 }
-.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-progressive.flow-ui-tooltip-down .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 -2px 0 2px #0053ee;
   box-shadow: 0 -2px 0 2px #0053ee;
 }
-.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-progressive.flow-ui-tooltip-left .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 2px 0 0 2px #0053ee;
   box-shadow: 2px 0 0 2px #0053ee;
 }
-.mw-ui-tooltip[class].mw-ui-progressive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-progressive.flow-ui-tooltip-right .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 2px 0 2px #0053ee;
   box-shadow: 0 2px 0 2px #0053ee;
 }
-.mw-ui-tooltip[class].mw-ui-constructive {
+.flow-ui-tooltip[class].flow-ui-constructive {
   background: #00af89;
   -webkit-box-shadow: 0 2px 0 0 #006a53;
   box-shadow: 0 2px 0 0 #006a53;
   color: #ffffff;
 }
-.mw-ui-tooltip[class].mw-ui-constructive .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-constructive .flow-ui-tooltip-triangle:after {
   background: #00af89;
 }
-.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-constructive.flow-ui-tooltip-down .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 -2px 0 2px #006a53;
   box-shadow: 0 -2px 0 2px #006a53;
 }
-.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-constructive.flow-ui-tooltip-left .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 2px 0 0 2px #006a53;
   box-shadow: 2px 0 0 2px #006a53;
 }
-.mw-ui-tooltip[class].mw-ui-constructive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-constructive.flow-ui-tooltip-right .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 2px 0 2px #006a53;
   box-shadow: 0 2px 0 2px #006a53;
 }
-.mw-ui-tooltip[class].mw-ui-destructive {
+.flow-ui-tooltip[class].flow-ui-destructive {
   background: #d11d13;
   -webkit-box-shadow: 0 2px 0 0 #92140d;
   box-shadow: 0 2px 0 0 #92140d;
   color: #ffffff;
 }
-.mw-ui-tooltip[class].mw-ui-destructive .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-destructive .flow-ui-tooltip-triangle:after {
   background: #d11d13;
 }
-.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-destructive.flow-ui-tooltip-down .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 -2px 0 2px #92140d;
   box-shadow: 0 -2px 0 2px #92140d;
 }
-.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-destructive.flow-ui-tooltip-left .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 2px 0 0 2px #92140d;
   box-shadow: 2px 0 0 2px #92140d;
 }
-.mw-ui-tooltip[class].mw-ui-destructive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-destructive.flow-ui-tooltip-right .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 2px 0 2px #92140d;
   box-shadow: 0 2px 0 2px #92140d;
 }
-.mw-ui-tooltip[class].mw-ui-regressive {
+.flow-ui-tooltip[class].flow-ui-regressive {
   background: #ff7e1e;
   -webkit-box-shadow: 0 2px 0 0 #d85c00;
   box-shadow: 0 2px 0 0 #d85c00;
   color: #ffffff;
 }
-.mw-ui-tooltip[class].mw-ui-regressive .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-regressive .flow-ui-tooltip-triangle:after {
   background: #ff7e1e;
 }
-.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-down .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-regressive.flow-ui-tooltip-down .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 -2px 0 2px #d85c00;
   box-shadow: 0 -2px 0 2px #d85c00;
 }
-.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-left .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-regressive.flow-ui-tooltip-left .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 2px 0 0 2px #d85c00;
   box-shadow: 2px 0 0 2px #d85c00;
 }
-.mw-ui-tooltip[class].mw-ui-regressive.mw-ui-tooltip-right .mw-ui-tooltip-triangle:after {
+.flow-ui-tooltip[class].flow-ui-regressive.flow-ui-tooltip-right .flow-ui-tooltip-triangle:after {
   -webkit-box-shadow: 0 2px 0 2px #d85c00;
   box-shadow: 0 2px 0 2px #d85c00;
 }
+.flow-ui-tooltip[class].flow-ui-tooltip-mini {
+  font-size: .75em;
+}
 /*
-== MediaWiki UI Anchor Context ==
+Links and Form Controls
+
+Styleguide 2.
+*/
+/*
+Anchors
+
 Allows you to give text a context as to the type of action it is indicating.
 
-=== Guidelines ===
+<h3>Guidelines:</h3>
+
 The anchor context is only applied on A tags. These classes cannot be applied for styling purposes on other elements,
-except when used in combination with .mw-ui-button.
+except when used in combination with .flow-ui-button.
+
+Markup:
+<a href=# class="mw-ui-progressive {$modifiers}">Progressive</a>
+<a href=# class="mw-ui-regressive {$modifiers}">Regressive</a>
+<a href=# class="mw-ui-constructive {$modifiers}">Constructive</a>
+<a href=# class="mw-ui-destructive {$modifiers}">Destructive</a>
+
+.flow-ui-quiet - Quiet until interaction.
+
+Styleguide 2.1.
 */
-.selectIE6Only.flow-ui-progressive:link,
-.selectIE6Only.flow-ui-progressive:visited,
-.selectIE6Only.flow-ui-progressive:hover,
-.selectIE6Only.flow-ui-progressive:focus,
-.selectIE6Only.flow-ui-progressive:active {
+.select-ie6-only.flow-ui-progressive:link,
+.select-ie6-only.flow-ui-progressive:visited,
+.select-ie6-only.flow-ui-progressive:hover,
+.select-ie6-only.flow-ui-progressive:focus,
+.select-ie6-only.flow-ui-progressive:active {
   color: #347bff;
 }
 .flow-ui-progressive:hover {
@@ -411,11 +444,11 @@ a.flow-ui-progressive[class].flow-ui-quiet:focus,
 a.flow-ui-progressive[class].flow-ui-quiet:active {
   color: #0053ee;
 }
-.selectIE6Only.flow-ui-regressive:link,
-.selectIE6Only.flow-ui-regressive:visited,
-.selectIE6Only.flow-ui-regressive:hover,
-.selectIE6Only.flow-ui-regressive:focus,
-.selectIE6Only.flow-ui-regressive:active {
+.select-ie6-only.flow-ui-regressive:link,
+.select-ie6-only.flow-ui-regressive:visited,
+.select-ie6-only.flow-ui-regressive:hover,
+.select-ie6-only.flow-ui-regressive:focus,
+.select-ie6-only.flow-ui-regressive:active {
   color: #ff7e1e;
 }
 .flow-ui-regressive:hover {
@@ -440,11 +473,11 @@ a.flow-ui-regressive[class].flow-ui-quiet:focus,
 a.flow-ui-regressive[class].flow-ui-quiet:active {
   color: #d85c00;
 }
-.selectIE6Only.flow-ui-constructive:link,
-.selectIE6Only.flow-ui-constructive:visited,
-.selectIE6Only.flow-ui-constructive:hover,
-.selectIE6Only.flow-ui-constructive:focus,
-.selectIE6Only.flow-ui-constructive:active {
+.select-ie6-only.flow-ui-constructive:link,
+.select-ie6-only.flow-ui-constructive:visited,
+.select-ie6-only.flow-ui-constructive:hover,
+.select-ie6-only.flow-ui-constructive:focus,
+.select-ie6-only.flow-ui-constructive:active {
   color: #00af89;
 }
 .flow-ui-constructive:hover {
@@ -469,11 +502,11 @@ a.flow-ui-constructive[class].flow-ui-quiet:focus,
 a.flow-ui-constructive[class].flow-ui-quiet:active {
   color: #006a53;
 }
-.selectIE6Only.flow-ui-destructive:link,
-.selectIE6Only.flow-ui-destructive:visited,
-.selectIE6Only.flow-ui-destructive:hover,
-.selectIE6Only.flow-ui-destructive:focus,
-.selectIE6Only.flow-ui-destructive:active {
+.select-ie6-only.flow-ui-destructive:link,
+.select-ie6-only.flow-ui-destructive:visited,
+.select-ie6-only.flow-ui-destructive:hover,
+.select-ie6-only.flow-ui-destructive:focus,
+.select-ie6-only.flow-ui-destructive:active {
   color: #d11d13;
 }
 .flow-ui-destructive:hover {
@@ -499,27 +532,46 @@ a.flow-ui-destructive[class].flow-ui-quiet:active {
   color: #92140d;
 }
 /*
-== MediaWiki UI Buttons ==
+Buttons
 
-=== Guidelines ===
-# .mw-ui-button can only be used on A and BUTTON tags.
-# .mw-ui-progressive, .mw-ui-regressive, .mw-ui-constructive, and .mw-ui-destructive can be applied alone on A, but can be applied in tandem with .mw-ui-button.
-## The class order is important: base type (mw-ui-button) must come first, mode (mw-ui-quiet, mw-ui-sleeper) second, visual type (mw-ui-thin), and context (mw-ui-progressive) comes last.
-# A .mw-ui-quiet button may NEVER be the first or only button in a form.
-## It would be left- or right-aligned next to whitespace, and the extra ghost padding in these buttons will make that look awkward.
-## The first button in a form should always be the affirmative action (eg. Submit). This is for accessibility purposes.
+<h3>Guidelines:</h3>
 
-=== Notes ===
-# IE6 does not apply any .mw-ui-button styles at all on BUTTON.
-# IE6 only applies the base .mw-ui-CONTEXT color on A, and doesn't care if you are combining it (ie. .mw-ui-destructive.mw-ui-quiet = always red text).
- */
+- .flow-ui-button can **only** be used on **A and BUTTON tags**. There is conditional support for input[type=button], but this doesn't work in older browsers.
+- .flow-ui-progressive, .flow-ui-regressive, .flow-ui-constructive, and .flow-ui-destructive can be applied alone on A, but can be applied in tandem with .flow-ui-button. *The class order is important:* **base type** (mw-ui-button) must come **first**, **mode** (mw-ui-quiet, mw-ui-sleeper) **second**, **visual type** (mw-ui-thin) **third**, and **context** (mw-ui-progressive) comes **last**.
+- A .flow-ui-quiet button may **never** be the first or only button in a form.
+- Semantically, the **first button in a form should always be the affirmative action** (eg. Submit). This is for accessibility purposes. Where it appears visually is not as important.
+
+<h3>Notes:</h3>
+
+- IE6 does not apply any .flow-ui-button styles at all on BUTTON.
+- IE6 only applies the base .flow-ui-CONTEXT color on A, and doesn't care if you are combining it (ie. .flow-ui-destructive.flow-ui-quiet = always red text).
+- IE7 and IE8 look slightly different from other browsers when rendering certain modes of these buttons.
+
+Markup:
+<button class="mw-ui-button {$modifiers}">Default</button>
+<button class="mw-ui-button mw-ui-progressive {$modifiers}">Progressive</button>
+<button class="mw-ui-button mw-ui-regressive {$modifiers}">Regressive</button>
+<button class="mw-ui-button mw-ui-constructive {$modifiers}">Constructive</button>
+<button class="mw-ui-button mw-ui-destructive {$modifiers}">Destructive</button>
+
+.flow-ui-quiet - Quiet: A button that doesn't look like a button.
+.flow-ui-sleeper - Sleeper: A button which always looks like a button, but uncolored until interaction.
+.flow-ui-thin - Thin: A smaller button (less padding) which also inherits font weight.
+.flow-ui-inline - Inline: An even smaller button (zero padding) which also inherits font weight.
+.flow-ui-button-althover - JS enhancement class used to dim elements beside the main one
+
+Styleguide 2.2.
+*/
 .flow-ui-buttonspacer {
   display: inline-block;
   padding: .25em .5em;
   vertical-align: inherit;
 }
 a.flow-ui-button[class],
-button.flow-ui-button[class] {
+button.flow-ui-button[class],
+input.flow-ui-button[type="button"],
+input.flow-ui-button[type="submit"],
+input.flow-ui-button[type="reset"] {
   display: inline-block;
   padding: .5em 1em;
   margin: 0;
@@ -534,13 +586,13 @@ button.flow-ui-button[class] {
   border-radius: 3px;
   cursor: pointer;
   -webkit-backface-visibility: hidden;
-  -webkit-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
-  -moz-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
-  -ms-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
-  -o-transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
-  transition: box-shadow 0.1s linear, background-color 0.1s linear, opacity 0.5s linear;
+  -webkit-transition: box-shadow .1s linear, background-color .1s linear, opacity .5s linear;
+  -moz-transition: box-shadow .1s linear, background-color .1s linear, opacity .5s linear;
+  -ms-transition: box-shadow .1s linear, background-color .1s linear, opacity .5s linear;
+  -o-transition: box-shadow .1s linear, background-color .1s linear, opacity .5s linear;
+  transition: box-shadow .1s linear, background-color .1s linear, opacity .5s linear;
   /*
-		 * Button modes (continued in .flowUIButtonContext())
+		 * Button modes (continued in .flow-ui-button-context())
 		 */
   /*
 		 * Default button styles
@@ -552,91 +604,185 @@ button.flow-ui-button[class] {
 		 */
 }
 a.flow-ui-button[class]:disabled,
-button.flow-ui-button[class]:disabled {
+button.flow-ui-button[class]:disabled,
+input.flow-ui-button[type="button"]:disabled,
+input.flow-ui-button[type="submit"]:disabled,
+input.flow-ui-button[type="reset"]:disabled {
   cursor: default;
 }
 a.flow-ui-button[class]:focus,
 button.flow-ui-button[class]:focus,
+input.flow-ui-button[type="button"]:focus,
+input.flow-ui-button[type="submit"]:focus,
+input.flow-ui-button[type="reset"]:focus,
 a.flow-ui-button[class]:active,
-button.flow-ui-button[class]:active {
+button.flow-ui-button[class]:active,
+input.flow-ui-button[type="button"]:active,
+input.flow-ui-button[type="submit"]:active,
+input.flow-ui-button[type="reset"]:active {
   outline: none;
 }
 a.flow-ui-button[class].flow-ui-thin,
-button.flow-ui-button[class].flow-ui-thin {
+button.flow-ui-button[class].flow-ui-thin,
+input.flow-ui-button[type="button"].flow-ui-thin,
+input.flow-ui-button[type="submit"].flow-ui-thin,
+input.flow-ui-button[type="reset"].flow-ui-thin {
   padding: .25em .5em;
   font-weight: inherit;
   vertical-align: inherit;
 }
+a.flow-ui-button[class].flow-ui-inline,
+button.flow-ui-button[class].flow-ui-inline,
+input.flow-ui-button[type="button"].flow-ui-inline,
+input.flow-ui-button[type="submit"].flow-ui-inline,
+input.flow-ui-button[type="reset"].flow-ui-inline {
+  padding: 0;
+  font-weight: inherit;
+  vertical-align: inherit;
+}
 a.flow-ui-button[class]:not(.flow-ui-quiet):hover,
-button.flow-ui-button[class]:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class]:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"]:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"]:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"]:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
   color: #252525;
 }
 a.flow-ui-button[class]:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class]:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class]:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"]:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"]:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"]:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class]:hover,
-.lte-ie8 button.flow-ui-button[class]:hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class]:hover,
+.lte-ie8 input.flow-ui-button[type="button"]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"]:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
   color: #252525;
 }
 .lte-ie8 a.flow-ui-button[class]:focus,
-.lte-ie8 button.flow-ui-button[class]:focus {
-  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class]:focus,
+.lte-ie8 input.flow-ui-button[type="button"]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"]:focus {
+  -webkit-box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: inset 0 -3px 0 0 #cccccc, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-quiet,
 a.flow-ui-button[class].flow-ui-quiet,
-button.flow-ui-button[class].flow-ui-quiet {
+button.flow-ui-button[class].flow-ui-quiet,
+input.flow-ui-button[type="button"].flow-ui-quiet,
+input.flow-ui-button[type="submit"].flow-ui-quiet,
+input.flow-ui-button[type="reset"].flow-ui-quiet {
   background: transparent;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-quiet:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-quiet:hover,
 a.flow-ui-button[class].flow-ui-quiet:hover,
 button.flow-ui-button[class].flow-ui-quiet:hover,
+input.flow-ui-button[type="button"].flow-ui-quiet:hover,
+input.flow-ui-button[type="submit"].flow-ui-quiet:hover,
+input.flow-ui-button[type="reset"].flow-ui-quiet:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-quiet:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-quiet:focus,
 a.flow-ui-button[class].flow-ui-quiet:focus,
 button.flow-ui-button[class].flow-ui-quiet:focus,
+input.flow-ui-button[type="button"].flow-ui-quiet:focus,
+input.flow-ui-button[type="submit"].flow-ui-quiet:focus,
+input.flow-ui-button[type="reset"].flow-ui-quiet:focus,
 .lte-ie8 a.flow-ui-button[class].flow-ui-quiet:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-quiet:active,
 a.flow-ui-button[class].flow-ui-quiet:active,
-button.flow-ui-button[class].flow-ui-quiet:active {
+button.flow-ui-button[class].flow-ui-quiet:active,
+input.flow-ui-button[type="button"].flow-ui-quiet:active,
+input.flow-ui-button[type="submit"].flow-ui-quiet:active,
+input.flow-ui-button[type="reset"].flow-ui-quiet:active {
   color: #252525;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-sleeper,
 .lte-ie8 button.flow-ui-button[class].flow-ui-sleeper,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-sleeper,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-sleeper,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-sleeper,
 a.flow-ui-button[class].flow-ui-sleeper,
-button.flow-ui-button[class].flow-ui-sleeper {
+button.flow-ui-button[class].flow-ui-sleeper,
+input.flow-ui-button[type="button"].flow-ui-sleeper,
+input.flow-ui-button[type="submit"].flow-ui-sleeper,
+input.flow-ui-button[type="reset"].flow-ui-sleeper {
   background: transparent;
   -webkit-box-shadow: inset 0 0 0 1px #dddddd;
   box-shadow: inset 0 0 0 1px #dddddd;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-sleeper:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-sleeper:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-sleeper:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-sleeper:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-sleeper:hover,
 a.flow-ui-button[class].flow-ui-sleeper:hover,
-button.flow-ui-button[class].flow-ui-sleeper:hover {
+button.flow-ui-button[class].flow-ui-sleeper:hover,
+input.flow-ui-button[type="button"].flow-ui-sleeper:hover,
+input.flow-ui-button[type="submit"].flow-ui-sleeper:hover,
+input.flow-ui-button[type="reset"].flow-ui-sleeper:hover {
   background: #fafafa;
-  -webkit-box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-sleeper.flow-ui-thin:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-sleeper.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-sleeper.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-sleeper.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-sleeper.flow-ui-thin:hover,
+a.flow-ui-button[class].flow-ui-sleeper.flow-ui-thin:hover,
+button.flow-ui-button[class].flow-ui-sleeper.flow-ui-thin:hover,
+input.flow-ui-button[type="button"].flow-ui-sleeper.flow-ui-thin:hover,
+input.flow-ui-button[type="submit"].flow-ui-sleeper.flow-ui-thin:hover,
+input.flow-ui-button[type="reset"].flow-ui-sleeper.flow-ui-thin:hover {
+  -webkit-box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -2px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: inset 0 0 0 1px #dddddd, 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -2px 0 0 #dddddd, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet),
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet) {
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet) {
   background: #347bff;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet)[disabled],
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:hover,
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus,
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus {
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -645,39 +791,74 @@ button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet)[disabled]:f
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet):focus {
   background: #4486ff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet).flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
-  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #275cbf;
+  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #275cbf;
 }
 a.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active,
-button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active {
+button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="button"].flow-ui-progressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="submit"].flow-ui-progressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="reset"].flow-ui-progressive:not(.flow-ui-quiet):active {
   background: #0b60ff;
-  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive {
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive {
   background: #347bff;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled],
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive[disabled],
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled]:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive[disabled]:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive[disabled]:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled]:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -686,54 +867,140 @@ button.flow-ui-button[class].flow-ui-progressive:not(.flow-ui-quiet):active {
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive:focus {
   background: #4486ff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:hover,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-thin:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
-  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #275cbf;
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive:focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #275cbf;
+  box-shadow: inset 0 -4px 0 0 #275cbf, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #275cbf;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive:active,
-.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:active {
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive:active {
   background: #0b60ff;
-  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #0b60ff, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet,
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet {
   background: transparent;
   color: #777777;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:hover,
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:hover {
   color: #347bff;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:active,
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:active,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:active,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:active,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:active {
   color: #0b60ff;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:focus,
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet:focus {
   color: #003fb3;
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled],
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled],
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+a.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-quiet[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-sleeper,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-sleeper,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-sleeper {
   background: transparent;
   background: #eeeeee\9;
   color: #6a7892;
@@ -743,22 +1010,40 @@ button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper {
 }
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:hover,
 button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-sleeper:hover,
 a.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:focus,
-button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:focus {
+button.flow-ui-button[class].flow-ui-progressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="button"].flow-ui-progressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="submit"].flow-ui-progressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="reset"].flow-ui-progressive.flow-ui-sleeper:focus {
   color: #ffffff;
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet),
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet) {
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet),
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet) {
   background: #ff7e1e;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet)[disabled],
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:hover,
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus,
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus {
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -767,39 +1052,74 @@ button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet)[disabled]:fo
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet):focus {
   background: #ff8830;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet).flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
-  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #bf5f17;
+  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #bf5f17;
 }
 a.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active,
-button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active {
+button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="button"].flow-ui-regressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="submit"].flow-ui-regressive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="reset"].flow-ui-regressive:not(.flow-ui-quiet):active {
   background: #f46800;
-  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive {
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive {
   background: #ff7e1e;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled],
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive[disabled],
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled]:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive[disabled]:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive[disabled]:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled]:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -808,54 +1128,140 @@ button.flow-ui-button[class].flow-ui-regressive:not(.flow-ui-quiet):active {
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive:focus {
   background: #ff8830;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:hover,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-thin:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
-  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #bf5f17;
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive:focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #bf5f17;
+  box-shadow: inset 0 -4px 0 0 #bf5f17, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #bf5f17;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive:active,
-.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:active {
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive:active {
   background: #f46800;
-  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #f46800, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet,
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet {
   background: transparent;
   color: #777777;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:hover,
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:hover {
   color: #ff7e1e;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:active,
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:active,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:active,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:active,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:active {
   color: #f46800;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:focus,
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet:focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet:focus {
   color: #9e4300;
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled],
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled],
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+a.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-quiet[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-sleeper,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-sleeper,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-sleeper {
   background: transparent;
   background: #eeeeee\9;
   color: #927865;
@@ -865,22 +1271,40 @@ button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper {
 }
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:hover,
 button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-sleeper:hover,
 a.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:focus,
-button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:focus {
+button.flow-ui-button[class].flow-ui-regressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="button"].flow-ui-regressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="submit"].flow-ui-regressive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="reset"].flow-ui-regressive.flow-ui-sleeper:focus {
   color: #ffffff;
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet),
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet) {
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet) {
   background: #00af89;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet)[disabled],
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:hover,
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus,
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus {
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -889,39 +1313,74 @@ button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet)[disabled]:
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet):focus {
   background: #14b592;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet).flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
-  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #008367;
+  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #008367;
 }
 a.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active,
-button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active {
+button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="button"].flow-ui-constructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="submit"].flow-ui-constructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="reset"].flow-ui-constructive:not(.flow-ui-quiet):active {
   background: #008669;
-  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive {
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive {
   background: #00af89;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled],
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive[disabled],
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled]:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive[disabled]:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive[disabled]:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled]:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -930,54 +1389,140 @@ button.flow-ui-button[class].flow-ui-constructive:not(.flow-ui-quiet):active {
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive:focus {
   background: #14b592;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:hover,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-thin:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
-  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #008367;
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive:focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #008367;
+  box-shadow: inset 0 -4px 0 0 #008367, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #008367;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive:active,
-.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:active {
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive:active {
   background: #008669;
-  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #008669, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet,
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet {
   background: transparent;
   color: #777777;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:hover,
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:hover {
   color: #00af89;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:active,
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:active,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:active,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:active,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:active {
   color: #008669;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:focus,
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet:focus {
   color: #003025;
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled],
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled],
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+a.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-quiet[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-sleeper,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-sleeper,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-sleeper {
   background: transparent;
   background: #eeeeee\9;
   color: #5f827b;
@@ -987,22 +1532,40 @@ button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper {
 }
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:hover,
 button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-sleeper:hover,
 a.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:focus,
-button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:focus {
+button.flow-ui-button[class].flow-ui-constructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="button"].flow-ui-constructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="submit"].flow-ui-constructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="reset"].flow-ui-constructive.flow-ui-sleeper:focus {
   color: #ffffff;
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet),
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet) {
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet),
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet) {
   background: #d11d13;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet)[disabled],
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:hover,
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus,
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus {
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -1011,39 +1574,74 @@ button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet)[disabled]:f
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
 button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet):hover,
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet):focus {
   background: #d52f26;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet):hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet):hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet).flow-ui-thin:hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet).flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
-  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet):focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet):focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #9d160e;
+  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #9d160e;
 }
 a.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active,
-button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active {
+button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="button"].flow-ui-destructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="submit"].flow-ui-destructive:not(.flow-ui-quiet):active,
+input.flow-ui-button[type="reset"].flow-ui-destructive:not(.flow-ui-quiet):active {
   background: #ac1810;
-  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive {
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive {
   background: #d11d13;
   color: #ffffff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled],
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive[disabled],
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled]:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive[disabled]:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive[disabled]:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled]:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive[disabled]:focus {
   background: #cccccc;
   color: #ffffff;
   text-shadow: none;
@@ -1052,54 +1650,140 @@ button.flow-ui-button[class].flow-ui-destructive:not(.flow-ui-quiet):active {
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive:hover,
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive:focus {
   background: #d52f26;
   text-shadow: 0 1px rgba(0, 0, 0, 0.33);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:hover,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover {
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+}
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-thin:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-thin:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-thin:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .15), inset 0 -3px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:focus,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus {
-  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
-  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 1px #9d160e;
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive:focus {
+  -webkit-box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #9d160e;
+  box-shadow: inset 0 -4px 0 0 #9d160e, inset 0 -1px 1px 0 rgba(0, 0, 0, .05), inset 0 0 0 1px #9d160e;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive:active,
-.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:active {
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive:active {
   background: #ac1810;
-  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 -2px 0 0 #ac1810, inset 0 2px 0 0 rgba(0, 0, 0, .25);
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet,
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet {
   background: transparent;
   color: #777777;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:hover,
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:hover {
   color: #d11d13;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:active,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:active,
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:active,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:active,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:active,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:active {
   color: #ac1810;
 }
 .lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
 .lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:focus,
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet:focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet:focus {
   color: #5c0d08;
 }
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled],
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled],
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled],
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled],
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled],
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled],
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled]:hover,
+.lte-ie8 a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+.lte-ie8 input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+a.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-quiet[disabled]:focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-quiet[disabled]:focus {
+  background: #cccccc;
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-sleeper,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-sleeper,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-sleeper {
   background: transparent;
   background: #eeeeee\9;
   color: #896563;
@@ -1109,8 +1793,14 @@ button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper {
 }
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:hover,
 button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-sleeper:hover,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-sleeper:hover,
 a.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus,
-button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
+button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="button"].flow-ui-destructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="submit"].flow-ui-destructive.flow-ui-sleeper:focus,
+input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-sleeper:focus {
   color: #ffffff;
 }
 .flow-ui-button-althover {
@@ -1163,7 +1853,6 @@ button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
 }
 .flow-board-navigation a:link,
 .flow-board-navigation a:visited {
-  display: inline-block;
   padding: 0.25em .75em;
   color: #777777;
 }
@@ -1186,7 +1875,7 @@ button.flow-ui-button[class].flow-ui-destructive.flow-ui-sleeper:focus {
 }
 .flow-board-navigation a.flow-board-navigator-last {
   position: absolute;
-  bottom: 1px;
+  bottom: 0;
   right: -2.5em;
   width: 1.1em;
   border-bottom: 1px solid #cccccc;
@@ -1214,6 +1903,7 @@ ul.flow-topic-navigation li {
 ul.flow-topic-navigation li.flow-topic-navigator-wrap {
   margin: 0.25em 0;
   border: 1px solid #cccccc;
+  word-wrap: break-word;
 }
 ul.flow-topic-navigation-fixed {
   position: fixed;
@@ -1272,6 +1962,7 @@ h2.flow-topic-title {
   border-bottom: none;
   margin-bottom: 0.33em;
   font-size: 1.75em;
+  word-wrap: break-word;
   overflow: visible;
 }
 .flow-topic-meta {
@@ -1281,20 +1972,48 @@ h2.flow-topic-title {
 .flow-menu {
   clear: both;
 }
+.flow-reply-count {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 1.5em;
+  margin-top: -0.5em;
+  color: #dddddd;
+  font-size: 2em;
+  opacity: .5;
+}
+.flow-reply-count .flow-reply-count-number {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: .25em;
+  width: 100%;
+  color: #777777;
+  font-size: .5em;
+  line-height: 2.25em;
+  font-weight: bold;
+  text-align: center;
+}
 .flow-post {
   position: relative;
   margin: 1em 0 0 1.5em;
   padding: 0;
   color: #252525;
+  word-wrap: break-word;
 }
 .flow-post .flow-post {
   margin-left: 0;
-  padding-left: 1em;
+  padding-left: 2em;
   border-left: 1px dotted #dddddd;
 }
 .flow-post .flow-author {
-  display: block;
+  display: inline-block;
   color: #252525;
+  word-wrap: break-word;
 }
 .flow-post .flow-author .mw-userlink {
   font-weight: bold;
@@ -1311,6 +2030,9 @@ h2.flow-topic-title {
 .flow-post .flow-author:hover .mw-usertoollinks {
   opacity: 1;
 }
+.flow-post .flow-post-content * {
+  max-width: 100%;
+}
 .flow-post-meta {
   color: #898989;
   font-size: .875em;
@@ -1318,14 +2040,6 @@ h2.flow-topic-title {
 }
 .flow-post-meta-actions {
   float: left;
-}
-.flow-post-meta-actions a,
-.flow-post-meta-actions a:visited {
-  color: #777777;
-}
-.flow-post-meta-actions a:hover,
-.flow-post-meta-actions a:focus {
-  text-decoration: underline;
 }
 @media (max-width: 700px) and (min-device-width: 700px), (max-device-width: 700px) {
   .flow-board-navigation {
@@ -1401,14 +2115,9 @@ h2.flow-topic-title {
   }
 }
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}
-@font-face {
   font-family: 'wikicon-Regular';
-  src: url('../fonts/wikicon.eot'); 
-  src: url('../fonts/wikicon.eot?#iefix') format('embedded-opentype'), url('../fonts/wikicon.woff') format('woff'), url('../fonts/wikicon.ttf')  format('truetype'), url('../fonts/wikicon.svg#b618f6c47120d6564c09540516f52967') format('svg'); 
+  src: url('../fonts/wikicon.eot');
+  src: url('../fonts/wikicon.eot?#iefix') format('embedded-opentype'), url('../fonts/wikicon.woff') format('woff'), url('../fonts/wikicon.ttf') format('truetype'), url('../fonts/wikicon.svg#b618f6c47120d6564c09540516f52967') format('svg');
 }
 .flow-menu {
   position: absolute;
@@ -1444,6 +2153,7 @@ h2.flow-topic-title {
 }
 .client-js div > .flow-menu:hover .flow-menu-js-drop a,
 .client-js div > .flow-menu.focus .flow-menu-js-drop a {
+  outline: none;
   border-color: transparent;
   background: transparent;
   background: rgba(0, 0, 0, 0.05);
@@ -1520,653 +2230,113 @@ h2.flow-topic-title {
 .client-js .flow-timestamp:hover .flow-timestamp-ago {
   display: none;
 }
-.caret {
+.flow-board-navigation a.flow-board-collapser-compact,
+.flow-board-navigation a.flow-board-collapser-topics {
+  display: none;
+}
+.flow-board-collapsed-compact .flow-board-navigation a.flow-board-collapser-compact {
   display: inline-block;
-  width: 0;
-  height: 0;
-  vertical-align: middle;
-  border-top: 4px solid #000000;
-  border-right: 4px solid transparent;
-  border-bottom: 0 dotted;
-  border-left: 4px solid transparent;
-  content: "";
 }
-.glyphicon {
-  position: relative;
-  top: 2px;
+.flow-board-collapsed-compact .flow-board-navigation a.flow-board-collapser-full {
+  display: none;
+}
+.flow-board-collapsed-compact .flow-topic {
+  padding-bottom: 0;
+}
+.flow-board-collapsed-compact .flow-topic h2.flow-topic-title {
+  margin-bottom: 0;
+}
+.flow-board-collapsed-compact .flow-topic .flow-author,
+.flow-board-collapsed-compact .flow-topic .flow-topic-meta {
+  display: none;
+}
+.flow-board-collapsed-compact .flow-topic .flow-reply-count {
+  display: block;
+}
+.flow-board-collapsed-compact .flow-post,
+.flow-board-collapsed-compact .flow-reply-form {
+  display: none;
+}
+.flow-board-collapsed-compact .flow-topic-collapsed-invert .flow-post,
+.flow-board-collapsed-compact .flow-topic-collapsed-invert .flow-reply-form {
+  display: block;
+}
+.flow-board-collapsed-topics .flow-board-navigation a.flow-board-collapser-topics {
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
 }
-.glyphicon-asterisk:before {
-  content: "\2a";
+.flow-board-collapsed-topics .flow-board-navigation a.flow-board-collapser-full {
+  display: none;
 }
-.glyphicon-plus:before {
-  content: "\2b";
+.flow-board-collapsed-topics .flow-post,
+.flow-board-collapsed-topics .flow-reply-form {
+  display: none;
 }
-.glyphicon-euro:before {
-  content: "\20ac";
+.flow-board-collapsed-topics .flow-topic-collapsed-invert .flow-post,
+.flow-board-collapsed-topics .flow-topic-collapsed-invert .flow-reply-form {
+  display: block;
 }
-.glyphicon-minus:before {
-  content: "\e002212";
+.flow-topic-collapsed-invert .flow-post,
+.flow-topic-collapsed-invert .flow-reply-form {
+  display: none;
 }
-.glyphicon-cloud:before {
-  content: "\e002601";
+.flow-topic-titlebar {
+  cursor: pointer;
+  outline: none;
 }
-.glyphicon-envelope:before {
-  content: "\e002709";
+.flow-topic-titlebar:hover,
+.flow-topic-titlebar:focus {
+  -webkit-box-shadow: inset 0 -1px 0px 1px #dddddd, 0 1px 1px #eeeeee;
+  box-shadow: inset 0 -1px 0px 1px #dddddd, 0 1px 1px #eeeeee;
 }
-.glyphicon-pencil:before {
-  content: "\270f";
-}
-.glyphicon-glass:before {
-  content: "\e001";
-}
-.glyphicon-music:before {
-  content: "\e002";
-}
-.glyphicon-search:before {
-  content: "\e003";
-}
-.glyphicon-heart:before {
-  content: "\e005";
-}
-.glyphicon-star:before {
-  content: "\e006";
-}
-.glyphicon-star-empty:before {
-  content: "\e007";
-}
-.glyphicon-user:before {
-  content: "\e008";
-}
-.glyphicon-film:before {
-  content: "\e009";
-}
-.glyphicon-th-large:before {
-  content: "\e010";
-}
-.glyphicon-th:before {
-  content: "\e011";
-}
-.glyphicon-th-list:before {
-  content: "\e012";
-}
-.glyphicon-ok:before {
-  content: "\e013";
-}
-.glyphicon-remove:before {
-  content: "\e014";
-}
-.glyphicon-zoom-in:before {
-  content: "\e015";
-}
-.glyphicon-zoom-out:before {
-  content: "\e016";
-}
-.glyphicon-off:before {
-  content: "\e017";
-}
-.glyphicon-signal:before {
-  content: "\e018";
-}
-.glyphicon-cog:before {
-  content: "\e019";
-}
-.glyphicon-trash:before {
-  content: "\e020";
-}
-.glyphicon-home:before {
-  content: "\e021";
-}
-.glyphicon-file:before {
-  content: "\e022";
-}
-.glyphicon-time:before {
-  content: "\e023";
-}
-.glyphicon-road:before {
-  content: "\e024";
-}
-.glyphicon-download-alt:before {
-  content: "\e025";
-}
-.glyphicon-download:before {
-  content: "\e026";
-}
-.glyphicon-upload:before {
-  content: "\e027";
-}
-.glyphicon-inbox:before {
-  content: "\e028";
-}
-.glyphicon-play-circle:before {
-  content: "\e029";
-}
-.glyphicon-repeat:before {
-  content: "\e030";
-}
-.glyphicon-refresh:before {
-  content: "\e031";
-}
-.glyphicon-list-alt:before {
-  content: "\e032";
-}
-.glyphicon-flag:before {
-  content: "\e034";
-}
-.glyphicon-headphones:before {
-  content: "\e035";
-}
-.glyphicon-volume-off:before {
-  content: "\e036";
-}
-.glyphicon-volume-down:before {
-  content: "\e037";
-}
-.glyphicon-volume-up:before {
-  content: "\e038";
-}
-.glyphicon-qrcode:before {
-  content: "\e039";
-}
-.glyphicon-barcode:before {
+.flow-topic-titlebar:hover:after,
+.flow-topic-titlebar:focus:after {
+  display: inline-block;
+  font-family: 'wikicon-Regular';
+  position: absolute;
+  font-size: 1em;
+  bottom: 0;
+  right: .5em;
+  color: #777777;
   content: "\e040";
 }
-.glyphicon-tag:before {
-  content: "\e041";
-}
-.glyphicon-tags:before {
+.flow-topic-collapsed-invert .flow-topic-titlebar:hover:after,
+.flow-topic-collapsed-invert .flow-topic-titlebar:focus:after {
   content: "\e042";
 }
-.glyphicon-book:before {
-  content: "\e043";
-}
-.glyphicon-print:before {
-  content: "\e045";
-}
-.glyphicon-font:before {
-  content: "\e047";
-}
-.glyphicon-bold:before {
-  content: "\e048";
-}
-.glyphicon-italic:before {
-  content: "\e049";
-}
-.glyphicon-text-height:before {
-  content: "\e050";
-}
-.glyphicon-text-width:before {
-  content: "\e051";
-}
-.glyphicon-align-left:before {
-  content: "\e052";
-}
-.glyphicon-align-center:before {
-  content: "\e053";
-}
-.glyphicon-align-right:before {
-  content: "\e054";
-}
-.glyphicon-align-justify:before {
-  content: "\e055";
-}
-.glyphicon-list:before {
-  content: "\e056";
-}
-.glyphicon-indent-left:before {
-  content: "\e057";
-}
-.glyphicon-indent-right:before {
-  content: "\e058";
-}
-.glyphicon-facetime-video:before {
-  content: "\e059";
-}
-.glyphicon-picture:before {
-  content: "\e060";
-}
-.glyphicon-map-marker:before {
-  content: "\e062";
-}
-.glyphicon-adjust:before {
-  content: "\e063";
-}
-.glyphicon-tint:before {
-  content: "\e064";
-}
-.glyphicon-edit:before {
-  content: "\e065";
-}
-.glyphicon-share:before {
-  content: "\e066";
-}
-.glyphicon-check:before {
-  content: "\e067";
-}
-.glyphicon-move:before {
-  content: "\e068";
-}
-.glyphicon-step-backward:before {
-  content: "\e069";
-}
-.glyphicon-fast-backward:before {
-  content: "\e070";
-}
-.glyphicon-backward:before {
-  content: "\e071";
-}
-.glyphicon-play:before {
-  content: "\e072";
-}
-.glyphicon-pause:before {
-  content: "\e073";
-}
-.glyphicon-stop:before {
-  content: "\e074";
-}
-.glyphicon-forward:before {
-  content: "\e075";
-}
-.glyphicon-fast-forward:before {
-  content: "\e076";
-}
-.glyphicon-step-forward:before {
-  content: "\e077";
-}
-.glyphicon-eject:before {
-  content: "\e078";
-}
-.glyphicon-chevron-left:before {
-  content: "\e079";
-}
-.glyphicon-chevron-right:before {
-  content: "\e080";
-}
-.glyphicon-plus-sign:before {
-  content: "\e081";
-}
-.glyphicon-minus-sign:before {
-  content: "\e082";
-}
-.glyphicon-remove-sign:before {
-  content: "\e083";
-}
-.glyphicon-ok-sign:before {
-  content: "\e084";
-}
-.glyphicon-question-sign:before {
-  content: "\e085";
-}
-.glyphicon-info-sign:before {
-  content: "\e086";
-}
-.glyphicon-screenshot:before {
-  content: "\e087";
-}
-.glyphicon-remove-circle:before {
-  content: "\e088";
-}
-.glyphicon-ok-circle:before {
-  content: "\e089";
-}
-.glyphicon-ban-circle:before {
-  content: "\e090";
-}
-.glyphicon-arrow-left:before {
-  content: "\e091";
-}
-.glyphicon-arrow-right:before {
-  content: "\e092";
-}
-.glyphicon-arrow-up:before {
-  content: "\e093";
-}
-.glyphicon-arrow-down:before {
-  content: "\e094";
-}
-.glyphicon-share-alt:before {
-  content: "\e095";
-}
-.glyphicon-resize-full:before {
-  content: "\e096";
-}
-.glyphicon-resize-small:before {
-  content: "\e097";
-}
-.glyphicon-exclamation-sign:before {
-  content: "\e101";
-}
-.glyphicon-gift:before {
-  content: "\e102";
-}
-.glyphicon-leaf:before {
-  content: "\e103";
-}
-.glyphicon-eye-open:before {
-  content: "\e105";
-}
-.glyphicon-eye-close:before {
-  content: "\e106";
-}
-.glyphicon-warning-sign:before {
-  content: "\e107";
-}
-.glyphicon-plane:before {
-  content: "\e108";
-}
-.glyphicon-random:before {
-  content: "\e110";
-}
-.glyphicon-comment:before {
-  content: "\e111";
-}
-.glyphicon-magnet:before {
-  content: "\e112";
-}
-.glyphicon-chevron-up:before {
-  content: "\e113";
-}
-.glyphicon-chevron-down:before {
-  content: "\e114";
-}
-.glyphicon-retweet:before {
-  content: "\e115";
-}
-.glyphicon-shopping-cart:before {
-  content: "\e116";
-}
-.glyphicon-folder-close:before {
-  content: "\e117";
-}
-.glyphicon-folder-open:before {
-  content: "\e118";
-}
-.glyphicon-resize-vertical:before {
-  content: "\e119";
-}
-.glyphicon-resize-horizontal:before {
-  content: "\e120";
-}
-.glyphicon-hdd:before {
-  content: "\e121";
-}
-.glyphicon-bullhorn:before {
-  content: "\e122";
-}
-.glyphicon-certificate:before {
-  content: "\e124";
-}
-.glyphicon-thumbs-up:before {
-  content: "\e125";
-}
-.glyphicon-thumbs-down:before {
-  content: "\e126";
-}
-.glyphicon-hand-right:before {
-  content: "\e127";
-}
-.glyphicon-hand-left:before {
-  content: "\e128";
-}
-.glyphicon-hand-up:before {
-  content: "\e129";
-}
-.glyphicon-hand-down:before {
-  content: "\e130";
-}
-.glyphicon-circle-arrow-right:before {
-  content: "\e131";
-}
-.glyphicon-circle-arrow-left:before {
-  content: "\e132";
-}
-.glyphicon-circle-arrow-up:before {
-  content: "\e133";
-}
-.glyphicon-circle-arrow-down:before {
-  content: "\e134";
-}
-.glyphicon-globe:before {
-  content: "\e135";
-}
-.glyphicon-tasks:before {
-  content: "\e137";
-}
-.glyphicon-filter:before {
-  content: "\e138";
-}
-.glyphicon-fullscreen:before {
-  content: "\e140";
-}
-.glyphicon-dashboard:before {
-  content: "\e141";
-}
-.glyphicon-heart-empty:before {
-  content: "\e143";
-}
-.glyphicon-link:before {
-  content: "\e144";
-}
-.glyphicon-phone:before {
-  content: "\e145";
-}
-.glyphicon-usd:before {
-  content: "\e148";
-}
-.glyphicon-gbp:before {
-  content: "\e149";
-}
-.glyphicon-sort:before {
-  content: "\e150";
-}
-.glyphicon-sort-by-alphabet:before {
-  content: "\e151";
-}
-.glyphicon-sort-by-alphabet-alt:before {
-  content: "\e152";
-}
-.glyphicon-sort-by-order:before {
-  content: "\e153";
-}
-.glyphicon-sort-by-order-alt:before {
-  content: "\e154";
-}
-.glyphicon-sort-by-attributes:before {
-  content: "\e155";
-}
-.glyphicon-sort-by-attributes-alt:before {
-  content: "\e156";
-}
-.glyphicon-unchecked:before {
-  content: "\e157";
-}
-.glyphicon-expand:before {
-  content: "\e158";
-}
-.glyphicon-collapse-down:before {
-  content: "\e159";
-}
-.glyphicon-collapse-up:before {
-  content: "\e160";
-}
-.glyphicon-log-in:before {
-  content: "\e161";
-}
-.glyphicon-flash:before {
-  content: "\e162";
-}
-.glyphicon-log-out:before {
-  content: "\e163";
-}
-.glyphicon-new-window:before {
-  content: "\e164";
-}
-.glyphicon-record:before {
-  content: "\e165";
-}
-.glyphicon-save:before {
-  content: "\e166";
-}
-.glyphicon-open:before {
-  content: "\e167";
-}
-.glyphicon-saved:before {
-  content: "\e168";
-}
-.glyphicon-import:before {
-  content: "\e169";
-}
-.glyphicon-export:before {
-  content: "\e170";
-}
-.glyphicon-send:before {
-  content: "\e171";
-}
-.glyphicon-floppy-disk:before {
-  content: "\e172";
-}
-.glyphicon-floppy-saved:before {
-  content: "\e173";
-}
-.glyphicon-floppy-remove:before {
-  content: "\e174";
-}
-.glyphicon-floppy-save:before {
-  content: "\e175";
-}
-.glyphicon-floppy-open:before {
-  content: "\e176";
-}
-.glyphicon-credit-card:before {
-  content: "\e177";
-}
-.glyphicon-transfer:before {
-  content: "\e178";
-}
-.glyphicon-cutlery:before {
-  content: "\e179";
-}
-.glyphicon-header:before {
-  content: "\e180";
-}
-.glyphicon-compressed:before {
-  content: "\e181";
-}
-.glyphicon-earphone:before {
-  content: "\e182";
-}
-.glyphicon-phone-alt:before {
-  content: "\e183";
-}
-.glyphicon-tower:before {
-  content: "\e184";
-}
-.glyphicon-stats:before {
-  content: "\e185";
-}
-.glyphicon-sd-video:before {
-  content: "\e186";
-}
-.glyphicon-hd-video:before {
-  content: "\e187";
-}
-.glyphicon-subtitles:before {
-  content: "\e188";
-}
-.glyphicon-sound-stereo:before {
-  content: "\e189";
-}
-.glyphicon-sound-dolby:before {
-  content: "\e190";
-}
-.glyphicon-sound-5-1:before {
-  content: "\e191";
-}
-.glyphicon-sound-6-1:before {
-  content: "\e192";
-}
-.glyphicon-sound-7-1:before {
-  content: "\e193";
-}
-.glyphicon-copyright-mark:before {
-  content: "\e194";
-}
-.glyphicon-registration-mark:before {
-  content: "\e195";
-}
-.glyphicon-cloud-download:before {
-  content: "\e197";
-}
-.glyphicon-cloud-upload:before {
-  content: "\e198";
-}
-.glyphicon-tree-conifer:before {
-  content: "\e199";
-}
-.glyphicon-tree-deciduous:before {
-  content: "\e200";
-}
-.glyphicon-briefcase:before {
-  content: "\1f4bc";
-}
-.glyphicon-calendar:before {
-  content: "\1f4c5";
-}
-.glyphicon-pushpin:before {
-  content: "\1f4cc";
-}
-.glyphicon-paperclip:before {
-  content: "\1f4ce";
-}
-.glyphicon-camera:before {
-  content: "\1f4f7";
-}
-.glyphicon-lock:before {
-  content: "\1f512";
-}
-.glyphicon-bell:before {
-  content: "\1f514";
-}
-.glyphicon-bookmark:before {
-  content: "\1f516";
-}
-.glyphicon-fire:before {
-  content: "\1f525";
-}
-.glyphicon-bowrench:before {
-  content: "\1f527";
+.flow-board-collapsed-compact .flow-topic-titlebar:hover:after,
+.flow-board-collapsed-compact .flow-topic-titlebar:focus:after,
+.flow-board-collapsed-topics .flow-topic-titlebar:hover:after,
+.flow-board-collapsed-topics .flow-topic-titlebar:focus:after {
+  content: "\e042";
+}
+.flow-board-collapsed-compact .flow-topic-collapsed-invert .flow-topic-titlebar:hover:after,
+.flow-board-collapsed-compact .flow-topic-collapsed-invert .flow-topic-titlebar:focus:after,
+.flow-board-collapsed-topics .flow-topic-collapsed-invert .flow-topic-titlebar:hover:after,
+.flow-board-collapsed-topics .flow-topic-collapsed-invert .flow-topic-titlebar:focus:after {
+  content: "\e040";
+}
+.flow-topic-titlebar:hover + .flow-post {
+  opacity: .85;
 }
 .wikicon {
   display: inline-block;
+  margin: 0 -0.2em;
+  height: .4em;
   font-family: 'wikicon-Regular';
   -webkit-font-smoothing: antialiased;
-  font-size: 2.2em;
+  font-size: 1.75em;
   font-style: normal;
   font-weight: normal;
-  line-height: inherit;
+  line-height: .2em;
   overflow: visible;
   vertical-align: text-bottom;
 }
-
-/* WIKIPEDIA LOGO e000-021
-*/
-
 .wikicon-cap-w:before {
   content: "\57";
 }
 .wikicon-lower-w:before {
   content: "\77";
 }
-
-
-/* UI ELEMENTS e000-021
-*/
-
 .wikicon-magnifying-glass:before {
   content: "\e000";
 }
@@ -2233,10 +2403,6 @@ h2.flow-topic-title {
 .wikicon-pin:before {
   content: "\e021";
 }
-
-
-/* STRIPES e040-043
-*/
 .wikicon-stripe-compact:before {
   content: "\e040";
 }
@@ -2246,11 +2412,6 @@ h2.flow-topic-title {
 .wikicon-stripe-expanded:before {
   content: "\e042";
 }
-
-
-/* UI MODERATION ELEMENTS e500-508 
-*/
-
 .wikicon-article:before {
   content: "\e100";
 }
@@ -2260,7 +2421,6 @@ h2.flow-topic-title {
 .wikicon-article-search:before {
   content: "\e102";
 }
-
 .wikicon-trash:before {
   content: "\e500";
 }
@@ -2269,7 +2429,7 @@ h2.flow-topic-title {
 }
 .wikicon-block:before {
   content: "\e502";
-
+}
 .wikicon-block-slash:before {
   content: "\e503";
 }
@@ -2288,10 +2448,6 @@ h2.flow-topic-title {
 .wikicon-lock:before {
   content: "\e508";
 }
-
-
-/* USER e600-602
-*/
 .wikicon-user-bust:before {
   content: "\e600";
 }
@@ -2301,17 +2457,9 @@ h2.flow-topic-title {
 .wikicon-user-sleep:before {
   content: "\e602";
 }
-
-
-/* TRANSLATION e700
-*/
 .wikicon-translate:before {
   content: "\e700";
 }
-
-
-/* CONTRIBUTION e800-845
-*/
 .wikicon-pencil:before {
   content: "\e800";
 }
@@ -2321,8 +2469,6 @@ h2.flow-topic-title {
 .wikicon-pencil-lock:before {
   content: "\e802";
 }
-
-
 .wikicon-speech-bubble:before {
   content: "\e810";
 }
@@ -2335,21 +2481,15 @@ h2.flow-topic-title {
 .wikicon-speech-bubble-smile:before {
   content: "\e813";
 }
-
-
 .wikicon-link:before {
   content: "\e820";
 }
-
-
 .wikicon-quotes:before {
   content: "\e830";
 }
 .wikicon-quotes-add:before {
   content: "\e831";
 }
-
-
 .wikicon-image:before {
   content: "\e840";
 }
@@ -2368,15 +2508,9 @@ h2.flow-topic-title {
 .wikicon-folder-main-placeholder:before {
   content: "\e845";
 }
-
-
-/* WIKI-X e900
-*/
 .wikicon-wikitrail:before {
   content: "\e900";
 }
-
-
 @media (max-width: 700px) and (min-device-width: 700px), (max-device-width: 700px) {
   ul.flow-menu {
     position: static;
@@ -2401,11 +2535,11 @@ h2.flow-topic-title {
   font-size: inherit;
   line-height: inherit;
   -webkit-backface-visibility: hidden;
-  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -ms-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
 }
 .flow-board .mw-ui-input::-webkit-input-placeholder,
 .flow-board textarea::-webkit-input-placeholder {
