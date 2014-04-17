@@ -1866,12 +1866,15 @@ input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-sleeper:focus {
 }
 .flow-board-navigation a.flow-board-navigator-cap {
   border-right: 1px solid #cccccc;
+  padding-bottom: 0.5em;
+  margin-top: 1em;
 }
 .flow-board-navigation a.flow-board-navigator-active {
   font-weight: bold;
 }
 .flow-board-navigation a.flow-board-navigator-first {
   padding-left: 0;
+  margin-top: 1em;
 }
 .flow-board-navigation a.flow-board-navigator-last {
   position: absolute;
@@ -1879,6 +1882,7 @@ input.flow-ui-button[type="reset"].flow-ui-destructive.flow-ui-sleeper:focus {
   right: -2.5em;
   width: 1.1em;
   border-bottom: 1px solid #cccccc;
+  padding-bottom: 0.5em;
 }
 ul.flow-topic-navigation {
   float: right;
@@ -1953,21 +1957,22 @@ ul.flow-topic-navigation-fixed {
 }
 .flow-topic-titlebar {
   position: relative;
-  padding: 1em 1.5em;
+  padding: 1.6em 1.5em 1.3em;
   background: #eeeeee;
   border-radius: 3px;
 }
 h2.flow-topic-title {
   padding: 0;
   border-bottom: none;
-  margin-bottom: 0.33em;
-  font-size: 1.75em;
+  margin-bottom: 0.4em;
+  font-size: 2em;
+  font-weight: bold;
   word-wrap: break-word;
   overflow: visible;
 }
 .flow-topic-meta {
-  padding-top: .33em;
-  color: #898989;
+  padding: 0.4em 0em 0em 0em;
+  color: #999999;
 }
 .flow-menu {
   clear: both;
@@ -2068,7 +2073,8 @@ h2.flow-topic-title {
     line-height: 1.2em;
   }
   .flow-topic-titlebar {
-    padding: .5em .75em;
+    padding: 0em -1em 0em -1em;
+    margin: 0em -1em 0em -1em;
   }
   .flow-topic-meta {
     font-size: .875em;
@@ -2115,9 +2121,9 @@ h2.flow-topic-title {
   }
 }
 @font-face {
-  font-family: 'wikicon-Regular';
-  src: url('../fonts/wikicon.eot');
-  src: url('../fonts/wikicon.eot?#iefix') format('embedded-opentype'), url('../fonts/wikicon.woff') format('woff'), url('../fonts/wikicon.ttf') format('truetype'), url('../fonts/wikicon.svg#b618f6c47120d6564c09540516f52967') format('svg');
+  font-family: 'WikiFont-Regular';
+  src: url('../fonts/WikiFont.eot');
+  src: url('../fonts/WikiFont.eot?#iefix') format('embedded-opentype'), url('../fonts/WikiFont.woff') format('woff'), url('../fonts/WikiFont.ttf') format('truetype'), url('../fonts/WikiFont.svg#b618f6c47120d6564c09540516f52967') format('svg');
 }
 .flow-menu {
   position: absolute;
@@ -2181,8 +2187,6 @@ h2.flow-topic-title {
 .client-js div > .flow-menu .flow-menu-js-drop a {
   display: inline-block;
   padding: 0 .5em;
-  background: #fafafa;
-  background: rgba(250, 250, 250, 0.75);
   border: 1px solid #cccccc;
   border-radius: 3px;
   border-width: 0;
@@ -2190,7 +2194,7 @@ h2.flow-topic-title {
 }
 .client-js div.flow-post > .flow-menu .flow-menu-js-drop a {
   border-color: #eeeeee;
-  border-width: 1px;
+  border-width: 0px;
 }
 .flow-timestamp {
   box-sizing: border-box;
@@ -2291,7 +2295,7 @@ h2.flow-topic-title {
 .flow-topic-titlebar:hover:after,
 .flow-topic-titlebar:focus:after {
   display: inline-block;
-  font-family: 'wikicon-Regular';
+  font-family: 'WikiFont-Regular';
   position: absolute;
   font-size: 1em;
   bottom: 0;
@@ -2318,197 +2322,192 @@ h2.flow-topic-title {
 .flow-topic-titlebar:hover + .flow-post {
   opacity: .85;
 }
-.wikicon {
+.WikiFont {
   display: inline-block;
-  margin: 0 -0.2em;
-  height: .4em;
-  font-family: 'wikicon-Regular';
+  height: .8em;
+  font-family: 'WikiFont-Regular';
   -webkit-font-smoothing: antialiased;
-  font-size: 1.75em;
+  font-size: 1.8em;
   font-style: normal;
   font-weight: normal;
-  line-height: .2em;
   overflow: visible;
   vertical-align: text-bottom;
 }
-.wikicon-cap-w:before {
-  content: "\57";
+.WikiFont-w:before {
+  content: "\e400";
 }
-.wikicon-lower-w:before {
-  content: "\77";
-}
-.wikicon-magnifying-glass:before {
+.WikiFont-magnifying-glass:before {
   content: "\e000";
 }
-.wikicon-arrow-left:before {
+.WikiFont-arrow-left:before {
   content: "\e001";
 }
-.wikicon-tick:before {
+.WikiFont-tick:before {
   content: "\e002";
 }
-.wikicon-x:before {
+.WikiFont-x:before {
   content: "\e003";
 }
-.wikicon-x-circle:before {
+.WikiFont-x-circle:before {
   content: "\e004";
 }
-.wikicon-unstar:before {
+.WikiFont-unstar:before {
   content: "\e005";
 }
-.wikicon-star:before {
+.WikiFont-star:before {
   content: "\e006";
 }
-.wikicon-sun:before {
+.WikiFont-sun:before {
   content: "\e007";
 }
-.wikicon-star-circle:before {
+.WikiFont-star-circle:before {
   content: "\e008";
 }
-.wikicon-funnel:before {
+.WikiFont-funnel:before {
   content: "\e009";
 }
-.wikicon-eye:before {
+.WikiFont-eye:before {
   content: "\e010";
 }
-.wikicon-eye-lid:before {
+.WikiFont-eye-lid:before {
   content: "\e011";
 }
-.wikicon-bookmark:before {
+.WikiFont-bookmark:before {
   content: "\e012";
 }
-.wikicon-printer:before {
+.WikiFont-printer:before {
   content: "\e013";
 }
-.wikicon-puzzle:before {
+.WikiFont-puzzle:before {
   content: "\e014";
 }
-.wikicon-clock:before {
+.WikiFont-clock:before {
   content: "\e015";
 }
-.wikicon-dice:before {
+.WikiFont-dice:before {
   content: "\e016";
 }
-.wikicon-move:before {
+.WikiFont-move:before {
   content: "\e017";
 }
-.wikicon-gear:before {
+.WikiFont-gear:before {
   content: "\e018";
 }
-.wikicon-ellipsis:before {
+.WikiFont-ellipsis:before {
   content: "\e019";
 }
-.wikicon-envelope:before {
+.WikiFont-envelope:before {
   content: "\e020";
 }
-.wikicon-pin:before {
+.WikiFont-pin:before {
   content: "\e021";
 }
-.wikicon-stripe-compact:before {
+.WikiFont-stripe-compact:before {
   content: "\e040";
 }
-.wikicon-stripe-toc:before {
+.WikiFont-stripe-toc:before {
   content: "\e041";
 }
-.wikicon-stripe-expanded:before {
+.WikiFont-stripe-expanded:before {
   content: "\e042";
 }
-.wikicon-article:before {
+.WikiFont-article:before {
   content: "\e100";
 }
-.wikicon-article-check:before {
+.WikiFont-article-check:before {
   content: "\e101";
 }
-.wikicon-article-search:before {
+.WikiFont-article-search:before {
   content: "\e102";
 }
-.wikicon-trash:before {
+.WikiFont-trash:before {
   content: "\e500";
 }
-.wikicon-trash-slash:before {
+.WikiFont-trash-slash:before {
   content: "\e501";
 }
-.wikicon-block:before {
+.WikiFont-block:before {
   content: "\e502";
 }
-.wikicon-block-slash:before {
+.WikiFont-block-slash:before {
   content: "\e503";
 }
-.wikicon-flag:before {
+.WikiFont-flag:before {
   content: "\e504";
 }
-.wikicon-flag-slash:before {
+.WikiFont-flag-slash:before {
   content: "\e505";
 }
-.wikicon-play:before {
+.WikiFont-play:before {
   content: "\e506";
 }
-.wikicon-stop:before {
+.WikiFont-stop:before {
   content: "\e507";
 }
-.wikicon-lock:before {
+.WikiFont-lock:before {
   content: "\e508";
 }
-.wikicon-user-bust:before {
+.WikiFont-user-bust:before {
   content: "\e600";
 }
-.wikicon-user-smile:before {
+.WikiFont-user-smile:before {
   content: "\e601";
 }
-.wikicon-user-sleep:before {
+.WikiFont-user-sleep:before {
   content: "\e602";
 }
-.wikicon-translate:before {
+.WikiFont-translate:before {
   content: "\e700";
 }
-.wikicon-pencil:before {
+.WikiFont-pencil:before {
   content: "\e800";
 }
-.wikicon-pencil-revert:before {
+.WikiFont-pencil-revert:before {
   content: "\e801";
 }
-.wikicon-pencil-lock:before {
+.WikiFont-pencil-lock:before {
   content: "\e802";
 }
-.wikicon-speech-bubble:before {
+.WikiFont-speech-bubble:before {
   content: "\e810";
 }
-.wikicon-speech-bubbles:before {
+.WikiFont-speech-bubbles:before {
   content: "\e811";
 }
-.wikicon-speech-bubble-add:before {
+.WikiFont-speech-bubble-add:before {
   content: "\e812";
 }
-.wikicon-speech-bubble-smile:before {
+.WikiFont-speech-bubble-smile:before {
   content: "\e813";
 }
-.wikicon-link:before {
+.WikiFont-link:before {
   content: "\e820";
 }
-.wikicon-quotes:before {
+.WikiFont-quotes:before {
   content: "\e830";
 }
-.wikicon-quotes-add:before {
+.WikiFont-quotes-add:before {
   content: "\e831";
 }
-.wikicon-image:before {
+.WikiFont-image:before {
   content: "\e840";
 }
-.wikicon-image-lock:before {
+.WikiFont-image-lock:before {
   content: "\e841";
 }
-.wikicon-image-add:before {
+.WikiFont-image-add:before {
   content: "\e842";
 }
-.wikicon-image-main-placeholder:before {
+.WikiFont-image-main-placeholder:before {
   content: "\e843";
 }
-.wikicon-folder:before {
+.WikiFont-folder:before {
   content: "\e844";
 }
-.wikicon-folder-main-placeholder:before {
+.WikiFont-folder-main-placeholder:before {
   content: "\e845";
 }
-.wikicon-wikitrail:before {
+.WikiFont-wikitrail:before {
   content: "\e900";
 }
 @media (max-width: 700px) and (min-device-width: 700px), (max-device-width: 700px) {
@@ -2529,7 +2528,7 @@ h2.flow-topic-title {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   width: 100%;
-  padding: .3em .3em .3em .6em;
+  padding: 0.8em 0.3em 0.8em 1.3em;
   color: inherit;
   font-family: inherit;
   font-size: inherit;

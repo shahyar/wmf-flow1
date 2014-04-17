@@ -71,20 +71,20 @@
 							{{/with}}
 						{{/workflow}}
 						<div class="flow-board-header-nav">
-							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon flow-ui-tooltip-target" href="/" title="{{l10n "Edit"}}"><span class="wikicon wikicon-pencil"></span></a>
+							<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-board-header-icon flow-ui-tooltip-target" href="/" title="{{l10n "Edit"}}"><span class="WikiFont WikiFont-pencil"></span></a>
 						</div>
 					</div>
 				</script>
 
 				<script type="text/x-handlebars-template" id="flow_board_collapsers_subcomponent-partial">
-					<a href="#collapser/full"    data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-compact flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-compact flow-ui-tooltip-target" title="{{l10n "Toggle_topics_and_posts"}}"></span></a>
-					<a href="#collapser/compact" data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-topics flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-toc flow-ui-tooltip-target" title="{{l10n "Toggle_small_topics"}}"></span></a>
-					<a href="#collapser/topics"  data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-full flow-board-navigator-right flow-board-navigator-cap"><span class="wikicon wikicon-stripe-expanded flow-ui-tooltip-target" title="{{l10n "Toggle_topics_only"}}"></span></a>
+					<a href="#collapser/full"    data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-compact flow-board-navigator-right flow-board-navigator-cap"><span class="WikiFont WikiFont-stripe-compact flow-ui-tooltip-target" title="{{l10n "Toggle_topics_and_posts"}}"></span></a>
+					<a href="#collapser/compact" data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-topics flow-board-navigator-right flow-board-navigator-cap"><span class="WikiFont WikiFont-stripe-toc flow-ui-tooltip-target" title="{{l10n "Toggle_small_topics"}}"></span></a>
+					<a href="#collapser/topics"  data-flow-interactive-handler="collapserToggle" class="flow-board-collapser-full flow-board-navigator-right flow-board-navigator-cap"><span class="WikiFont WikiFont-stripe-expanded flow-ui-tooltip-target" title="{{l10n "Toggle_topics_only"}}"></span></a>
 				</script>
 
 				<script type="text/x-handlebars-template" id="flow_board_navigation-partial">
 					<div class="flow-board-navigation">
-						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="wikicon wikicon-magnifying-glass flow-ui-tooltip-target" title="Search"></span></a>
+						<a href="{{url 'board.search'}}" class="flow-board-navigator-last"><span class="WikiFont WikiFont-magnifying-glass flow-ui-tooltip-target" title="Search"></span></a>
 						<div>
 							{{progressiveEnhancement type="insertion" id="flow-board-collapsers" template="{{> flow_board_collapsers_subcomponent}}"}}
 							<a href="{{url 'board.topics'}}" class="flow-board-navigator-active flow-board-navigator-first flow-ui-tooltip-target" title="{{l10n 'You are currently reading the newest topics first. Click for more sorting options.'}}">{{l10n "Newest_topics"}}</a>
@@ -103,7 +103,7 @@
 							{{/each}}
 							<li class="flow-topic-navigation-footer">
 								{{l10n "topic_count_sidebar" this}}
-								<a href="{{urls.pagination.load_more}}" class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin"><span class="wikicon wikicon-article"></span> {{l10n "Load_More"}}</a>
+								<a href="{{urls.pagination.load_more}}" class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin"><span class="WikiFont WikiFont-article"></span> {{l10n "Load_More"}}</a>
 							</li>
 						{{/workflow}}
 					</ul>
@@ -133,20 +133,20 @@
 								<a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-inline" href="#flow-topic-{{id}}-form-content">{{l10n "Reply"}}</a>
 								&bull; {{l10n "comment_count" this}} &bull;
 								{{#if update_time}}
-									<!--span class="wikicon wikicon-speech-bubbles"></span--> {{timestamp update_time "active_ago"}}
+									<!--span class="WikiFont WikiFont-speech-bubbles"></span--> {{timestamp update_time "active_ago"}}
 								{{else}}
-									<!--span class="wikicon wikicon-speech-bubble"></span--> {{timestamp start_time "started_ago"}}
+									<!--span class="WikiFont WikiFont-speech-bubble"></span--> {{timestamp start_time "started_ago"}}
 								{{/if}}
 							</div>
-							<span class="flow-reply-count"><span class="wikicon wikicon-speech-bubble"></span><span class="flow-reply-count-number">{{reply_count}}</span></span>
+							<span class="flow-reply-count"><span class="WikiFont WikiFont-speech-bubble"></span><span class="flow-reply-count-number">{{reply_count}}</span></span>
 
 							<div class="flow-menu">
-								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicon wikicon-ellipsis"></span></a></div>
+								<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="WikiFont WikiFont-ellipsis"></span></a></div>
 								<ul class="flow-ui-button-container">
-									<li><a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.lock}}"><span class="wikicon wikicon-lock"></span> {{l10n "Lock"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicon wikicon-eye-lid"></span> {{l10n "Hide"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicon wikicon-trash-slash"></span> {{l10n "Delete"}}</a></li>
-									<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicon wikicon-block-slash"></span> {{l10n "Suppress"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-progressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.lock}}"><span class="WikiFont WikiFont-lock"></span> {{l10n "Lock"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="WikiFont WikiFont-flag"></span> {{l10n "Hide"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="WikiFont WikiFont-trash"></span> {{l10n "Delete"}}</a></li>
+									<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="WikiFont WikiFont-block"></span> {{l10n "Suppress"}}</a></li>
 								</ul>
 							</div>
 						</div>
@@ -176,18 +176,18 @@
 								<a href="{{urls.edit}}" class="flow-ui-regressive flow-ui-quiet">{{l10n "Edit"}}</a>
 							</span>
 							{{#if update_time}}
-								<!--span class="wikicon wikicon-clock"></span--> {{timestamp update_time "edited_ago"}}
+								<!--span class="WikiFont WikiFont-clock"></span--> {{timestamp update_time "edited_ago"}}
 								&#8226;
 							{{/if}}
 							{{timestamp start_time "time_ago"}}
 						</div>
 
 						<div class="flow-menu">
-							<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="wikicon wikicon-ellipsis"></span></a></div>
+							<div class="flow-menu-js-drop"><a href="javascript:void(0);"><span class="WikiFont WikiFont-ellipsis"></span></a></div>
 							<ul class="flow-ui-button-container">
-								<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="wikicon wikicon-eye-lid"></span> {{l10n "Hide"}}</a></li>
-								<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="wikicon wikicon-trash-slash"></span> {{l10n "Delete"}}</a></li>
-								<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="wikicon wikicon-block-slash"></span> {{l10n "Suppress"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-quiet flow-ui-thin" href="{{urls.actions.hide}}"><span class="WikiFont WikiFont-flag"></span> {{l10n "Hide"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-regressive flow-ui-quiet flow-ui-thin" href="{{urls.actions.delete}}"><span class="WikiFont WikiFont-trash"></span> {{l10n "Delete"}}</a></li>
+								<li><a class="flow-ui-button flow-ui-destructive flow-ui-quiet flow-ui-thin" href="{{urls.actions.suppress}}"><span class="WikiFont WikiFont-block"></span> {{l10n "Suppress"}}</a></li>
 							</ul>
 						</div>
 
@@ -274,7 +274,7 @@
 								{{/workflow}}
 							</div>
 
-							<p>wikicon: <span class="wikicon wikicon-cap-w"></span><span class="wikicon wikicon-lower-w"></span><span class="wikicon wikicon-magnifying-glass"></span><span class="wikicon wikicon-arrow-left"></span><span class="wikicon wikicon-tick"></span><span class="wikicon wikicon-x"></span><span class="wikicon wikicon-x-circle"></span><span class="wikicon wikicon-unstar"></span><span class="wikicon wikicon-star"></span><span class="wikicon wikicon-sun"></span><span class="wikicon wikicon-star-circle"></span><span class="wikicon wikicon-funnel"></span><span class="wikicon wikicon-eye"></span><span class="wikicon wikicon-eye-lid"></span><span class="wikicon wikicon-bookmark"></span><span class="wikicon wikicon-printer"></span><span class="wikicon wikicon-puzzle"></span><span class="wikicon wikicon-clock"></span><span class="wikicon wikicon-dice"></span><span class="wikicon wikicon-move"></span><span class="wikicon wikicon-gear"></span><span class="wikicon wikicon-ellipsis"></span><span class="wikicon wikicon-envelope"></span><span class="wikicon wikicon-pin"></span><span class="wikicon wikicon-stripe-compact"></span><span class="wikicon wikicon-stripe-toc"></span><span class="wikicon wikicon-stripe-expanded"></span><span class="wikicon wikicon-article"></span><span class="wikicon wikicon-article-check"></span><span class="wikicon wikicon-article-search"></span><span class="wikicon wikicon-trash"></span><span class="wikicon wikicon-trash-slash"></span><span class="wikicon wikicon-block"></span><span class="wikicon wikicon-block-slash"></span><span class="wikicon wikicon-flag"></span><span class="wikicon wikicon-flag-slash"></span><span class="wikicon wikicon-play"></span><span class="wikicon wikicon-stop"></span><span class="wikicon wikicon-lock"></span><span class="wikicon wikicon-user-bust"></span><span class="wikicon wikicon-user-smile"></span><span class="wikicon wikicon-user-sleep"></span><span class="wikicon wikicon-translate"></span><span class="wikicon wikicon-pencil"></span><span class="wikicon wikicon-pencil-revert"></span><span class="wikicon wikicon-pencil-lock"></span><span class="wikicon wikicon-speech-bubble"></span><span class="wikicon wikicon-speech-bubbles"></span><span class="wikicon wikicon-speech-bubble-add"></span><span class="wikicon wikicon-speech-bubble-smile"></span><span class="wikicon wikicon-link"></span><span class="wikicon wikicon-quotes"></span><span class="wikicon wikicon-quotes-add"></span><span class="wikicon wikicon-image"></span><span class="wikicon wikicon-image-lock"></span><span class="wikicon wikicon-image-add"></span><span class="wikicon wikicon-image-main-placeholder"></span><span class="wikicon wikicon-folder"></span><span class="wikicon wikicon-folder-main-placeholder"></span><span class="wikicon wikicon-wikitrail"></span></p>
+							<p>WikiFont: <span class="WikiFont WikiFont-w"></span><span class="WikiFont WikiFont-magnifying-glass"></span><span class="WikiFont WikiFont-arrow-left"></span><span class="WikiFont WikiFont-tick"></span><span class="WikiFont WikiFont-x"></span><span class="WikiFont WikiFont-x-circle"></span><span class="WikiFont WikiFont-unstar"></span><span class="WikiFont WikiFont-star"></span><span class="WikiFont WikiFont-sun"></span><span class="WikiFont WikiFont-star-circle"></span><span class="WikiFont WikiFont-funnel"></span><span class="WikiFont WikiFont-eye"></span><span class="WikiFont WikiFont-eye-lid"></span><span class="WikiFont WikiFont-bookmark"></span><span class="WikiFont WikiFont-printer"></span><span class="WikiFont WikiFont-puzzle"></span><span class="WikiFont WikiFont-clock"></span><span class="WikiFont WikiFont-dice"></span><span class="WikiFont WikiFont-move"></span><span class="WikiFont WikiFont-gear"></span><span class="WikiFont WikiFont-ellipsis"></span><span class="WikiFont WikiFont-envelope"></span><span class="WikiFont WikiFont-pin"></span><span class="WikiFont WikiFont-stripe-compact"></span><span class="WikiFont WikiFont-stripe-toc"></span><span class="WikiFont WikiFont-stripe-expanded"></span><span class="WikiFont WikiFont-article"></span><span class="WikiFont WikiFont-article-check"></span><span class="WikiFont WikiFont-article-search"></span><span class="WikiFont WikiFont-trash"></span><span class="WikiFont WikiFont-trash-slash"></span><span class="WikiFont WikiFont-block"></span><span class="WikiFont WikiFont-block-slash"></span><span class="WikiFont WikiFont-flag"></span><span class="WikiFont WikiFont-flag-slash"></span><span class="WikiFont WikiFont-play"></span><span class="WikiFont WikiFont-stop"></span><span class="WikiFont WikiFont-lock"></span><span class="WikiFont WikiFont-user-bust"></span><span class="WikiFont WikiFont-user-smile"></span><span class="WikiFont WikiFont-user-sleep"></span><span class="WikiFont WikiFont-translate"></span><span class="WikiFont WikiFont-pencil"></span><span class="WikiFont WikiFont-pencil-revert"></span><span class="WikiFont WikiFont-pencil-lock"></span><span class="WikiFont WikiFont-speech-bubble"></span><span class="WikiFont WikiFont-speech-bubbles"></span><span class="WikiFont WikiFont-speech-bubble-add"></span><span class="WikiFont WikiFont-speech-bubble-smile"></span><span class="WikiFont WikiFont-link"></span><span class="WikiFont WikiFont-quotes"></span><span class="WikiFont WikiFont-quotes-add"></span><span class="WikiFont WikiFont-image"></span><span class="WikiFont WikiFont-image-lock"></span><span class="WikiFont WikiFont-image-add"></span><span class="WikiFont WikiFont-image-main-placeholder"></span><span class="WikiFont WikiFont-folder"></span><span class="WikiFont WikiFont-folder-main-placeholder"></span><span class="WikiFont WikiFont-wikitrail"></span></p>
 
 							<p>Links: <a href="#" class="flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-destructive">Destructive</a></p>
 							<p>Quiet Links: <a href="#" class="flow-ui-quiet flow-ui-progressive">Progressive</a> <a href="#" class="flow-ui-quiet flow-ui-regressive">Regressive</a> <a href="#" class="flow-ui-quiet flow-ui-constructive">Constructive</a> <a href="#" class="flow-ui-quiet flow-ui-destructive">Destructive</a> <a href="#" class="flow-ui-quiet">x</a></p>
